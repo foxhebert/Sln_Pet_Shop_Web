@@ -1,0 +1,515 @@
+/*====================================================================================
+skeleton-theme.css, 
+======================================================================================*/
+
+
+
+/*===========================================================================
+Descripcion   : BOTONCITO AZUL DEL LGIN INGRESAR
+Reuqeriomiento: 
+Fecha         : 
+Ventana html  : LoginSiscop
+Nombre Inicial: BOTON INGRESAR de id "btnIngreso"
+*****************************************************************************/
+
+/* CSS */
+.button-71 {
+    /*background-color: #0078d0; COLOR AZULINO ORIGINAL*/
+    background-color: #2e7cb4;
+    border: 0;
+    border-radius: 56px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: system-ui,-apple-system,system-ui,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    outline: 0;
+    padding: 16px 21px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+    .button-71:before {
+        background-color: initial;
+        background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
+        border-radius: 125px;
+        content: "";
+        height: 50%;
+        left: 4%;
+        opacity: .5;
+        position: absolute;
+        top: 0;
+        transition: all .3s;
+        width: 92%;
+    }
+
+    .button-71:hover {
+        box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+        transform: scale(1.05);
+    }
+
+@media (min-width: 768px) {
+    .button-71 {
+        padding: 10px 78px;
+        margin-top:10px;
+        /*padding: 16px 48px;*/
+    }
+}
+
+
+
+
+
+
+
+
+
+/*===========================================================================
+Descripcion   : NUEVO FORM DEL FORMULARIO INGRESAR
+Reuqeriomiento: 
+Fecha         : 
+Ventana html  : LoginSiscop
+Nombre Inicial: 
+*****************************************************************************/
+
+/*body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: Silver;
+    transform: translate(-50%, -50%);
+}*/
+
+/*.nl_login-container {
+    width: 640px;
+    height: 400px;
+    display: flex;
+}
+
+.nl_field-text, .nl_login-container-content .nl_login-form .nl_parting-line, .nl_login-container-content
+.nl_login-form .nl_field > label, .nl_login-container-content .nl_login-form .nl_field > a {
+    font-size: 7px;
+    color: #a7a7a7;
+}
+
+.nl_login-container-content {
+    flex: 50%;
+    background: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.nl_login-container-content .nl_login-form {
+    padding: 2px;
+    width: 100%;
+}
+
+    .nl_login-container-content .nl_login-form .nl_buttonX {
+        position: absolute;
+        right: 2%;
+        top: 2%;
+        border: none;
+        background: transparent;
+        outline: none;
+    }
+
+    .nl_login-container-content .nl_login-form h1 {
+        letter-spacing: 1rem;
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        background-image: linear-gradient(45deg, #6767ED 45%, #4DAEF2 75%);
+        font-family: "Aguafina Script", Arial, Helvetica, sans-serif;
+    }
+
+    .nl_login-container-content .nl_login-form .nl_field {
+        margin: 10px auto;
+        padding: 5px;
+        width: 75%;
+        height: 25%;
+        display: grid;
+        grid-row-gap: 0.2rem;
+    }
+
+        .nl_login-container-content .nl_login-form .nl_field > label, .nl_login-container-content .nl_login-form .nl_field > input {
+            text-align: left;
+        }
+
+    .nl_login-container-content .nl_login-form .nl_field > input {
+        outline: none;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid grey;
+    }
+
+    .nl_login-container-content .nl_login-form .nl_field > input:focus {
+        border-bottom-color: #1838e7;
+    }
+
+    .nl_login-container-content .nl_login-form .nl_field > a {
+        text-align: right;
+        text-decoration: none;
+    }
+
+    .nl_login-container-content .nl_login-form > .nl_submitBtn {
+        width: 75%;
+        height: 2rem;
+        position: relative;
+        background: linear-gradient(135deg, #3ce77b 0%, #008eff 70%);
+        color: white;
+        outline: none;
+        border-style: none;
+        border-radius: 15px;
+        transition: 0.3s ease-in-out;
+    }
+
+    .nl_login-container-content .nl_login-form > .nl_submitBtn:hover {
+        filter: hue-rotate(45deg);
+    }
+
+    .nl_login-container-content .nl_login-form .nl_parting-line {
+        position: relative;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-left: 2.5rem;
+        margin-right: 2.5rem;
+        overflow: hidden;
+    }
+
+    .nl_login-container-content .nl_login-form .nl_parting-line::before, .nl_login-container-content .nl_login-form .nl_parting-line::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 45%;
+        display: block;
+        text-align: center;
+        border-top: 1px solid;
+    }
+
+    .nl_login-container-content .nl_login-form .nl_parting-line::before {
+        right: 55%;
+    }
+
+    .nl_login-container-content .nl_login-form .nl_parting-line::after {
+        right: 0%;
+    }
+
+.nl_login-container-img {
+    flex: 50%;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgmvrOKWUUuUI5_nBNqU834UX4IRUdqk4RgFOAAlYn5QxJswaCNXUo_EwYkEzkHlYe1Eg&usqp=CAU");
+    background-size: cover;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.nl_login-container-img > h1 {
+    display: grid;
+    text-align: center;
+    color: white;
+    margin-top: 50%;
+    padding-left: 20px;
+    padding-right: 20px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+    .nl_login-container-img > h1 > span {
+        text-align: center;
+        font-size: 16px;
+    }
+
+.nl_container {
+    box-shadow: 0 0 15px 5px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #3ce77b 0%, #008eff 70%);
+}
+
+.google-icon {
+    position: relative;
+    max-width: 1.5rem;
+    max-height: 1.5rem;
+    height: 1.5rem;
+    width: 1.5rem;
+    top: 0px;
+    left: 9px;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyBpZD0iQ2FwYV8xIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGc+PHBhdGggZD0ibTEyMCAyNTZjMC0yNS4zNjcgNi45ODktNDkuMTMgMTkuMTMxLTY5LjQ3N3YtODYuMzA4aC04Ni4zMDhjLTM0LjI1NSA0NC40ODgtNTIuODIzIDk4LjcwNy01Mi44MjMgMTU1Ljc4NXMxOC41NjggMTExLjI5NyA1Mi44MjMgMTU1Ljc4NWg4Ni4zMDh2LTg2LjMwOGMtMTIuMTQyLTIwLjM0Ny0xOS4xMzEtNDQuMTEtMTkuMTMxLTY5LjQ3N3oiIGZpbGw9IiNmYmJkMDAiLz48cGF0aCBkPSJtMjU2IDM5Mi02MCA2MCA2MCA2MGM1Ny4wNzkgMCAxMTEuMjk3LTE4LjU2OCAxNTUuNzg1LTUyLjgyM3YtODYuMjE2aC04Ni4yMTZjLTIwLjUyNSAxMi4xODYtNDQuMzg4IDE5LjAzOS02OS41NjkgMTkuMDM5eiIgZmlsbD0iIzBmOWQ1OCIvPjxwYXRoIGQ9Im0xMzkuMTMxIDMyNS40NzctODYuMzA4IDg2LjMwOGM2Ljc4MiA4LjgwOCAxNC4xNjcgMTcuMjQzIDIyLjE1OCAyNS4yMzUgNDguMzUyIDQ4LjM1MSAxMTIuNjM5IDc0Ljk4IDE4MS4wMTkgNzQuOTh2LTEyMGMtNDkuNjI0IDAtOTMuMTE3LTI2LjcyLTExNi44NjktNjYuNTIzeiIgZmlsbD0iIzMxYWE1MiIvPjxwYXRoIGQ9Im01MTIgMjU2YzAtMTUuNTc1LTEuNDEtMzEuMTc5LTQuMTkyLTQ2LjM3N2wtMi4yNTEtMTIuMjk5aC0yNDkuNTU3djEyMGgxMjEuNDUyYy0xMS43OTQgMjMuNDYxLTI5LjkyOCA0Mi42MDItNTEuODg0IDU1LjYzOGw4Ni4yMTYgODYuMjE2YzguODA4LTYuNzgyIDE3LjI0My0xNC4xNjcgMjUuMjM1LTIyLjE1OCA0OC4zNTItNDguMzUzIDc0Ljk4MS0xMTIuNjQgNzQuOTgxLTE4MS4wMnoiIGZpbGw9IiMzYzc5ZTYiLz48cGF0aCBkPSJtMzUyLjE2NyAxNTkuODMzIDEwLjYwNiAxMC42MDYgODQuODUzLTg0Ljg1Mi0xMC42MDYtMTAuNjA2Yy00OC4zNTItNDguMzUyLTExMi42MzktNzQuOTgxLTE4MS4wMi03NC45ODFsLTYwIDYwIDYwIDYwYzM2LjMyNiAwIDcwLjQ3OSAxNC4xNDYgOTYuMTY3IDM5LjgzM3oiIGZpbGw9IiNjZjJkNDgiLz48cGF0aCBkPSJtMjU2IDEyMHYtMTIwYy02OC4zOCAwLTEzMi42NjcgMjYuNjI5LTE4MS4wMiA3NC45OC03Ljk5MSA3Ljk5MS0xNS4zNzYgMTYuNDI2LTIyLjE1OCAyNS4yMzVsODYuMzA4IDg2LjMwOGMyMy43NTMtMzkuODAzIDY3LjI0Ni02Ni41MjMgMTE2Ljg3LTY2LjUyM3oiIGZpbGw9IiNlYjQxMzIiLz48L2c+PC9zdmc+");
+    background-size: cover;
+    z-index: 2;
+}
+
+.google-background {
+    padding: 5px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+    position: relative;
+    height: 1.5rem;
+    background: #46A3FF;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+    .google-background::before {
+        content: "";
+        position: absolute;
+        top: calc(0px + 3px);
+        left: calc(9px + 3px);
+        width: calc(1.5rem + 0.3rem);
+        height: calc(1.5rem + 0.3rem);
+        background: white;
+        border-radius: 15px;
+        z-index: -1;
+    }
+
+    .google-background > p {
+        flex: 50%;
+        color: white;
+    }
+
+    .google-background:hover {
+        background: #0072E3;
+    }*/
+
+
+
+
+
+/*body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: Silver;
+    transform: translate(-50%, -50%);
+}*/
+
+
+
+
+
+.login-container {
+    width: 640px;
+    height: 400px;
+    display: flex;
+    
+}
+
+.field-text, .login-container-content .login-form .parting-line,
+.login-container-content .login-form .field > label,
+.login-container-content .login-form .field > a {
+    font-size: 20px;
+    color: #a7a7a7;
+
+}
+
+.login-container-content {
+    flex: 50%;
+    background: white;
+    text-align: center;
+    /*display: flex;*/
+    align-items: center;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+   
+}
+
+    .login-container-content .login-form {
+        padding: 30px;
+        width: 100%;
+    }
+
+        .login-container-content .login-form .buttonX {
+            position: absolute;
+            right: 2%;
+            top: 2%;
+            border: none;
+            background: transparent;
+            outline: none;
+        }
+
+        .login-container-content .login-form h1 {
+            letter-spacing: 1rem;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            background-image: linear-gradient(45deg, #6767ED 45%, #4DAEF2 75%);
+            font-family: "Aguafina Script", Arial, Helvetica, sans-serif;
+        }
+
+        .login-container-content .login-form .field {
+            margin: 10px auto;
+            padding: 5px;
+            width: 75%;
+            height: 25%;
+            display: grid;
+            grid-row-gap: 0.2rem;
+        }
+
+            .login-container-content .login-form .field > label, .login-container-content .login-form .field > input {
+                text-align: left;
+            }
+
+            .login-container-content .login-form .field > input {
+                outline: none;
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                border-bottom: 1px solid grey;
+            }
+
+                .login-container-content .login-form .field > input:focus {
+                    border-bottom-color: #1838e7;
+                }
+
+            .login-container-content .login-form .field > a {
+                text-align: right;
+                text-decoration: none;
+            }
+
+        .login-container-content .login-form > .submitBtn {
+            width: 75%;
+            height: 2rem;
+            position: relative;
+            background: linear-gradient(135deg, #3ce77b 0%, #008eff 70%);
+            color: white;
+            outline: none;
+            border-style: none;
+            border-radius: 15px;
+            transition: 0.3s ease-in-out;
+        }
+
+            .login-container-content .login-form > .submitBtn:hover {
+                filter: hue-rotate(45deg);
+            }
+
+        .login-container-content .login-form .parting-line {
+            position: relative;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            margin-left: 2.5rem;
+            margin-right: 2.5rem;
+            overflow: hidden;
+        }
+
+            .login-container-content .login-form .parting-line::before, .login-container-content .login-form .parting-line::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                width: 45%;
+                display: block;
+                text-align: center;
+                border-top: 1px solid;
+            }
+
+            .login-container-content .login-form .parting-line::before {
+                right: 55%;
+            }
+
+            .login-container-content .login-form .parting-line::after {
+                right: 0%;
+            }
+
+.login-container-img {
+    flex: 50%;
+    /*background-color: rgba(125,125,124,0.3);*/
+    background-color: blue;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    /*background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgmvrOKWUUuUI5_nBNqU834UX4IRUdqk4RgFOAAlYn5QxJswaCNXUo_EwYkEzkHlYe1Eg&usqp=CAU");*/
+    /*background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgmvrOKWUUuUI5_nBNqU834UX4IRUdqk4RgFOAAlYn5QxJswaCNXUo_EwYkEzkHlYe1Eg&usqp=CAU");*/
+    background: url('../../images/sistema/pets-png-transparen.png');
+    background-size: cover;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+
+
+
+    /*background-image: url('../../images/sistema/pets-png-transparen.png');*/
+}
+
+    .login-container-img > h1 {
+        display: grid;
+        text-align: center;
+        color: white;
+        margin-top: 50%;
+        padding-left: 20px;
+        padding-right: 20px;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+    }
+
+        .login-container-img > h1 > span {
+            text-align: center;
+            font-size: 16px;
+        }
+
+.nl_container {
+    box-shadow: 0 0 15px 5px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px 5px;
+}
+
+.google-icon {
+    position: relative;
+    max-width: 1.5rem;
+    max-height: 1.5rem;
+    height: 1.5rem;
+    width: 1.5rem;
+    top: 0px;
+    left: 9px;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyBpZD0iQ2FwYV8xIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGc+PHBhdGggZD0ibTEyMCAyNTZjMC0yNS4zNjcgNi45ODktNDkuMTMgMTkuMTMxLTY5LjQ3N3YtODYuMzA4aC04Ni4zMDhjLTM0LjI1NSA0NC40ODgtNTIuODIzIDk4LjcwNy01Mi44MjMgMTU1Ljc4NXMxOC41NjggMTExLjI5NyA1Mi44MjMgMTU1Ljc4NWg4Ni4zMDh2LTg2LjMwOGMtMTIuMTQyLTIwLjM0Ny0xOS4xMzEtNDQuMTEtMTkuMTMxLTY5LjQ3N3oiIGZpbGw9IiNmYmJkMDAiLz48cGF0aCBkPSJtMjU2IDM5Mi02MCA2MCA2MCA2MGM1Ny4wNzkgMCAxMTEuMjk3LTE4LjU2OCAxNTUuNzg1LTUyLjgyM3YtODYuMjE2aC04Ni4yMTZjLTIwLjUyNSAxMi4xODYtNDQuMzg4IDE5LjAzOS02OS41NjkgMTkuMDM5eiIgZmlsbD0iIzBmOWQ1OCIvPjxwYXRoIGQ9Im0xMzkuMTMxIDMyNS40NzctODYuMzA4IDg2LjMwOGM2Ljc4MiA4LjgwOCAxNC4xNjcgMTcuMjQzIDIyLjE1OCAyNS4yMzUgNDguMzUyIDQ4LjM1MSAxMTIuNjM5IDc0Ljk4IDE4MS4wMTkgNzQuOTh2LTEyMGMtNDkuNjI0IDAtOTMuMTE3LTI2LjcyLTExNi44NjktNjYuNTIzeiIgZmlsbD0iIzMxYWE1MiIvPjxwYXRoIGQ9Im01MTIgMjU2YzAtMTUuNTc1LTEuNDEtMzEuMTc5LTQuMTkyLTQ2LjM3N2wtMi4yNTEtMTIuMjk5aC0yNDkuNTU3djEyMGgxMjEuNDUyYy0xMS43OTQgMjMuNDYxLTI5LjkyOCA0Mi42MDItNTEuODg0IDU1LjYzOGw4Ni4yMTYgODYuMjE2YzguODA4LTYuNzgyIDE3LjI0My0xNC4xNjcgMjUuMjM1LTIyLjE1OCA0OC4zNTItNDguMzUzIDc0Ljk4MS0xMTIuNjQgNzQuOTgxLTE4MS4wMnoiIGZpbGw9IiMzYzc5ZTYiLz48cGF0aCBkPSJtMzUyLjE2NyAxNTkuODMzIDEwLjYwNiAxMC42MDYgODQuODUzLTg0Ljg1Mi0xMC42MDYtMTAuNjA2Yy00OC4zNTItNDguMzUyLTExMi42MzktNzQuOTgxLTE4MS4wMi03NC45ODFsLTYwIDYwIDYwIDYwYzM2LjMyNiAwIDcwLjQ3OSAxNC4xNDYgOTYuMTY3IDM5LjgzM3oiIGZpbGw9IiNjZjJkNDgiLz48cGF0aCBkPSJtMjU2IDEyMHYtMTIwYy02OC4zOCAwLTEzMi42NjcgMjYuNjI5LTE4MS4wMiA3NC45OC03Ljk5MSA3Ljk5MS0xNS4zNzYgMTYuNDI2LTIyLjE1OCAyNS4yMzVsODYuMzA4IDg2LjMwOGMyMy43NTMtMzkuODAzIDY3LjI0Ni02Ni41MjMgMTE2Ljg3LTY2LjUyM3oiIGZpbGw9IiNlYjQxMzIiLz48L2c+PC9zdmc+");
+    background-size: cover;
+    z-index: 2;
+}
+
+.google-background {
+    padding: 5px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+    position: relative;
+    height: 1.5rem;
+    background: #46A3FF;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+    .google-background::before {
+        content: "";
+        position: absolute;
+        top: calc(0px + 3px);
+        left: calc(9px + 3px);
+        width: calc(1.5rem + 0.3rem);
+        height: calc(1.5rem + 0.3rem);
+        background: white;
+        border-radius: 15px;
+        z-index: -1;
+    }
+
+    .google-background > p {
+        flex: 50%;
+        color: white;
+    }
+
+    .google-background:hover {
+        background: #0072E3;
+    }

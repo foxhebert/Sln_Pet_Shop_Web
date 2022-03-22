@@ -1,0 +1,13 @@
+﻿
+#spin {
+    top: 25px;
+    height: 25px;
+    width: 55px;
+}
+#spin::-webkit-inner-spin-button {
+        opacity: 1;
+}
+
+
+
+/*style="top:25px; height:28px;" value="1"*/

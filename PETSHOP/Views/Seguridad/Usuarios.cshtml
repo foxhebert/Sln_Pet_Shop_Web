@@ -1,0 +1,391 @@
+﻿
+@{
+    ViewBag.Title = "Usuarios";
+}
+
+<div class="row">
+    <!--INICIO PANEL-->
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+
+            <!-- FILTRO INPUT Buscar -->
+            <div class="control-label col-md-4 col-sm-4 col-xs-12">
+                <label class="" style="text-align: right !important;">Buscar</label>
+                <input type="text" class="form-control" id="filtroUsuario" placeholder="Buscar por Usuario o Nombre">
+              @*  <input type="text" class="form-control" id="strBusquedaGeneral" placeholder="Buscar por Código o Descripción">*@
+            </div>
+
+
+            <!-- FILTRO COMBO PERFIL -->
+            <div class="control-label col-md-4 col-sm-4 col-xs-12">
+                <label class="" style="text-align: right !important;">Perfil</label>
+                <div class="">
+                    <select class="form-control" id="CampPerfiles">
+                        <option value="0" selected>Todos</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- FILTRO COMBO ACTIVO/INACTIVO -->
+            <div class="control-label col-md-4 col-sm-4 col-xs-12">
+                <label class="" style="text-align: right !important;">Estado</label>
+                <div class="">
+                    <select class="form-control" id="ActivoUsuario">
+                        <option value="2">Todos</option>
+                        <option value="1" selected="selected">Activo</option>
+                        <option value="0">Inactivo</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row" hidden>
+    <!--INICIO PANEL-->
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+
+            <div class="control-label col-md-4 col-sm-4 col-xs-12">
+                <div class="">
+                    <input type="text" class="form-control" id="filtroUsuario111" placeholder="Buscar por Usuario o Nombre">
+                    @*<span class="input-group-btn">
+                            <button onclick="" class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                        </span>*@
+                </div>
+            </div>
+
+            @*<div class="">
+                <label class="control-label col-md-1 col-sm-1 col-xs-12">Perfil</label>
+                <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback">
+                    <select class="form-control" id="CampPerfiles111">
+                        <option value="0" selected>Todos</option>
+                    </select>
+                </div>
+            </div>*@
+
+            @*<div class="">
+                <label style="text-align:right !important;" class="control-label col-md-1 col-sm-1 col-xs-12">Estado</label>
+                <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback">
+                    <select class="form-control" id="ActivoUsuario1111">
+                        <option value="2" selected>Todos</option>
+                        <option value="1">Activo</option>
+                        <option value="0">Inactivo</option>
+                    </select>
+                </div>
+            </div>*@
+
+        </div>
+    </div>
+</div>
+
+
+<!-- PANEL TITULO -->
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="breadcrumb d-flex">
+            <a href="#" id="PadreMenu_txt" class="breadcrumb__step breadcrumb__step--active">SEGURIDAD</a>
+            <a id="HijoMenu_txt" class="breadcrumb__step">nom mantenimiento</a>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+
+    <!-- PANEL LISTADO DE USUARIOS -->
+    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Listado de Usuarios</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <input type="button" id="btn-new-Usuario" class="btn btn-primary" value="Nuevo Usuario">
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+                <table id="tablaUsuarios" class="table table-striped table-bordered table-responsive pre-wrap " cellspacing="0" style="width:100%;">
+                    <thead>
+                        <tr>
+                            <th style="display:none">intIdUniOrg</th>
+                            <th>Usuario</th>
+                            <th>Nombre</th>
+                            <th>Perfil</th>
+                            @*<th style="display:none">Con Filtro</th>*@
+                            <th>Estado</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- SEGUNDO PANEL NUEVO/EDITAR-->
+    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+        <div class="form-hide-Usuario" hidden>
+
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Información del Usuario</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <input type="button" id="btn-save-change-Usuario" class="btn btn-primary" value="Guardar">
+                            <input type="button" id="btn-update-Usuario" class="btn btn-success" value="Actualizar" hidden>
+                        </li>
+                        <li>
+                            <input type="button" id="btn-cancel-Usuario" class="btn btn-dark" value="Cancelar">
+                        </li>
+
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+
+
+
+                <div class="x_content">
+
+                        <div class="row">
+                            <div style="text-align:right; margin-right:20px;" >
+                              
+                                <input type="checkbox" class="js-switch" id="chk-activo-Usuario" checked="" />
+                                <label>Activo</label>
+
+                            </div>
+                        </div>
+
+                        <div class="border-section">
+                            <div class="x_content" style="padding-bottom:80px;">
+                                <div class="x_content">
+
+
+                                    <div class="row">
+
+
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <div class="form-group" id="strUsUsuar">
+                                                @*<label>Usuario (*)</label>
+                                                <input type="text" id="txt_codigo_Usuario" class="form-control" placeholder="Código"><div id="notifry_error" style="background-color:#4CA4DE;color:white;text-align:center;"></div>*@
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <div class="form-group" id="strCoPassw">
+                                                @*<label>Contraseña (*)</label>*@
+                                                @*<input type="text" id="txt_descripcion_Usuario" class="form-control" placeholder="Descripción">*@
+
+
+                                                @*<div class="controls">
+                                                    <div class="input-prepend input-group">
+
+                                                        <input type="password" id="txt_descripcion_Usuario" class="form-control" placeholder="Constraseña1111111" name="contraseña" onkeyup="this.value=NumText(this.value)" maxlength="8">
+                                                        <span class="input-group-addon btn btn-login" onclick="mostrarPassword()"><i id="ViewPass" class="glyphicon glyphicon-eye-close"></i></span>
+
+                                                    </div>
+                                                </div>*@
+
+                                            </div>
+
+ 
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="form-group p-relative" id="strNoUsuar">
+                                            @*<label>Nombre  </label>
+                                            <input type="text" id="txt_Nombre_Usuario" class="form-control" placeholder="Código"><div id="notifry_errordes" style="background-color:#4CA4DE;color:white;text-align:center;"></div>*@
+                                      
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Perfil </label>
+                                            <select class="form-control" id="CampPerfil"></select>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                 </div>
+                                <br />
+
+                                @*<div class="input-group" style="display:flex">
+                                    <input type="password" id="ps_edit_usu" validationpass_u="false" class="form-control" maxlength="50" required placeholder="Nueva Contraseña" name="contraseña" onkeypress="return avoidSpaceInput(event)">
+
+                                </div>*@
+                                @*<div id="claveValidar_usu" style="border: thin solid gray;padding: 1%;">
+                                    <h5>La contraseña debería cumplir con las siguientes políticas:</h5>
+                                    <div>
+                                        <span id="capital_usu">Debe tener al menos <strong>una Mayúscula</strong><br /></span>
+                                        <span id="letter_usu">Debe tener al menos <strong>una Minúscula</strong><br /></span>
+                                        <span id="number_usu">Debe tener al menos <strong>un Número</strong><br /></span>
+                                        <span id="especial_usu">Debe tener al menos <strong>un Caracter Especial (@@ # $ % () * - _ / .)</strong><br /></span>
+                                        <span id="length_usu">Debe ser como mínimo <strong>8 dígitos</strong><br /></span>
+                                    </div>
+                                </div>*@
+
+
+                                @*<div class="row">
+
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            &nbsp; &nbsp; <input type="checkbox" class="flat" id="Confiltro" />Con Filtro
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="form-group" id="ConFiltroH" hidden>
+                                            &nbsp; &nbsp; <input type="checkbox" class="flat" id="MarcarTodos" />Marcar Todos
+                                        </div>
+                                    </div>
+
+                                </div>*@
+                            </div>
+
+
+
+
+                            <div class="col-md-12 col-sm-12 col-xs-12"></div>
+
+
+                        </div>
+
+                </div>
+                <br />
+        
+
+                <div class="form-horizontal form-label-left" id="Existe_filtro" hidden>
+
+                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                        <ul id="Filtros" class="nav nav-tabs bar_tabs" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#EMPRESA" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">EMPRESA</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#LOCAL" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">LOCAL</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#AREA" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">AREA</a>
+                            </li>
+                            @* <li role="presentation" class="">
+                                    <a href="#tab_content4" role="tab" id="profile-tab4" data-toggle="tab" aria-expanded="false">ASIGNACIÓN</a>
+                                </li>
+                                <li role="presentation" class="">
+                                    <a href="#tab_content5" role="tab" id="profile-tab4" data-toggle="tab" aria-expanded="false">CONSUMO</a>
+                                </li>*@
+                        </ul>
+                        <div id="Filtrados" class="tab-content">
+
+                            <div role="tabpanel" class="tab-pane active in" id="EMPRESA" aria-labelledby="home-tab">
+
+
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="LOCAL" aria-labelledby="profile-tab">
+
+
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="AREA" aria-labelledby="profile-tab">
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <script>
+
+
+                    </script>
+                </div>
+
+
+                @*<div class="ln_solid"></div>*@
+
+                <input type="hidden" id="intidUsuario" />
+
+                <div class="row" id="containerCampose">  </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<style type="text/css">
+    #claveValidar_usu {
+        position: absolute;
+        z-index: 99;
+        /*width: 100%;*/
+        background: #ffffff;
+        /*top: 60px;*/
+        border: 1px solid #ccc;
+        height: auto;
+        padding: 2px 5px;
+        display: none;
+        margin-right: 10px;
+    }
+
+        #claveValidar_usu ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #claveValidar_usu h5 {
+            margin: 0;
+            margin-bottom: 5px;
+        }
+
+    #ojitoMuestraEscondeClave {
+        /*width: 32px;
+        height: 32px;*/
+        /*border: none;*/
+        /*border-radius: 50%;*/
+        background-color: #fff;
+        /*position: absolute;
+        right: 3px;
+        top: 25px;*/
+    }
+
+
+</style>
+
+
+
+
+<link href="~/Content/app.css" rel="stylesheet" />
+
+@section vue{
+
+<script>
+
+    $(document).ready(function () {
+
+        CombosUsuario();
+        TablaUsuario();
+    });
+
+</script>
+
+<script src="~/Scripts/util/SAF_Usuario.js"></script>
+
+
+
+}
+
+
+
+

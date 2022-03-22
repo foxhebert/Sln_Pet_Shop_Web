@@ -1,0 +1,881 @@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @*<link rel="shortcut icon" type="image/png" href="~/images/logo_icon.png" />*@
+    <link rel="shortcut icon" type="image/png" href="~/images/sistema/favicon.ico" />
+
+    <title>Login PetshopWeb</title> @*MiniaSoft*@
+
+    <!-- Bootstrap -->
+    <link href="~/Content/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/feather/css/feather.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+
+    <link href="~/Content/font-awesome/font-awesome.min.css" rel="stylesheet" />
+    <!-- NProgress -->
+    <!--<link href="../vendors/nprogress/nprogress.css" rel="stylesheet">-->
+    <!-- Animate.css -->
+    <link href="~/Content/animate/animate.min.css" rel="stylesheet" />
+
+    <!-- Custom Theme Style -->
+    <link href="~/Content/site-login.css" rel="stylesheet" />
+    @*<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>*@
+</head>
+
+<body>
+
+
+    <div id="div_but" hidden name="Animacion Dog desde codepen añadido el 18.03.2022">
+        <button class="but" id="sit"> Sit </button> <button class="but" id="sleep"> Sleep </button> <button class="but" id="strech"> Strech </button> <button class="but" id="bone"> Bone </button> <button class="but" id="jump"> Jump </button> <button class="but" id="walk"> Walk </button>
+    </div>
+    @*<div id="svgContainer"></div>*@
+
+    <link href="~/Content/loginfx/fxcss_LoginDinamico.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+    @*<div class="rerun">
+        <a href="">Rerun Pen</a>
+        </div>*@
+    <div id="svgContainer" style="top: -3px;"></div>
+    <div class="auth-wrapper">
+        <div class="auth-content">
+
+
+            <div class="container">
+
+                <div class="" style="padding-bottom:20px;"></div>
+                <div class="card">
+
+                    <h1 class="title">PetShop Web</h1>
+                    <form action="/LoginSiscop/LoginSiscop" method="post" id="loginForm">
+                        @Html.AntiForgeryToken()
+
+                        @*<div class="input-container">
+                                <input type="" id="22" required="required" autocomplete="off">
+                                <label for="22">Username</label>
+                                <div class="bar"></div>
+                            </div>*@
+
+                        <div class="input-container">
+                            @{
+                                string messageNameInput = TempData["strUsuerNameInput"] as string;
+                            }
+
+                            <input type="text" autocomplete="off" autofill="off" value="@(messageNameInput ?? "")"
+                                   id="txt_usu" required="required"
+                                   class="form-control" minlength="1"
+                                   maxlength="50" name="usuario" onkeypress="return avoidSpaceInput(event)">
+
+                            <label style="z-index:5;" for="txt_usu">Usuario</label>
+                            <div style="z-index:5;" class="bar"></div>
+                        </div>
+
+                        <div class="input-container">
+
+
+                            @*<label>Contraseña</label>*@
+                            <div class="input-group" style="display:flex">
+
+                                <input type="password" id="txt_psw" class="form-control" maxlength="50" required="required"
+                                       autocomplete="new-password" autofill="off" name="contraseña"
+                                       onkeypress="return avoidSpaceInput(event)">
+                                <label style="z-index:5;" for="txt_psw">Contraseña</label>
+
+                                <button id="buttomshowpass" onclick="mostrarClave(this)" type="button" class="buttom-show"
+                                        style="border:none; background-color:transparent; font-size:30px;">
+                                    <i class="fa fa-eye"></i>
+                                </button>
+                            </div>
+
+
+
+                            @*<input type="#{type}" id="#{label}" required="required" autocomplete="off" />*@
+
+                            <div style="z-index:5;" class="bar"></div>
+                        </div>
+
+
+                        <div class=" text-center">
+                            <button class="button-71" id="btnIngreso" role="button">Ingresar</button>
+                        </div>
+
+                        @*<div class="button-container">
+                                <button><span>Go</span></button>
+                            </div>*@
+                        @*<div class="footer"><a href="#">Forgot your password?</a></div>*@
+                    </form>
+
+
+
+
+
+                    <div id="responseError" style="margin:20px 0px 0 0px; width:100%; border-radius:30px;" class="text-center">
+                        @{
+                            string messageError = TempData["strMensajeError"] as string;
+                            if (messageError != null && messageError != "")
+                            {
+
+                                <div class="alert alert-danger alert-dismissible" role="alert" style=" border-radius:30px;">
+                                    @messageError
+                                </div>
+
+
+                            }
+                        }
+
+                        @{
+                            string messageErrorAlert = TempData["strMsgAlert"] as string;
+                            if (messageErrorAlert != null && messageErrorAlert != "")
+                            {
+                                <div class="alert alert-danger alert-dismissible" role="alert" style="border-radius:30px; padding-left:20px;">
+                                    @messageErrorAlert
+                                </div>
+                            }
+                        }
+                    </div>
+
+
+
+                </div>
+
+
+                <style>
+
+                    textarea:focus, input:focus {
+                        outline: none;
+                    }
+
+                    .form-control:focus {
+                        border-color: inherit;
+                        -webkit-box-shadow: none;
+                        box-shadow: none;
+                        outline: none;
+                    }
+
+                    input:-webkit-autofill {
+                        background-color: transparent !important;
+                        -webkit-box-shadow: 0 0 0 50px white inset;
+                    }
+                </style>
+
+
+
+
+
+
+                <div class="card alt">
+
+                    <div class="toggle">
+
+                        @*<button class="btn_toggle" role="button"></button>*@
+
+                        @*<button class="btn_toggle" role="button"
+                            style="margin:20px 20px 0 20px; width:90%; top:-30px;" ></button>*@
+
+
+
+                        @*<button class="btn_toggle" role="button">dd</button>*@
+
+
+                        @*<button class="btn_toggle" role="button"
+                                                    style="background-color:transparent;
+                                                    color:red;
+                                                    position:relative;
+                                                    border:none;" value="eee">
+                                                <i class="fa fa-eye"></i>
+                                                <img src="~/images/sistema/lg_padlock.png"
+                            style="width:40px; margin-top:-110px; background-color:transparent;" />
+                                            </button>*@
+
+                    </div>
+
+
+                    <h1 class="title" style="font-size:33px; top:21px; color:#ffffff; background-color:#5bb3a1;">
+                        Cambiar  Contraseña
+
+                        <div class="close"></div>
+                    </h1>
+
+
+                    <form>
+                        <div class="input-container">
+                            <input type="#{type}" id="#{label}" required="required" autocomplete="off" />
+                            <label for="#{label}">Usuario</label>
+                            <div class="bar"></div>
+                        </div>
+                        <div class="input-container">
+                            <input type="#{type}" id="#{label}" required="required" autocomplete="off" />
+                            <label for="#{label}">Clave</label>
+                            <div class="bar"></div>
+                        </div>
+                        <div class="input-container">
+                            <input type="#{type}" id="#{label}" required="required" autocomplete="off" />
+                            <label for="#{label}">Repetir Clave</label>
+                            <div class="bar"></div>
+                        </div>
+                        @*<div class=" text-center">
+                            <button class="button-72" id="btnCambiarClave" role="button">Ingresar</button>
+                        </div>*@
+
+                        <div class="button-container">
+                            @*<button><span>Next</span></button>*@
+                            <button class="button-72" id="btnCambiarClave" role="button"><span>Continuar</span></button>
+                        </div>
+                    </form>
+                </div>
+
+
+
+
+                @*<div class="footer_dos text-center" style="color:white; font-family:Arial; font-size:18px;">
+                        <p>Copyright ® 2021 - Heber Gonzales Inc. </p>
+                    </div>*@
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div id="fixedBottonFooter">
+        <div class="pen-title">
+            @*<h4>*@
+            <div style="text-align: center;color: #7d7b84; font-size:20px;">
+                @*#cacaca;"*@
+                <label style="color:red; font-family:Arial; ">
+                    @if (Session["wsVersionSesion"] != null)
+                    {
+                        @Session["wsVersionSesion"]
+                    }
+                </label>
+                <br />
+                <label id="adminpass">
+                    @if (Session["webVersionSesion"] != null)
+                    {
+                        @Session["webVersionSesion"]
+                    }
+                </label>
+            </div>
+
+            @*</h4>*@
+
+            <span style="color:#484848;
+         font-size:16px;">
+                Copyright ® 2022
+                @*<i class='fa fa-code'></i> by <a href='http://andytran.me' style="color:#484848;">Heber Gonzales Inc.</a>*@
+                <i class='fa fa-code'></i> by <a href='https://github.com/foxhebert' style="color:#484848;">Heber Gonzales</a>
+            </span>
+        </div>
+    </div>
+
+    @*<style>
+            .bg {
+                background: url('https://images.pexels.com/photos/1070945/pexels-photo-1070945.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260') no-repeat center center/cover;
+                position: absolute;
+                top: -30;
+                left: -30;
+                width: calc(100vw + 60px);
+                height: calc(100vh + 60px);
+                z-index: -1;
+                filter: blur(0px)
+            }
+        </style>
+
+        <!-- partial:index.partial.html -->
+        <section class="bg"></section>
+        <div class="loading-text">0%</div>
+        <!-- partial -->
+        <script src="./cdp_blurry_loading.js"></script>*@
+
+
+
+
+
+    @*<div class="container">
+            <div class="content">
+                <div class="auth-wrapper">
+
+                    <div class="nl_container">
+                        <div class="nl_login-container">
+                            <div class="nl_login-container-img">
+                                <h1>
+                                    OCP Group
+                                    <span>Fertilizer Analytics</span>
+                                </h1>
+                            </div>
+                            <div class="nl_login-container-content">
+                                <form action="" class="nl_login-form">
+                                    <button type="button" class="nl_buttonX">X</button>
+                                    <h1>Login</h1>
+                                    <p class="nl_field">
+                                        <label>Utilisateur/Email</label>
+                                        <input type="text" name="username" placeholder="user">
+                                    </p>
+                                    <p class="nl_field">
+                                        <label>Mot de passe</label>
+                                        <input type="password" name="password" placeholder="password">
+                                        <a href="">oublier mot de passe?</a>
+                                    </p>
+
+
+
+                                        <button class="button-71" id="btnIngreso" role="button">Ingresar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>*@
+
+
+    <div class="nl_container" hidden>
+        <div class="login-container">
+            <div class="login-container-img5555">
+                @*<h1>
+                        KEKOPET SAC
+                        <span>Food and Accesorise</span>
+                    </h1>*@
+            </div>
+            <div class="login-container-content">
+                <form action="" class="login-form">
+                    <button type="button" class="buttonX">X</button>
+
+
+
+                    @*<h1>Login</h1>*@
+                    <br />
+                    <h1>
+                        KEKOPET SAC
+
+                    </h1>
+                    <h2>
+                        <span>Food and Accesories</span>
+                    </h2>
+                    <p class="field">
+                        <label>Usuario</label>
+                        <input type="text" name="username" placeholder="user">
+                    </p>
+                    <p class="field">
+                        <label>Contraseña</label>
+                        <input type="password" name="password" placeholder="password">
+                        <a href="">oublier mot de passe?</a>
+                    </p>
+                    @*<button type="submit" class="submitBtn">Se connecter</button>*@
+
+                    <button class="button-71" id="btnIngreso" role="button">Ingresar</button>
+
+                </form>
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="container" hidden>
+        <div class="content">
+            <div class="auth-wrapper">
+                <div class="auth-content">
+                    @*<div class="auth-bg">
+                            <span class="r"></span>
+                            <span class="r s"></span>
+                            <span class="r s"></span>
+                            <span class="r"></span>
+                        </div>*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="card-rounded" style="background-color:#e7e7e7;border: 1px solid;">
+                        @*#f7f7f7*@
+                        <div class="card-body text-center divLogin">
+                            <div class="mb-4">
+                                <img src="~/images/logo.png" class="logo-login" />
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+                            <!--<h3 class="mb-4">Login</h3> ++++++++++++++++++++++++++++++++-->
+
+
+
+
+
+                            <form action="/LoginSiscop/CambiarClave" class="mt-3" method="post" id="claveForm" style="display:none">
+                                <h3 class="mb-3 mt-3" style="color: #5f5c5c;font-weight: 600;">Actualización de Contraseña</h3>
+                                @Html.AntiForgeryToken()
+                                <div class="form-group  text-left p-relativee">
+                                    <label>Contraseña actual</label>
+                                    <div class="input-group" style="display:flex">
+                                        <input type="password" id="ps_edit_uno" class="form-control" maxlength="50" required autocomplete="current-password" placeholder="Contraseña actual" name="contraseña" onkeypress="return avoidSpaceInput(event)">
+                                        <button id="buttomshowpassedit1" onclick="mostrarClaveEdit1(this)" type="button" class="buttom-show"><i class="fa fa-eye"></i></button>
+                                    </div>
+                                </div>
+                                <div class="form-group  text-left p-relative">
+                                    <label>Nueva Contraseña</label>
+                                    <div class="input-group" style="display:flex">
+                                        <input type="password" id="ps_edit_dos" validationpass="false" class="form-control" maxlength="50" required autocomplete="current-password" placeholder="Nueva Contraseña" name="nuevacontraseña" onkeypress="return avoidSpaceInput(event)">
+                                        <button id="buttomshowpassedit2" onclick="mostrarClaveEdit2(this)" type="button" class="buttom-show"><i class="fa fa-eye"></i></button>
+                                    </div>
+                                    <div id="contraneValidate" style="display:none;border: thin solid gray;padding: 1%;">
+                                        <h5>La contraseña debería cumplir con las siguientes políticas:</h5>
+                                        <div>
+                                            <span id="capital">Debe tener al menos <strong>una Mayúscula</strong><br /></span>
+                                            <span id="letter">Debe tener al menos <strong>una Minúscula</strong><br /></span>
+                                            <span id="number">Debe tener al menos <strong>un Número</strong><br /></span>
+                                            <span id="especial">Debe tener al menos <strong>un Caracter Especial (@@ # $ % () * - _ / .)</strong><br /></span>
+                                            <span id="length">Debe ser como mínimo <strong>8 dígitos</strong><br /></span>
+                                        </div>
+                                        @*<ul>
+                                                <li id="capital">Debe tener al menos </li>
+                                                <li id="letter">Debe tener al menos <strong>una Minúscula</strong></li>
+                                                <li id="number">Debe tener al menos <strong>un Número</strong></li>
+                                                <li id="especial">Debe tener al menos <strong>un Caracter Especial (@@ # $ % () * - _ / .)</strong></li>
+                                                <li id="length">Debe ser como mínimo <strong>8 dígitos</strong></li>
+                                            </ul>*@
+                                    </div>
+                                </div>
+
+                                <button class="btn btn-login" id="btnCambiar" type="submit">Actualizar</button>
+                                <button class="btn btn-default default-login mt-0 mb-2" style="background:#4b5f71; width:100%;color: #fff;" id="btnCancelar" type="button">Cancelar</button>
+                            </form>
+
+                            @*<div style="text-align: end;color: #7d7b84;">*@
+                            <div style="text-align: center;color: #7d7b84; font-size:17px;">
+                                @*#cacaca;"*@
+                                <label style="color:red; font-family:Arial; ">
+                                    @if (Session["wsVersionSesion"] != null)
+                                    {
+                                        @Session["wsVersionSesion"]
+                                    }
+                                </label>
+                                <br />
+                                <label >
+                                    @if (Session["webVersionSesion"] != null)
+                                    {
+                                        @Session["webVersionSesion"]
+                                    }
+                                </label>
+                            </div>
+
+
+                            @*<div id="responseError">
+                                    @{
+                                        string messageError = TempData["strMensajeError"] as string;
+                                        if (messageError != null && messageError != "")
+                                        {
+                                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                                @messageError
+                                            </div>
+                                        }
+                                    }
+
+                                    @{
+                                        string messageErrorAlert = TempData["strMsgAlert"] as string;
+                                        if (messageErrorAlert != null && messageErrorAlert != "")
+                                        {
+                                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                                @messageErrorAlert
+                                            </div>
+                                        }
+                                    }
+                                </div>*@
+
+                            @*<div class="text-right"><a href="" class="link-login">¿Olvidaste la contraseña?</a></div>*@
+                            <!--<h5 class="text-muted text-right link-login">¿No tienes una cuenta? <a href="auth-signup.html"> Regístrate</a></h5>-->
+                        </div>
+
+                        <div class="card-body text-center divCambiarContra" hidden>
+                            <div class="row" style="border-bottom: #010092 2px solid;">
+                                <h4>Restablecer la contraseña</h4>
+                            </div>
+                            <div class="row" style="padding-top: 5%;">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-group text-left">
+                                        <label>usuario</label>
+                                        <input type="text" value="" id="txt_numDoc" class="form-control" name="correo">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-group text-left">
+                                        <label>Correo</label>
+                                        <input type="text" value="" id="txt_correo" class="form-control" name="correo">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="padding-top: 5%;">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <button class="btn btn-primary" id="btnValidaCorreo" type="submit">Validar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*<div class="prueba">
+                    <h1>Esta es una prueba</h1>
+                </div>*@
+
+            @*<div class="footer">
+                    <div>
+                        <img src="~/images/logo_footer.png" class="logo-login" style="max-width: 250px !important" />
+                    </div>
+                    <p>Copyright ©️2021 TECFLEX S.A.C. Todos los derechos reservados.</p>
+                </div>*@
+            <div class="footer text-center" style="color:white; font-family:Arial; font-size:20px;">
+                <div>
+                    @*<img src="~/images/sistema/apple_logo.png" style="max-width: 50px !important" />*@
+                    @*  <img src="/images/logo_footer.png" class="logo-login" style="max-width: 250px !important">*@
+                </div>
+                <p>Copyright ® 2021 - Heber Gonzales Inc. </p>
+                @*<p>Copyright® 2021 - Miniasoft Inc. </p>*@
+            </div>
+
+        </div>
+    </div>
+
+    <!--https://stackoverflow.com/questions/8824831/make-div-stay-at-bottom-of-pages-content-all-the-time-even-when-there-are-scrol-->
+    <br /><br /><br /><br />
+    <div class="footer_dos text-center" style="color:white; font-family:Arial; font-size:18px; " hidden>
+
+
+        <p>Copyright ® 2021 - Heber Gonzales Inc. </p>
+
+    </div>
+    <style>
+
+        #footer_dos {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    <link href="~/Content/dialog/sweetalert2.min.css" rel="stylesheet" />
+    <script src="~/Scripts/dialog/sweetalert2.min.js"></script>
+
+    <script src="~/Scripts/login.js"></script>
+    <script src="~/Scripts/pnotify/pnotify.js"></script>
+    <script src="~/Scripts/pnotify/pnotify.buttons.js"></script>
+    <script src="~/Scripts/pnotify/pnotify.nonblock.js"></script>
+    <link href="~/Content/pnotify/pnotify.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="~/Content/pnotify/pnotify.buttons.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="~/Content/pnotify/pnotify.nonblock.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/mantenimientos/codepen_blurry_loading.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
+<!-- HEBERT AÑADIDO 2022 -->
+@*<div class="button-wrapper" data-tippy-content="Click to copy button 71">
+        <button class="button-71" role="button">Button 71</button>
+    </div>*@
+<link href="~/Content/mantenimientos/CSS_VariosElementos.css" rel="stylesheet" />
+
+
+
+<!--   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> -->
+@*<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>*@
+<script>
+    //$('.btn_toggle').on('click', function () {
+    $('.toggle').on('click', function () {
+        $('.container').stop().addClass('active');
+    });
+
+    $('.close').on('click', function () {
+        $('.container').stop().removeClass('active');
+    });
+
+</script>
+
+
+
+
+@*https://github.com/foxhebert?tab=repositories*@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+<script>
+
+    //CodePen Homea little happy dog-- -> https://codepen.io/kiriss91/pen/KKNoyoJ
+    //Esta animacion va de la mano con "lottie.min.js".
+    //Tiene pocos divs, tambien hay un pequeño bloque de css
+    //Utiliza 06 documentos Json(los coloque en la capeta scripts) que contienen los svg
+
+    var svgContainer = document.getElementById('svgContainer');
+    var v_sit        = document.getElementById("sit");
+    var v_sleep      = document.getElementById("sleep");
+    var v_strech     = document.getElementById("strech");
+    var v_bone       = document.getElementById("bone");
+    var v_jump       = document.getElementById("jump");
+    var v_walk       = document.getElementById("walk");
+
+    var animItem1 = {
+        wrapper: svgContainer,
+        animType: 'svg',
+        autoplay: true,
+        loop: true,
+        //path: 'https://gist.githubusercontent.com/kiriss91/3353eb3b49369d70d64e7b4d3c7a28b2/raw/a72061d8bb9a83ef6f39d5b6263cce8433b26c72/dog%2520sitting.json'
+        path: '/Scripts/loginfx/dog_sitting.json'
+    };
+    var animItem2 = {
+        wrapper: svgContainer,
+        animType: 'svg',
+        autoplay: true,
+        loop: true,
+        //path: 'https://gist.githubusercontent.com/kiriss91/cc5146709faffd219763494059d08e81/raw/ac26a3e40f2f11df30ef58f1cb38392db07e7ae3/dog_sleeping.json'
+        path: '/Scripts/loginfx/dog_sleeping.json'
+    };
+    var animItem3 = {
+        wrapper: svgContainer,
+        animType: 'svg',
+        autoplay: true,
+        loop: true,
+        //path: 'https://gist.githubusercontent.com/kiriss91/915afd4587564cbda4815a712b5447e0/raw/f6dbd75f8181425fb3a925e07e3a9db085944bd3/dog%2520strech.json'
+        path: '/Scripts/loginfx/dog_strech.json'
+    };
+    var animItem4 = {
+        wrapper: svgContainer,
+        animType: 'svg',
+        autoplay: true,
+        loop: true,
+        //path: 'https://gist.githubusercontent.com/kiriss91/32763efa749e3b53a9b9ac2b0eb249bc/raw/4dfb88cc726f30236e3f327b0c38c6422fdd3f9e/dog_bone.json'
+        //path: '/Scripts/loginfx/dog_bone.json'
+        path: '/Scripts/loginfx/dog_bone.json'
+    };
+    var animItem5 = {
+        wrapper: svgContainer,
+        animType: 'svg',
+        autoplay: true,
+        loop: true,
+        //path: 'https://gist.githubusercontent.com/kiriss91/047abcb52793451835ad4908ac3c0f50/raw/b047b828d5dcc99516427bc6c76491ea5df11a16/dog-jump.json' ---> PATH ORIGINAL'
+        //path: '<a href="~/Scripts/loginfx/dog-jump.json">~/Scripts/loginfx/dog-jump.json</a> ---> NO JALA EL JASON - HGM'
+        //path: '~/Scripts/loginfx/dog-jump.json'   ---> NO JALA EL JASON - HGM
+        //path: '/Scripts/loginfx/dog-jump.json' ---> SI JALA EL JASON(sin el punto) - HGM
+        path: '/Scripts/loginfx/dog_jump.json' //--> SIN EL PUNTO TODO OKEY
+    };
+    var animItem6 = {
+        wrapper: svgContainer,
+        animType: 'svg',
+        autoplay: true,
+        loop: true,
+        //path: 'https://gist.githubusercontent.com/kiriss91/e28a49c05ffc9d3192cba823d6c0b63b/raw/9f67c94e0c7e7672e07d439d64f53a237f281e50/dog%2520walk.json'
+        path: '/Scripts/loginfx/dog_walk.json'
+    };
+
+    var anim = lottie.loadAnimation(animItem1);
+    // anim.addEventListener('DOMLoaded',anim.play());
+
+    function sleep() {
+        anim.destroy();
+        anim = lottie.loadAnimation(animItem2);
+    };
+    function sit() {
+        anim.destroy();
+        anim = lottie.loadAnimation(animItem1);
+    };
+    function strech() {
+        anim.destroy();
+        anim = lottie.loadAnimation(animItem3);
+    };
+    function bone() {
+        anim.destroy();
+        anim = lottie.loadAnimation(animItem4);
+    };
+    function jump() {
+        anim.destroy();
+        anim = lottie.loadAnimation(animItem5);
+    };
+    function walk() {
+        anim.destroy();
+        anim = lottie.loadAnimation(animItem6);
+    };
+
+    document.getElementById("sleep").addEventListener("click", function () {
+        sleep();
+    });
+    document.getElementById("sit").addEventListener("click", function () {
+        sit();
+    });
+    document.getElementById("walk").addEventListener("click", function () {
+        walk();
+    });
+    document.getElementById("jump").addEventListener("click", function () {
+        jump();
+    });
+    document.getElementById("bone").addEventListener("click", function () {
+        bone();
+    });
+    document.getElementById("strech").addEventListener("click", function () {
+        strech();
+    });
+
+
+    //AÑADIR ANIMACION DEPENDIENDO DE LA ACCION DEL USUARIO sab.19.10.2022
+
+    //txt_usu
+
+    $('#txt_usu').on('click', function () {
+
+        strech();
+        $('#responseError').html('<div style=" color:#2b3764; font-size:18px;  text-align:center; padding: 0px;" class="alert alert-dismissible" role="alert">Sistema Web de Control de Ventas.</div>');
+
+    });   
+
+    $('#txt_psw').on('click', function () {
+
+        jump();
+        //$('#responseError').html('<div style=" color:#2b3764;  font-size:20px;  background-color:#489edd;  border-color: #ffffff;color: #ffffff;" class="alert alert-dismissible" role="alert">Ingresando al Sistema.</div>');
+        $('#responseError').html('<div style=" color:#2b3764; font-size:18px;  text-align:center; padding: 0px;" class="alert alert-dismissible" role="alert">Sistema Web de Control de Ventas.</div>');
+
+    });
+
+    $('.toggle').on('click', function () {
+
+        bone();
+        $('#responseError').html('<div style=" color:#2b3764; font-size:18px;  text-align:center; padding: 0px;" class="alert alert-dismissible" role="alert">Sistema Web de Control de Ventas.</div>');
+
+    });
+
+    $('#btnIngreso').on('click', function () {
+
+        walk();
+
+    });
+
+    $('#adminpass').on('click', function () {
+
+        $('#txt_psw').val('Admin123*');
+
+    });
+
+    function activityWatcher() {
+
+        //The number of seconds that have passed
+        //since the user was active.
+        var secondsSinceLastActivity = 0;
+
+        //Five minutes. 60 x 5 = 300 seconds.
+        //var maxInactivity = (60 * 5);
+        var maxInactivity = 1;
+
+        //Setup the setInterval method to run
+        //every second. 1000 milliseconds = 1 second.
+        setInterval(function () {
+            secondsSinceLastActivity++;
+            console.log(secondsSinceLastActivity + ' seconds since the user was last active');
+            
+            //if the user has been inactive or idle for longer
+            //then the seconds specified in maxInactivity
+            if (secondsSinceLastActivity > maxInactivity) {
+                console.log('User has been inactive for more than ' + maxInactivity + ' seconds');
+                //alert('User has been inactive for more than ' + maxInactivity + ' seconds');
+                //Redirect them to your logout.php page.
+                //location.href = 'logout.php';
+                sleep();
+                //Despues del primer sleep el tiempo de espera aumentara
+                maxInactivity = 2;
+
+            }
+        }, 6000);// 6000);
+
+        //The function that will be called whenever a user is active
+        function activity() {
+            //reset the secondsSinceLastActivity variable
+            //back to 0
+            secondsSinceLastActivity = 0;
+            //alert(' ACTIVO ');
+        }
+
+        //An array of DOM events that should be interpreted as
+        //user activity.
+        var activityEvents = [
+            'mousedown', 'mousemove', 'keydown',
+            'scroll', 'touchstart'
+        ];
+
+        //add these events to the document.
+        //register the activity function as the listener parameter.
+        activityEvents.forEach(function (eventName) {
+            document.addEventListener(eventName, activity, true);
+        });
+
+
+    }
+
+    activityWatcher();
+
+    $(document).ready(function () {
+
+        $('#responseError').html('<div style=" color:#2b3764; font-size:18px; text-align:center; padding: 0px;" class="alert alert-dismissible" role="alert">Sistema Web de Control de Ventas.</div>');
+
+
+    });
+
+    //https://stackoverflow.com/questions/1060008/is-there-a-way-to-detect-if-a-browser-window-is-not-currently-active
+    //$(window).blur(function () {
+    //    //your code here
+    //    alert(14)
+    //});
+    //$(window).focus(function () {
+    //    //your code
+    //    alert(1)
+    //});
+
+
+</script>
+

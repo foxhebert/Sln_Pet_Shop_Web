@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Dominio.Entidades.Sistema" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Dominio.Entidades.Sistema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfTSParamsSaf">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TSParamsSaf" nillable="true" type="tns:TSParamsSaf" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTSParamsSaf" nillable="true" type="tns:ArrayOfTSParamsSaf" />
+  <xs:complexType name="TSParamsSaf">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="prmAddOfic" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="prmAddResp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="prmAreaxLocal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="prmFilUbica" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="prmImpresora" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="prmModaTrab" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="prmOpcOpera" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="prmOutExcelxLocal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="prmSalidaApp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strAutenticacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strBaseDatos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strContrasenia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strDirExcelCarga" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strExcelGenerado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strServidor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strUsuario" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TSParamsSaf" nillable="true" type="tns:TSParamsSaf" />
+  <xs:complexType name="ArrayOfTSConfi">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TSConfi" nillable="true" type="tns:TSConfi" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTSConfi" nillable="true" type="tns:ArrayOfTSConfi" />
+  <xs:complexType name="TSConfi">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bitFlActivo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="dttFeRegistro" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="intIdConfi" type="xs:int" />
+      <xs:element minOccurs="0" name="intIdSoft" type="xs:int" />
+      <xs:element minOccurs="0" name="strCoConfi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strDesConfi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strPosibValor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="strValorConfi" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tipoControl" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TSConfi" nillable="true" type="tns:TSConfi" />
+</xs:schema>

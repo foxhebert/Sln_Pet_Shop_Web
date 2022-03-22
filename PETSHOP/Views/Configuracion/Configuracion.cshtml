@@ -1,0 +1,772 @@
+﻿
+@{
+    ViewBag.Title = "Configuración del Sistema";
+}
+
+<!-- BOTON MODAL -->
+<!--==============================================================================
+                          MODAL LISTAR IMPRESORAS
+==================================================================================-->
+<div class="modal" id="myModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="x_title">
+
+
+                <ul class="nav navbar-left panel_toolbox" style="font-size:27px; padding-right:50px; padding-left:12px;">
+                    <li>Listado de Impresoras</li>
+                </ul>
+                <ul class="nav navbar-right panel_toolbox" style="padding-right:10px; ">
+                    <li>
+                        <input type="button" data-toggle="modal" href="#myModal2" class="btn btn-primary" id="btn-seleccionar-impresora" value="Seleccionar" style="width:100px;">
+                    </li>
+
+                    <li>
+                        <input type="button" href="#" data-dismiss="modal" class="btn btn-secondary" value="Salir" id="prop_cerrar_modal" style="width:100px;">
+                    </li>
+                </ul>
+ 
+                <div class="clearfix"></div>
+            </div>
+            <div class="modal-body">
+
+
+                <div role="tabpanel" id="" class="tab-pane active">
+                    <div class="p-2">
+                        <select name="impresoras" id="option_lista_impresoras" style="width:100%; height: 200px;" size="3" hidden @*multiple*@>
+
+                            @*<option value="printers">Impresoras Disponibles</option>*@
+                            @*<option>John</option> *@
+
+                        </select>
+
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<button onclick="ToEmailGenerarListasExcel()">LISTAR Y GENERAR</button>*@
+@*<button onclick="ToEmailGenerarArchivosExcel()">GENERAR EXCELS</button>*@
+
+<div class="row">
+    <div class="page-title">
+        <div class="x_title">
+            <div>
+
+                <h1></h1>
+                <ul class="nav navbar-left panel_toolbox" style="font-size:27px; padding-right:50px; padding-left:12px;">
+
+                    <li>Configuraciones del Sistema</li>
+
+                </ul>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <input type="button" style="width:130px;" id="btn-update-configuracion" class="btn btn-success" value="Actualizar">
+                    </li>
+                </ul>
+            </div>
+            <br />
+            <br />
+        </div>
+
+    </div>
+    <br />
+    <div class="clearfix"></div>
+
+
+
+</div>
+
+
+<div class="row">
+    <br />
+    <div style="height:100%">
+        <!-- BLOQUE 1 -->
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2> General </h2>
+                    <div class="clearfix"></div>
+                    <br />
+                </div>
+                <div class="x_content">
+                    <div class="col-md-12 col-sm-8 col-xs-8">
+
+                        <div @*class="col-lg-2 col-md-3 col-sm-3 col-xs-12"*@>
+                            <label class="control-label">Modo de Trabajo</label>
+                            <select class="form-control" id="cbo_prmModaTrab">
+                                @*<option value="0" selected>Todos</option>*@
+                                <option value="1" selected>Conexión Base de Datos SQL</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-12 col-sm-8 col-xs-8">
+                        <div class="checkbox">
+                            <br />
+                            <label>
+                                <input type="checkbox" class="flat" id="chk_prmOutExcelxLocal">
+                                @*<input type="radio" id="chck_0_" class="flat disabled_Doc" name="RDimpTicket" checked="checked">*@
+                                Generar Archivo Excel por Local.
+                            </label><br /><br />
+                        </div>
+                    </div>
+                    <div class="form-group" id="AUtent_Group">
+                        <fieldset>
+                            <legend class="m-0" style="width:auto !important; border: none; font-size: 12px;font-weight: 600;">
+                                <input type="checkbox" class="flat" id="ckbRequiereAutenticacion"> Requiere Autenticación
+                            </legend>
+                            <form @*action="/LoginSiscop/CambiarClave"*@ class="mt-3" method="post" id="claveForm1">
+                                <input name="__RequestVerificationToken" type="hidden">
+                                <div class="form-group  text-left p-relative">
+                                    <label>Contraseña</label>
+                                    <div class="input-group" style="display:flex" id="prmSalidaApp">
+                                        @*<input type="password" id="ps_edit_dos" validationpass="false" class="form-control" maxlength="333" autocomplete="current-password" placeholder="Contraseña" name="nuevacontraseña" onkeypress="return avoidSpaceInput(event)"><button id="buttomshowpassedit2" onclick="mostrarClaveEdit2(this)" type="button" class="buttom-show"><i class="fa fa-eye"></i></button>*@
+                                    </div>
+
+                                    <div id="contraseValidate1" style="display:none;border: thin solid gray;padding: 1%;">
+                                        <h5>La contraseña debería cumplir con las siguientes políticas:</h5>
+                                        <div>
+                                            <span id="capital">Debe tener al menos <strong>una Mayúscula</strong><br></span>
+                                            <span id="letter">Debe tener al menos <strong>una Minúscula</strong><br></span>
+                                            <span id="number">Debe tener al menos <strong>un Número</strong><br></span>
+                                            <span id="especial">Debe tener al menos <strong>un Caracter Especial ( # $ % () * - _ / .)</strong><br></span>
+                                            <span id="length">Debe ser como mínimo <strong>8 dígitos</strong><br></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group  text-left p-relativee">
+                                    <label>Confirmar Contraseña</label>
+                                    <div class="input-group" style="display:flex" id="prmSalidaApp_confirmar">
+                                        @*<input type="password" id="ps_edit_tres" validationpass="false" class="form-control" maxlength="20" required="" autocomplete="current-password" placeholder="Confirmar Contraseña" name="contraseña" onkeypress="return avoidSpaceInput(event)"><button id="buttomshowpassedit3" onclick="mostrarClaveEdit3(this)" type="button" class="buttom-show"><i class="fa fa-eye"></i></button>*@
+                                    </div>
+                                    <div id="contraseValidate2" style="display:none;color: red;padding: 1%;">
+                                        <div>
+                                            <span id="igual">La contraseña no coincide</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+
+
+                        </fieldset>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- BLOQUE 2 -->
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Registros Nuevos para Tablas de Ayuda  <small> </small> </h2>
+                    <ul class="nav navbar-right panel_toolbox"></ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="col-md-12 col-sm-8 col-xs-8">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" class="flat" id="chk_prmAddOfic">                                
+                                Habilitado para oficina
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-8 col-xs-8">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" class="flat" id="chk_prmAddResp">                               
+                                Habilitado para Empleados
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @*https://stackoverflow.com/questions/20982993/html-radio-buttons-allowing-multiple-selections*@
+            @*<fieldset>
+                <legend>Please select one of the following</legend>
+                <input type="radio" name="track" id="track" value="track" /><label for="track">Track Submission</label><br />
+                <input type="radio" name="event" id="event" value="event" /><label for="event">Events and Artist booking</label><br />
+                <input type="radio" name="message" id="message" value="message" /><label for="message">Message us</label><br />
+            </fieldset>
+
+            <fieldset>
+                <legend>Please select one of the following</legend>
+                <input type="radio" name="action" id="track" value="track" /><label for="track">Track Submission</label><br />
+                <input type="radio" name="action" id="event" value="event" /><label for="event">Events and Artist booking</label><br />
+                <input type="radio" name="action" id="message" value="message" /><label for="message">Message us</label><br />
+            </fieldset>*@
+
+            @*<button type="button" onclick="PRUEBA_ELIMINABLE()" >Click Me!</button>*@
+
+            <!-- SELECCIONAR ENVIO CON RADIO BUTTONS -->
+            <div class="x_panel">
+                <div class="x_content">
+                    <div class="col-md-4 col-sm-6 col-xs-6">
+                        <div class="checkbox">
+                            <label>
+                                <input type="radio" id="chck_excel" class="flat disabled_enviar"
+                                       name="RDimpTicket" > Excel
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-6">
+                        <div class="checkbox">
+                            <label>
+                                <input type="radio" id="chck_txt" class="flat disabled_enviar"
+                                       name="RDimpTicket"> Txt
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-6">
+                        <div class="checkbox">
+                            <label>
+                                <input type="radio" id="chck_todos" class="flat disabled_enviar"
+                                       name="RDimpTicket"> Todos
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+               
+
+
+            <!-- ENVIAR Y LISTAR CORREOS -->
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Correos  <small> </small> </h2>
+                    <ul class="nav navbar-right panel_toolbox"></ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <div class="form-group">
+                        <label>Correo</label>
+                        <div class="control-group">
+                            <div class="controls">
+                                <button type='submit' id='validate' hidden>Validate!</button>
+                                <input type="email" id="txt_email_remitente" required="" class="form-control disabled_Doc" value="" placeholder="email@example.com">
+                                <h3 id='result'></h3>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="x_title1">
+                        <ul class="nav navbar-left panel_toolbox">
+                            <li>
+                                <h2>Destinatarios</h2>
+                            </li>
+                        </ul>
+
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <button class="btn btn-success" style="width:60px;" id="btn-quitar-correo"><span class="glyphicon glyphicon-minus"></span></button>
+                                <button class="btn btn-primary" style="width:60px;" id="btn-agregar-correo"><span class="glyphicon glyphicon-plus"></span></button>
+                            </li>
+                        </ul>
+                        <br />
+                        <div nav navbar-left panel_toolbox class="col-md-12 col-sm-12 col-xs-12">
+                            <br />
+                            <div class="progress" style="width:100%;">
+                                <div id="progresLoader" class="progress-bar progress-bar-success progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0">0%</div>
+                                @*<div id="progresLoader" class="progress-bar progress-bar-success progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>*@
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+                    </div>
+                    
+                    <!-- TABLA CORREOS-->
+                    <div class="x_content">
+                        <table id="tabla-correos" class="table table-striped table-bordered table-responsive pre-wrap" @*cellspacing="0"*@ style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox" class="icheckbox_flat-blue" id="CHECK_TODOS_CORREOS" /></th>
+                                    <th>Correos</th>
+                                    <th>Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        Seleccionados <span id="correos-seleccionados" @*id="seleccionados2"*@ @*style="color:blue;"*@>0</span>
+                        de <span id="total">0</span> Correos
+                    </div>
+
+
+
+                </div>
+                <div>
+                    <button class="btn btn-primary"  onclick="Enviar_DOCUMENTOS_A_VARIOS_Correos()" @*id="paper-plane-button-enviar-a-correos"*@ ><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                    @*<button  id="btn-cancel-feriado" class="btn btn-success nav navbar-right panel_toolbox" value="Actualizar"></button>*@
+                    <ul class="nav navbar-right panel_toolbox"></ul>
+                </div>
+
+
+
+            </div>
+
+
+            </div>
+
+        <!-- BLOQUE 3 -->
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Impresora <small></small></h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="col-md-12 col-sm-8 col-xs-8">
+
+                        <div>
+                            @*<label>Impresora Seleccionada </label>*@
+                            @*<input type="password" id="txtContraseRemitente_" class="form-control" placeholder="" maxlength="50" required autocomplete="current-password" onkeypress="return avoidSpaceInput(event)">*@
+                            @*<button id="buttomshowpass" onclick="mostrarPass(this)" type="button"class="buttom-show"><i class="fa fa-eye"></i>Escanear</button>*@
+
+                            <form action="">
+                                <label for="myfile">Impresora Seleccionada</label>
+
+                                <!-- -->
+                                <div class="input-group">
+
+                                    <input type="text" class="form-control" placeholder="" id="txt_prmImpresora" value="Escanear">
+
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" id="btn-listar-impresoras" type="button"><i class="fa fa-search"></i></button>
+                                    </span>
+                                    <!-- -->
+                                    <button id="prop_abrir_modal" data-toggle="modal" href="#myModal" type="button" class="buttom-show" style="display:none">boton prop_abrir_modal</button>
+
+
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                        <!-- -->
+ 
+
+                    </div>
+                </div>
+            </div>
+            <div class="x_panel">
+
+                <div class="x_title">
+                    <h2>Filtros<small>  </small></h2>
+                    <ul class="nav navbar-right panel_toolbox"></ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <div class="col-md-12 col-sm-8 col-xs-8">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" class="flat" id="chk_prmFilUbica">
+                                @*<input type="radio" id="chck_5_fubi" id="chck_0_" class="flat disabled_Doc" name="RDimpTicket" checked="checked">*@
+                                Habilitar filtro de Ubicación.
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-sm-8 col-xs-8">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" class="flat" id="chk_prmAreaxLocal">
+                                @*<input type="radio" id="chck_6_fare" id="chck_1_" class="flat disabled_Doc" name="RDimpTicket">*@
+                                Habilitar filtro de Área por Local.
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="x_panel">
+                <div class="x_title">
+                   <h2>Conexión a Base de Datos SQL
+                     <small> </small> </h2>
+                     @*<ul class="nav navbar-right panel_toolbox"></ul>*@
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+
+                    <div class="x_title1">
+                  
+                        <ul class="nav navbar-left panel_toolbox">
+                            <li>
+                                <button class="btn btn-primary" style="width:90px;" id="btn-probar-conexion-sql"><span ></span>Probar</button>
+                                <button class="btn btn-primary" style="width:90px;" id="btn-aceptar-guardar"><span ></span>Aceptar</button>
+                                <button class="btn btn-primary" style="width:90px;" id="btn-no-usado" hidden><span ></span>Salir</button>
+
+                            </li>
+                        </ul>
+
+                        <div class="clearfix"></div>
+                    </div>
+
+
+
+                    <br /><br />
+
+                    <!-- ACRTIVIDAD JUEVES -->
+                    <div class="x_content">
+
+                        @*id="strServidor"
+                        id="strBaseDatos"
+                        id="strUsuario"
+                        id="strContrasenia"
+                        id="strAutenticacion"
+                        id="strDirExcelCarga"
+                        id="strExcelGenerado"*@
+
+                        <div class="form-group" id="strServidor">
+
+                            @*<label>Servidor</label><input type="text" id="txt_strServidor" class="form-control" placeholder="" onkeypress="return avoidSpaceInput(event)">*@
+                        
+                        </div>
+
+
+                        <div class="form-group" id="strBaseDatos" >
+
+                            @*<label>Base de Datos</label><input type="text" id="txt_strBaseDatos" class="form-control" placeholder="" onkeypress="return avoidSpaceInput(event)">*@
+                       
+                        </div>
+
+                        @*<div class="form-group" >*@
+                            
+                            <div class="form-group" @*style="display:flex"*@ id="strUsuario">
+
+                                @*<label>Usuario </label><input type="text" id="txt_strUsuario" class="form-control" placeholder="" maxlength="50" required="" autocomplete="current-password" onkeypress="return avoidSpaceInput(event)">*@
+                           
+                            </div>
+                        @*</div>*@
+
+                        <div class="form-group" >                      
+                                <label>Contraseña </label>
+                                <div class="form-group" style="display:flex" id="strContrasenia---">
+                                    <input type="password" id="txt_strContrasenia"  class="form-control" placeholder="" maxlength="100" required="" autocomplete="current-password" onkeypress="return avoidSpaceInput(event)">
+                                    <button id="buttomshowpass" onclick="mostrarPass(this)" type="button" class="buttom-show"><i class="fa fa-eye-slash"></i></button>
+                                </div>                           
+                        </div>
+
+
+                        <!-- RATIO AUTENTICACION WINDOWS -->
+                        <div class="col-md-12 col-sm-8 col-xs-8">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="radio" id="chck_windows" class="flat disabled_Doc" name="RDimpTicket" checked="checked"> Autenticación de Windows
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- RATIO AUTENTICACION SQL -->
+                        <div class="col-md-12 col-sm-8 col-xs-8">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="radio"  id="chck_sql"  class="flat disabled_Doc" name="RDimpTicket"> Autenticación de SQL
+                                </label>
+                            </div>
+                        </div>
+
+                  
+                        <!-- INPUT BOTON RUTA 1 -->
+                        <div class="form-group1" >                       
+                            <button class="btn btn-primary" onclick="" value="1"> Directorio para Carga de Archivos Excel</button>
+                            <div class="form-group" style="display:flex" id="strDirExcelCarga">
+                                @*<input type="text" id="txt_strDirExcelCarga" class="form-control" placeholder=""  required="" autocomplete="current-password" onkeypress="return avoidSpaceInput(event)">*@
+                            </div>
+                        </div>
+
+                        <!--  INPUT BOTON RUTA 1 -->
+                        <div class="form-group1" >                           
+                            <button class="btn btn-primary" onclick="" value="1"> Directorio para Descarga de Archivos de Excel</button>   @*Directorio para Descarga de Archivos Generados en Formato Exce*@            
+                            <div class="form-group" style="display:flex" id="strExcelGenerado">
+                                @*<input type="text" id="txt_strExcelGenerado" class="form-control" placeholder=""  required="" autocomplete="current-password" onkeypress="return avoidSpaceInput(event)">*@
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    @*<div class="col-md-12 col-sm-12 col-xs-12">
+                        Seleccionados <span id="correos-seleccionados" >0</span>
+                        de <span id="total">0</span> Correos
+                    </div>*@
+
+
+                    @*<div class="col-md-12 col-sm-8 col-xs-8">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" class="flat" id="chk_prmAddOfic">
+
+                            Habilitado para oficina
+                        </label>
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-sm-8 col-xs-8">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" class="flat" id="chk_prmAddResp">
+
+                            Habilitado para Empleados
+                        </label>
+                    </div>
+                </div>*@
+
+                    @*</div>*@
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+    <style>
+        .table-wrap {
+            height: 170px;
+            overflow-y: auto;
+        }
+
+        .rangoFechaIni {
+            color: red;
+        }
+
+        .rangoFechaFin {
+            color: red;
+        }
+
+        ul.bar_tabs > li {
+            border: none;
+            color: #333 !important;
+            margin-top: 0;
+            margin-left: 0;
+            background: #fff;
+            border-bottom: none;
+            border-radius: none;
+        }
+
+            ul.bar_tabs > li.active {
+                border-right: none;
+                border-top: 0;
+                margin-top: 0;
+                height: 40px;
+            }
+    </style>
+
+    <script>
+
+        $(document).ready(function () {
+
+
+
+
+
+
+
+            $('#nueva_contrasena_1').keyup(function () {
+                // set password variable
+                var pswd = $(this).val();
+                var estate = false;
+                var estateEspecial = false;
+                //validate the length
+                if (pswd.length < 8) {
+                    $('#length').show();
+                } else {
+                    $('#length').hide();
+                }
+
+                //validate letra
+                if (pswd.match(/[a-z]/)) {
+                    $('#letter').hide()
+                } else {
+                    $('#letter').show();
+                }
+
+                //validate capital letter
+                if (pswd.match(/[A-Z]/)) {
+                    $('#capital').hide();
+                } else {
+                    $('#capital').show();
+                }
+
+                //validate number
+                if (pswd.match(/\d/)) {
+                    $('#number').hide();
+                } else {
+                    $('#number').show();
+                }
+
+                //validate number \@@
+                if (pswd.includes('') || pswd.includes('#') || pswd.includes('$') || pswd.includes('%') || pswd.includes('/') || pswd.includes('_') || pswd.includes('-') || pswd.includes('.') || pswd.includes('(') || pswd.includes(')') || pswd.includes('*') || pswd.includes('+')) {
+                    $('#especial').hide();
+                    estateEspecial = true;
+                } else {
+                    $('#especial').show();
+                }
+
+                if (pswd.length >= 8 && pswd.match(/[a-z]/) && pswd.match(/[A-Z]/) && pswd.match(/\d/) && estateEspecial) {
+                    estate = true;
+                }
+
+
+                $(this).attr('validationpass', estate)
+                if (estate) {
+                    $('#contraseValidate1').hide();
+                } else {
+                    $('#contraseValidate1').show();
+                }
+
+            }).
+                focus(function () {
+                    let estate = $(this).attr('validationpass')
+                    if (estate) {
+                        $('#contraseValidate1').hide();
+                    } else {
+                        $('#contraseValidate1').show();
+                    }
+                }).
+                blur(function () {
+                    $('#contraseValidate1').hide();
+                });
+
+            $('#nueva_contrasena_2').keyup(function () {
+                //alert('prueba');
+                // set password variable
+                var pswd = $(this).val();
+                var estate = false;
+                //validate the length
+                //validate letra
+                if (pswd == $("#nueva_contrasena_1").val()) {
+                    $('#igual').hide()
+                    estate = true;
+                } else {
+                    $('#igual').show()
+                }
+
+                $(this).attr('validationpass', estate)
+                if (estate) {
+                    $('#contraseValidate2').hide();
+                } else {
+                    $('#contraseValidate2').show();
+                }
+
+            }).
+                focus(function () {
+                    let estate = $(this).attr('validationpass')
+                    if (estate) {
+                        $('#contraseValidate2').hide();
+                    } else {
+                        $('#contraseValidate2').show();
+                    }
+                }).
+                blur(function () {
+                    $('#contraseValidate2').hide();
+                });
+
+        });
+
+
+    </script>
+
+
+    @*<script src="~/Scripts/dialog/sweetalert2.min.js"></script>*@
+
+    <script src="~/Scripts/util/SAF_Configuracion.js"></script>
+    <script src="~/Scripts/jquery-ui.min.js"></script><!--Colorear Campos Validados-->
+    <script src="~/Scripts/iCheck/icheck.js"></script>
+    <link href="~/Content/importacionExcel.css" rel="stylesheet" />
+
+
+    <script>
+
+        //$(document).ready(function () {
+
+
+        ValidarCaracteresMaxlength();  
+        
+        ConfiguracionCargaInicial();
+        CargarConfiguracionConexionBaseDatos();
+            
+
+
+        //});
+
+
+
+
+        //datatable settings
+        var _datatableLanguaje = {
+            lengthMenu: 'Mostrar _MENU_ Items',
+            info: 'Mostrar _START_ a _END_ de _TOTAL_ Items',
+            infoEmpty: 'No hay Items para mostrar',
+            search: 'Buscar: ',
+            sSearchPlaceholder: 'Criterio de búsqueda',
+            zeroRecords: 'No se encontraron registros coincidentes',
+            infoFiltered: '(Filtrado de _MAX_  Items en total)',
+            paginate: {
+                previous: 'Anterior',
+                next: 'Siguiente'
+            }
+        };
+
+        //READY FUNCTION
+        $(document).ready(function () {
+
+            //ListarTablaTbBienesActivos();
+            //var table = $('#tabla-correos').DataTable();
+            //////Inicializar el listado
+            ////var table = $('#tabla-correos').DataTable({
+            ////    fixedHeader: {
+            ////        header: true,
+            ////        footer: true,
+            ////        scrollX: false,
+            ////    },
+            ////    language: _datatableLanguaje,
+            ////});
+
+            $('.row .col-sm-6').removeClass("col-sm-6");
+
+            $('#tabla-correos_filter .input-sm').css("width", "90px");
+            //$("#tagid").css("color", "red");  form-control
+            //input-sm
+
+        });
+
+    </script>
+
+
+    @*<script src="~/Scripts/datatables.net/dataTables.bootstrap.js"></script>
+        <script src="~/Scripts/datatables.net/dataTables.responsive.js"></script>
+        <script src="~/Scripts/datatables.net/jquery.dataTables.js"></script>
+        <link href="~/Content/datatables.net/dataTables.bootstrap.css" rel="stylesheet" />*@
+
+
+

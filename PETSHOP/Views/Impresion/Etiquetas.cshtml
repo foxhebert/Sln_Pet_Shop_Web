@@ -1,0 +1,377 @@
+﻿
+@{
+    ViewBag.Title = "Etiquetas";
+}
+
+@*<script src="https://code.jquery.com/jquery-3.5.1.js"></script>*@
+@*<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>*@
+
+
+
+@*<button id="crear-carpeta-formatos">RUTA CARPETA DE FORMATO</button>*@
+   <!--======================================================================
+            PANEL CABECERA DE FILTROS VARIOS
+    ==========================================================================-->
+    <div class="row">
+        <!--INICIO PANEL-->
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+
+                  <!--********************** PRIMER BLOQUE DE CABECERA **********************-->
+                  <div class="row ">
+                      @*<input type="text" class="form-control" id="strDesInput" placeholder="Buscar por Fotocheck, Nombre, Apellido o Documento">*@
+                      <!-- BUSCAR -->
+                      <div class="col-md-3 col-sm-3 col-xs-12" style="height:58px; width:500px;" hidden>
+                          <div>
+                              <label class="control-label">&nbsp;</label>
+                              <input type="text" class="form-control" id="strDesInput" placeholder="Buscar por Fotocheck, Nombre, Apellido o Documento">
+
+                          </div>
+                      </div>
+
+                      <!-- FILTRO ESTADO -->
+                      <div class="col-md-2 col-sm-2 col-xs-12 "  hidden>
+                          <label class="control-label">Clase de Servicio</label>
+                          <select class="form-control" id="intClaseCombo">
+                              <option value="0" selected>Todas</option>
+                              <option value="1">Regular</option>
+                              <option value="2">Complementario</option>
+                          </select>
+                      </div>
+                      <!-- FILTRO TIPO DE SERVICIO -->
+                      <div class="col-md-2 col-sm-2 col-xs-12 "  hidden>
+                          <label class="control-label">Tipo de Servicio</label>
+                          <select class="form-control" id="intTipoServCombo">
+                              <option value="0" selected>Todos</option>
+                          </select>
+                      </div>
+                      <!-- FILTRO RANGO DE FECHAS -->
+                      <div class="col-md-2 col-sm-2 col-xs-12"  hidden>
+                          <label class="control-label">Rago de Fechas</label>
+                          <div id="sinidentificador" class="pull rangedatepickergeneral"
+                               style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+                              <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                              <span> </span> <b class="caret"></b>
+                          </div>
+                      </div>
+                      <!-- FILTRO TIPO DE MENU -->
+                      <div class="col-md-2 col-sm-2 col-xs-12 " hidden>
+                          <label class="control-label">Tipo de Menú</label>
+                          <select class="form-control" id="intTipoMenuCombo">
+                              <option value="0" selected>Todos</option>
+                          </select>
+                      </div>
+
+                  </div>
+
+
+
+                  <!--------------------- FILTRADOS DE CABECERA -------------------->
+                  <!-- PRIMERA LINEA DE CONTROLES -->
+                  <div class="row" style="padding-top: 20px;">
+
+                       <!-- COMBO LOCAL -->
+                       <div class="col-md-2 col-sm-2 col-xs-12">
+                           <label class="control-label">Local</label>
+                           <select class="form-control" id="cbo_local">
+                               <option value="0" selected>Todos</option>
+                           </select>
+                       </div>
+
+                       <!-- COMBO AREA -->
+                       <div class="col-md-2 col-sm-2 col-xs-12">
+                           <label class="control-label">Área</label>
+                           <select class="form-control" id="cbo_area">
+                               <option value="0" selected>Todas</option>
+                           </select>
+                       </div>
+
+                       <!-- COMBO OFICINA -->
+                       <div class="col-md-2 col-sm-2 col-xs-12">
+                           <label class="control-label">Oficina</label>
+                           <select class="form-control" id="cbo_oficina">
+                               <option value="0" selected>Todas</option>
+                           </select>
+                       </div>
+
+                       <!-- COMBO RESPONSABLE -->
+                       <div class="col-md-2 col-sm-2 col-xs-12">
+                           <label class="control-label">Responsable</label>
+                           <select class="form-control" id="cbo_responsable">
+                               <option value="0" selected>Todos</option>
+                           </select>
+                       </div>
+
+                       <!-- COMBO TIPO DE BIEN -->
+                       <div class="col-md-2 col-sm-2 col-xs-12">
+                           <label class="control-label">Tipo de Bien</label>
+                           <select class="form-control" id="cbo_tipo_de_bien">
+                               <option value="0" selected>Todos</option>
+                           </select>
+                       </div>  
+
+                       <!-- BUSCAR CON LUPA ACTIVO O SERIE -->
+                       <div class="col-md-2 col-sm-2 col-xs-12">
+                           <label class="control-label">Activo o Serie</label>
+                           <div class="input-group">                               
+                               <input type="text" class="form-control" id="txt_buscar" placeholder="Buscar">
+                               <span class="input-group-btn">
+                                   <button class="btn btn-default" id="lupa_txt_buscar" type="button"><i class="fa fa-search"></i></button>
+                               </span>
+                           </div>
+                       </div>
+
+
+                   </div>
+
+                  <!-- SEGUNDA LINEA DE CONTROLES -->
+                  <div class="row" style="padding-top: 20px;">
+                      <div class="col-md-2 col-sm-2 col-xs-12">
+                          <label class="control-label">Formatos</label>
+                          <select class="form-control" id="cbo_formatos">
+                          </select>
+                      </div>
+
+                      <!-- COMBO NUMERO DE COLUMNAS DE ETIQUETAS -->
+                      <div class="col-md-2 col-sm-2 col-xs-12">
+                          <label class="control-label">N°de Columnas de la Etiqueta</label>
+                          <select class="form-control" id="cbo_num_colum_etiq">
+                              <option value="0">-</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+
+                          </select>
+                      </div>
+
+
+                      <!-- IMPRESORA -->
+                      <div class="col-md-3 col-sm-3 col-xs-12" @*style="height:58px; width:500px;"*@>
+                          <label class="control-label">Impresora</label>                                                 
+                              <input type="text" class="form-control" id="txt_impresora" placeholder="Buscar">   
+                      </div>
+
+
+                      <!-- CANTIDAD DE ETIQUETAS A IMPRIMIR POR CODIGO-->           
+                          <div class="col-md-2 col-sm-2 col-xs-3">
+                              <br />
+                              <label class="control-label" style="top:-5px;">Cant. de Etiquetas a Imprimir por Código (Original y Copias)</label>
+                          </div>
+                          <div class="col-md-1 col-sm-1 col-xs-3" @*style="width:30px;"*@><br/>
+                              <input type="number" min="1" @*max="100"*@ value="1" id="spin">   
+                          </div>
+                                          
+
+                      <!-- AÑO DE INVENTARIO -->
+                      <div class="col-md-2 col-sm-2 col-xs-12" style="left:-0px;">                      
+                          <br />
+                          <label class="control-label">&nbsp;</label>
+                          <input type="checkbox" class="iradio_flat-blue" id="chk_anio_invent">
+                          <label class="control-label" style="left:5px;" >Año de Inventario <span id="txt_anio"></span></label>
+                      </div>
+
+                      @*<input type="button" id="btn-anio-server" value="ANIO">*@
+
+
+                      </div>
+
+                  </div>
+          </div>
+      </div>
+
+<link href="~/Content/customEtiquetas.css" rel="stylesheet" />
+
+      <!--======================================================================
+                               TITULO DEL MANTENIMIENTO
+       ==========================================================================-->
+      <!-- PANEL DE MENUS -->
+      <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="breadcrumb" id="X">
+                  <a class="breadcrumb__step breadcrumb__step--active" href="#">IMPRESIÓN</a>
+                  <a class="breadcrumb__step" href="#" style="width: 90%;"> Etiquetas</a>
+              </div>
+          </div>
+      </div>
+
+
+
+
+      <!--======================================================================
+              Listado Principal
+         ==========================================================================-->
+      <!-- LISTADO PRINCIPAL DE EMPLEADOS -->
+      <div class="row" style="width:100%;">
+          <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12" style="width:100%;">
+              <!--martes05-->
+              <div class="x_panel">
+                  <div class="x_title">
+                      <h2>Listado de Activos</h2>
+                      <ul class="nav navbar-right panel_toolbox">
+                          <li>
+                              @*<input type="button" id="btn-atencion-masiva" class="btn btn-primary" value="ATENCIÓN MASIVA" disabled>*@
+                              <button @*id="btn-atencion-masiva2"*@ id="btn-imprimir_etiquetas" class="btn btn-primary" >IMPRIMIR</button> @*<i class="fa fa-check"></i>*@
+                          </li>
+                      </ul>
+
+                      <div class="clearfix"></div>
+                  </div>
+                  @*<div class="x_content" id="">
+
+                      <table id="TablaAtivosEtiquetas" class="table table-striped table-bordered table-responsive pre-wrap" cellspacing="0" style="width:100%">
+                          <thead>
+                              <tr>
+                                  <th>ACTIVO       </th>
+                                  <th>DESCRIPCIÓN  </th>
+                                  <th>MARCA        </th>
+                                  <th>SERIE        </th>
+                                  <th>AREA         </th>
+                                  <th>ESTADO       </th>
+
+                                  <th>MODELO       </th>
+                                  <th>TIPO         </th>
+                                  <th>COLOR        </th>
+                                  <th>CONDICIÓN    </th>
+                                  <th>RESPONSABLE  </th>
+                                  <th>DESAREA      </th>
+                                  <th>LOCAL        </th>
+                                  <th style="display:none"></th>
+                              </tr>
+                          </thead>
+                          <tbody></tbody>
+                      </table>
+
+
+                  </div>*@
+
+
+
+                  @*<table id="TablaReporte" class="table table-striped table-bordered table-responsive no-footer dtr-inline dataTable"  role="grid" aria-describedby="TablaReporte_info" style="width: 100%;"></table>*@
+                      <div class="x_content">
+                          <table id="tabla-gestion-consumo2" class="table table-striped table-bordered table-responsive dtr-inline dataTable " @*cellspacing="0"*@ style="width:100%;"> @*nowrap*@
+                              <thead>
+                                  <tr>
+                                      <th><input type="checkbox" class="icheckbox_flat-blue" id="select_consumos_TODOS2" /></th>
+                                      <th>ACTIVO       </th>
+                                      <th>DESCRIPCIÓN  </th>
+                                      <th>MARCA        </th>
+                                      <th>SERIE        </th>
+                                      <th>AREA         </th>
+                                      <th>ETIQUETA     </th>
+                                      <th>ESTADO       </th>
+                                      <th>MODELO       </th>
+                                      <th>TIPO         </th>
+                                      <th>COLOR        </th>
+                                      @*<th>CONDICIÓN    </th>*@
+                                      <th>RESPONSABLE  </th>
+                                      <th>DESAREA      </th>
+                                      <th>LOCAL        </th>
+
+                                  </tr>
+                              </thead>
+                              <tbody></tbody>
+                          </table>
+                      </div>
+                      @*<div class="col-md-12 col-sm-12 col-xs-12">
+                Seleccionados <span id="correos-seleccionados" >0</span>
+                de <span id="total">0</span> Correos
+            </div>*@
+
+                      <div class="col-md-12 col-sm-12 col-xs-12">
+                          Seleccionados <span id="seleccionados2">0</span>
+                          de <span id="totalA">0</span> Activos
+                      </div>
+</div>
+          </div>
+
+          <input type="hidden" id="TotalPag1" />
+
+          <style>
+                          #tabla-gestion-consumo2 tr:hover {
+                              background-color: #b0bed9;
+                          }
+
+          </style>
+
+          <script>
+              //$(document).ready(function () {
+              //    $('#tabla-gestion-consumo tr').click(function () {
+              //        $('#tabla-gestion-consumo tr').removeClass("active");
+              //        $(this).addClass("active");
+              //        $(this).find('[name="reqradio"]').prop('checked', true);
+              //    });
+              //});
+
+          </script>
+      </div>
+
+
+
+      @*<style>
+          .row_selected td {
+              background - color: black !important; /* Add !important to make sure override datables base styles */
+          }
+      </style>*@
+
+
+
+<script>
+
+$(document).ready(function () {
+
+    
+    ListarCombosImpresion();
+    TablaActivos();
+    CrearCarpetaFormatos();
+
+    ////////var table = $('#TablaAtivosEtiquetas').DataTable({
+    //////var table = $('#tabla-gestion-consumo2').DataTable({
+    //////    fixedHeader: {
+    //////        header: true,
+    //////        footer: true
+    //////    },
+    //////    language: _datatableLanguaje,
+    //////});
+});
+</script>
+
+@*<script src="~/Scripts/util/ImpresiónEtiquetas.js"></script>*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

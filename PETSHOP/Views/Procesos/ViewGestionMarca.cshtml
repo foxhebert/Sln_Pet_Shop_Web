@@ -1,0 +1,646 @@
+@*@model IEnumerable<CBX_Web_PetShopWeb.wsOrganizacion.Cargo>*@
+
+@{
+    ViewBag.Title = "MARCA";
+}
+
+
+<style>
+    .x_panel_p1 {
+        background: #f2f2f2;
+        width: 98%;
+        margin-left: 1%;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        border-radius: 8px;
+        padding-bottom: 5px;
+    }
+    .x_panel_p {
+        background: #f2f2f2;
+        width: 96%;
+        margin-left: 2%;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        border-radius: 8px;
+        padding-bottom: 5px;
+    }
+
+</style>
+
+<div class="row">
+    <!--INICIO PANEL-->
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel x_panel_p1">
+
+            <!--Filtrado Principal para Buscar -------------------------->
+            <div class="control-label col-md-4 col-sm-4 col-xs-12">
+                <input type="text" class="form-control" id="txt-filtro-marca" placeholder="Buscar por Código o Descripción">
+            </div>
+
+            @*<div class="" hidden>
+
+                    <label class="control-label col-md-1 col-sm-1 col-xs-12">Tipo de Empresa</label>
+                    <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback">
+                        <select class="form-control" id="CampTipo">
+                            <option value="0" selected>Todos</option>
+                        </select>
+                    </div>
+                </div>*@
+
+            <div class="" hidden>
+                <label style="text-align:right !important;" class="control-label col-md-1 col-sm-1 col-xs-12">Estado</label>
+                <div class="col-md-2 col-sm-2 col-xs-12 form-group has-feedback">
+                    <select class="form-control" id="bitActivo">
+                        <option value="2" selected>Todos</option>
+                        <option value="1">Activo</option>
+                        <option value="0">Inactivo</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- PANEL DE MENUS -->
+<div class="row" hidden>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="breadcrumb">
+            <a class="breadcrumb__step breadcrumb__step--active" href="#">Marca</a>
+            <a class="breadcrumb__step" href="#">Marca</a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- PANEL TABLA PRINCIPAL PARA LISTAR A LA IZQUIERDA -->
+    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+        <div class="x_panel x_panel_p">
+            <div class="x_title">
+                <h2>Listado de Marcas</h2>
+
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        @*<input type="button" id="btn-new-marca" class="btn btn-primary" value="NUEVA MARCA">*@
+                        <button type="button" class="btn btn-primary full-width"
+                                style="width:100%; margin-top:16px; font-size:16px;" id="btn-new-marca">
+                            NUEVA MARCA &nbsp; <i class="fa fa-plus" style="font-size:16px"></i>
+                        </button>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+
+
+            <div class="x_content">
+
+                <table id="TablaMarca" class="table table-striped table-bordered table-responsive pre-wrap @*nowrap*@ " cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>ID MARCA</th>
+                            <th>CÓDIGO DE MARCA</th>
+                            <th>DESCRIPCIÓN</th>
+                            <th style="display:none"></th>
+                            <th>ACCIÓN</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+
+                <style type="text/css">
+                    .saltoLinea {
+                        font-size: 11px;
+                        font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+                        margin-bottom: 25px;
+                    }
+                </style>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- SEGUNDO PANEL EN LA DERECHA(oculto) VISUALIZADO AL PRESIONAR NUEVA EMPRESA-->
+    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+        <div class="form-hide22222" hidden>
+
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Información de la Empresa</h2>
+
+                    <!-- TRES BOTONES GUARDAR/ACTUALIZAR y CANCELAR -->
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <input type="button" id="btn_save_change_Empresa" class="btn btn-primary" value="Guardar">
+                            <input type="button" id="btn_update_Empresa" class="btn btn-success" value="Actualizar">
+                        </li>
+                        <li>
+                            <input type="button" id="btn-cancel-Empresa" class="btn btn-dark" value="Cancelar">
+                        </li>
+                    </ul>
+
+
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+
+                    <form class="form-horizontal form-label-left">
+
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <div style="text-align:right;">
+                                    <label>Activo</label>
+                                    <input type="checkbox" id="chk-activo-Empresa" class="js-switch" checked />
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        @*==== TextBox de Código (*) y Razón Social (*) ===*@
+                        <div class="row">
+                            <div class="border-section">
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <div class="form-group" id="strCoEmp" onkeypress="return avoidSpaceInput(event)">
+                                        @*AQUI SU LABEL'Código (*)' Y TEXTBOX CORRESPONDIENTE DESDE EL SITE.JS*@
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <div class="form-group" id="strDesEmp" onkeypress="return avoidSpaceInput(event)">
+                                        @*AQUI VA SU LABEL'Razón Social (*)' Y TEXTBOX CORRESPONDIENTE DESDE EL SITE.JS*@
+                                    </div>
+                                </div>
+
+                            </div>
+                            <br />
+                        </div>
+
+                        <script>
+                            //Evitar espaciado y parpadeo del cursor al presinar tab
+                            function avoidSpaceInput(event) {
+                                let k = event ? event.which : window.event.keyCode;
+                                if (k == 32) return false;
+                            }
+                        </script>
+
+                        <br />
+
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <br />
+
+                                    <div class="form-group">
+                                        <label>Tipo (*)</label>
+                                        <select class="form-control" id="CampTipos"></select>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label>Ruc (*)</label>
+                                        <div id="strRuc"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+
+                                        <label>Dirección Fiscal</label>
+                                        <div id="strDirFiscal"></div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- CARGAR IMAGEN -->
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="btn-group">
+                                        <label class="btn btn-primary btn-upload" title="Cargar Imagen">
+                                            <input type="file" id="CargarImagen" style="text-align:right;display:none;" multiple>
+                                            <input id="carga" class="sr-only" name="file" accept="image/*">
+                                            <span class="docs-tooltip" data-toggle="tooltip" style="text-align:right;">
+                                                <span class="fa fa-upload"></span>
+                                            </span>
+                                        </label>
+
+                                        <label class="btn btn-primary btn-upload" title="Quitar Imagen">
+                                            <input type="file" id="delete" data-toggle="modal" data-target="#myModal" class="sr-only" name="file">
+                                            <span class="fa fa-trash-o"></span>
+                                        </label>
+
+                                    </div>  &nbsp;&nbsp;&nbsp;
+                                    <p class="pull-right">Dimensión: 220px X 220px</p>
+                                </div>
+
+                                <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top:5px;">
+                                    <div id="VistaPrevia"><img id="imgCarga" src="~/DirEmpleadosRuta/descarga(1).jpg" class="img-rounded img-logo-empleado" /></div>
+                                    @*<input type="text" id="txtImagenEmpresa" />*@
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                        <input type="hidden" id="intidEmpresa">
+                        <div class="ln_solid"></div>
+                        <div id="containerCamposea"></div>
+
+                        <script>
+
+                            function mostrarPassword() {
+                                var cambio = document.getElementById("txt_descripcion_Usuario");
+                                if (cambio.type == "password") {
+                                    cambio.type = "text";
+                                    $('#ViewPass').removeClass('glyphicon glyphicon-eye-close').addClass('glyphicon glyphicon-eye-open');
+                                } else {
+                                    cambio.type = "password";
+                                    $('#ViewPass').removeClass('glyphicon glyphicon-eye-open').addClass('glyphicon glyphicon-eye-close');
+                                }
+                            }
+
+
+                            function NumText(string) {//solo letras y numeros
+                                var out = '';
+                                //Se añaden las letras validas
+                                var filtro = 'abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ1234567890';//Caracteres validos
+
+                                for (var i = 0; i < string.length; i++)
+                                    if (filtro.indexOf(string.charAt(i)) != -1)
+                                        out += string.charAt(i);
+                                return out;
+                            }
+
+
+                            function CaracteresValidos(string) {//Filtro de letras, numeros y otros caracteres simbólicos, validos.
+                                var out = '';
+                                //Se añaden las letras validas
+                                var filtro = 'abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ1234567890_-+.,;"#$%&[]{}=()?¡*:/!';//Caracteres validos
+
+                                for (var i = 0; i < string.length; i++)
+                                    if (filtro.indexOf(string.charAt(i)) != -1)
+                                        out += string.charAt(i);
+                                return out;
+
+                            }
+
+                        </script>
+
+                        <input type="hidden" id="idLegal" />
+                        <input type="hidden" id="idPerLeg" />
+
+                        <script>
+
+
+                            $('#CargarImagen').change(function (e) {
+                                CargoImagen();
+                            });
+
+                            document.getElementById('delete').onclick = function () {
+                                $('#VistaPrevia').html('<img src = "/DirLogosRuta/descarga(1)_1.jpg" style="width:100%;height:100%" />');
+                                $('#txtImagenEmpresa').val('');
+                                return false;
+                            }
+
+
+
+                            function CargoImagen() {
+                                var formdata = new FormData(); //FormData object
+                                var fileInput = document.getElementById('CargarImagen');
+                                //Iterating through each files selected in fileInput
+                                for (i = 0; i < fileInput.files.length; i++) {
+                                    //Appending each file to FormData object
+                                    formdata.append(fileInput.files[i].name, fileInput.files[i]);
+                                }
+                                //Creating an XMLHttpRequest and sending
+                                var xhr = new XMLHttpRequest();
+
+
+
+                                //IMPORTANTE:
+                                //Silvia  me dejo una observacion respecto al hecho de que el usuario puede cargar mas
+                                // de 10 imagenes al servidor pero solo se registra una pero las otras nuevas si se cargaron
+                                //controlar que se visualize tenporalmente y cuando se de registrar recien se efectue la carga
+                                //al servidor
+
+
+                                xhr.open('POST', '/Personal/UploadEmpresa');
+                                xhr.send(formdata);
+                                xhr.onreadystatechange = function () {
+                                    if (xhr.readyState == 4 && xhr.status == 200) {
+                                        console.log(xhr);
+                                        DirLocal = xhr.responseText;
+
+                                        $('#VistaPrevia').html('<img id="imgCarga" src=' + DirLocal + ' style="width:100%;height:100%" />');
+                                        // document.getElementById('imgCarga').setAttribute('src', DirLocal);
+                                        $('#txtImagenEmpresa').val(DirLocal);
+                                    }
+                                }
+
+
+                                return false;
+
+                            }
+
+                        </script>
+                    </form>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- FORMULARIO NUEVO _ MARCA -->
+    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+        <div class="form-hide-MARCA" hidden>
+
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Información de Marca</h2>
+
+                    <!-- TRES BOTONES GUARDAR/ACTUALIZAR y CANCELAR -->
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <input type="button" id="btn_save_new_marca" class="btn btn-primary" value="Guardar">
+                            <input type="button" id="btn_update_marca" class="btn btn-success" value="Actualizar">
+                        </li>
+                        <li>
+                            <input type="button" id="btn-cancel-marca" class="btn btn-dark" value="Cancelar">
+                        </li>
+                    </ul>
+
+
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+
+                    <form class="form-horizontal form-label-left">
+
+                        <!-- CHECKBOX -->
+                        <div class="row" hidden>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <div style="text-align:right;">
+                                    <label>Activo</label>
+                                    <input type="checkbox" id="chk-activo-Empresa" class="js-switch" checked />
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <!-- NUEVO REGISTRO -->
+                        <div class="row">
+
+                            <div class="border-section">
+
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <div class="form-group" onkeypress="return avoidSpaceInput(event)">
+                                        <label>Código</label>
+                                        <input type="text" class="form-control" id="val_txtCodigoMarca" disabled/>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <div class="form-group" @*onkeypress="return avoidSpaceInput(event)"*@>
+                                        <label>Descripción</label>
+                                        <input type="text" class="form-control" id="val_txtDescMarca" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-sm-6 col-xs-6" hidden>
+                                    @*<label style="text-align:right !important;" class="control-label col-md-1 col-sm-1 col-xs-12">Estado</label>*@
+                                    <div class="form-group">
+                                        <label>Estado</label>
+                                        <select class="form-control" id="str-activo">
+                                            <option value="2" selected>Todos</option>
+                                            <option value="1">Activo</option>
+                                            <option value="0">Inactivo</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                @*<div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="form-group" onkeypress="return avoidSpaceInput(event)">
+                        <label>Código</label>
+                        <input type="text" class="form-control" id="txt-codigo-categoria" />
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="form-group" onkeypress="return avoidSpaceInput(event)">
+                        <label>Descripción</label>
+                        <input type="text" class="form-control" id="txt-descripcion-categoria" />
+                    </div>
+                </div>*@
+
+                            </div>
+
+
+                        </div><br />
+
+
+
+
+                        <script>
+                            //Evitar espaciado y parpadeo del cursor al presinar tab
+                            function avoidSpaceInput(event) {
+                                let k = event ? event.which : window.event.keyCode;
+                                if (k == 32) return false;
+                            }
+                        </script>
+
+                        <br />
+
+                        <div class="row" hidden>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <br />
+
+                                    <div class="form-group">
+                                        <label>Tipo (*)</label>
+                                        <select class="form-control" id="CampTipos"></select>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label>Ruc (*)</label>
+                                        <div id="strRuc"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+
+                                        <label>Dirección Fiscal</label>
+                                        <div id="strDirFiscal"></div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- CARGAR IMAGEN -->
+                            <div class="col-md-6 col-sm-6 col-xs-6" hidden>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="btn-group">
+                                        <label class="btn btn-primary btn-upload" title="Cargar Imagen">
+                                            <input type="file" id="CargarImagen" style="text-align:right;display:none;" multiple>
+                                            <input id="carga" class="sr-only" name="file" accept="image/*">
+                                            <span class="docs-tooltip" data-toggle="tooltip" style="text-align:right;">
+                                                <span class="fa fa-upload"></span>
+                                            </span>
+                                        </label>
+
+                                        <label class="btn btn-primary btn-upload" title="Quitar Imagen">
+                                            <input type="file" id="delete" data-toggle="modal" data-target="#myModal" class="sr-only" name="file">
+                                            <span class="fa fa-trash-o"></span>
+                                        </label>
+
+                                    </div>  &nbsp;&nbsp;&nbsp;
+                                    <p class="pull-right">Dimensión: 220px X 220px</p>
+                                </div>
+
+                                <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top:5px;">
+                                    <div id="VistaPrevia"><img id="imgCarga" src="~/DirEmpleadosRuta/descarga(1).jpg" class="img-rounded img-logo-empleado" /></div>
+                                    @*<input type="text" id="txtImagenEmpresa" />*@
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                        <input type="hidden" id="intidEmpresa">
+                        <div class="ln_solid"></div>
+                        <div id="containerCamposea"></div>
+
+                        <script>
+
+                            function mostrarPassword() {
+                                var cambio = document.getElementById("txt_descripcion_Usuario");
+                                if (cambio.type == "password") {
+                                    cambio.type = "text";
+                                    $('#ViewPass').removeClass('glyphicon glyphicon-eye-close').addClass('glyphicon glyphicon-eye-open');
+                                } else {
+                                    cambio.type = "password";
+                                    $('#ViewPass').removeClass('glyphicon glyphicon-eye-open').addClass('glyphicon glyphicon-eye-close');
+                                }
+                            }
+
+
+                            function NumText(string) {//solo letras y numeros
+                                var out = '';
+                                //Se añaden las letras validas
+                                var filtro = 'abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ1234567890';//Caracteres validos
+
+                                for (var i = 0; i < string.length; i++)
+                                    if (filtro.indexOf(string.charAt(i)) != -1)
+                                        out += string.charAt(i);
+                                return out;
+                            }
+
+
+                            function CaracteresValidos(string) {//Filtro de letras, numeros y otros caracteres simbólicos, validos.
+                                var out = '';
+                                //Se añaden las letras validas
+                                var filtro = 'abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ1234567890_-+.,;"#$%&[]{}=()?¡*:/!';//Caracteres validos
+
+                                for (var i = 0; i < string.length; i++)
+                                    if (filtro.indexOf(string.charAt(i)) != -1)
+                                        out += string.charAt(i);
+                                return out;
+
+                            }
+
+                        </script>
+
+                        <input type="hidden" id="idLegal" />
+                        <input type="hidden" id="idPerLeg" />
+
+                        <script>
+
+
+                            $('#CargarImagen').change(function (e) {
+                                CargoImagen();
+                            });
+
+                            document.getElementById('delete').onclick = function () {
+                                $('#VistaPrevia').html('<img src = "/DirLogosRuta/descarga(1)_1.jpg" style="width:100%;height:100%" />');
+                                $('#txtImagenEmpresa').val('');
+                                return false;
+                            }
+
+
+
+                            function CargoImagen() {
+                                var formdata = new FormData(); //FormData object
+                                var fileInput = document.getElementById('CargarImagen');
+                                //Iterating through each files selected in fileInput
+                                for (i = 0; i < fileInput.files.length; i++) {
+                                    //Appending each file to FormData object
+                                    formdata.append(fileInput.files[i].name, fileInput.files[i]);
+                                }
+                                //Creating an XMLHttpRequest and sending
+                                var xhr = new XMLHttpRequest();
+
+
+
+                                //IMPORTANTE:
+                                //Silvia  me dejo una observacion respecto al hecho de que el usuario puede cargar mas
+                                // de 10 imagenes al servidor pero solo se registra una pero las otras nuevas si se cargaron
+                                //controlar que se visualize tenporalmente y cuando se de registrar recien se efectue la carga
+                                //al servidor
+
+
+                                xhr.open('POST', '/Personal/UploadEmpresa');
+                                xhr.send(formdata);
+                                xhr.onreadystatechange = function () {
+                                    if (xhr.readyState == 4 && xhr.status == 200) {
+                                        console.log(xhr);
+                                        DirLocal = xhr.responseText;
+
+                                        $('#VistaPrevia').html('<img id="imgCarga" src=' + DirLocal + ' style="width:100%;height:100%" />');
+                                        // document.getElementById('imgCarga').setAttribute('src', DirLocal);
+                                        $('#txtImagenEmpresa').val(DirLocal);
+                                    }
+                                }
+
+
+                                return false;
+
+                            }
+
+                        </script>
+                    </form>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+<script src="~/Scripts/Mantenimientos/Script_GestionMarca.js"></script>

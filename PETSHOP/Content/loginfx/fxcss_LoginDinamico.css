@@ -1,0 +1,813 @@
+@charset "UTF-8";
+
+body {
+    background: #e9e9e9;
+    color: #666666;
+    font-family: "RobotoDraft", "Roboto", sans-serif;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Pen Title */
+.pen-title {
+    /*padding: 50px 0;*/
+    padding: 30px 0;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+    .pen-title h1 {
+        margin: 0 0 20px;
+        font-size: 48px;
+        font-weight: 300;
+    }
+
+    .pen-title span {
+        font-size: 12px;
+    }
+
+        .pen-title span .fa {
+            color: #ed2553;
+        }
+
+        .pen-title span a {
+            color: #ed2553;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+/* Rerun */
+.rerun {
+    margin: 0 0 30px;
+    text-align: center;
+}
+
+    .rerun a {
+        cursor: pointer;
+        display: inline-block;
+        background: #ed2553;
+        border-radius: 3px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        padding: 10px 20px;
+        color: #ffffff;
+        text-decoration: none;
+        transition: 0.3s ease;
+    }
+
+        .rerun a:hover {
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        }
+
+/* Scroll To Bottom */
+#codepen, #portfolio {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #363636;
+    width: 56px;
+    height: 56px;
+    border-radius: 100%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: 0.3s ease;
+    color: #ffffff;
+    text-align: center;
+}
+
+    #codepen i, #portfolio i {
+        line-height: 56px;
+    }
+
+    #codepen:hover, #portfolio:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    }
+
+/* CodePen */
+#portfolio {
+    bottom: 96px;
+    right: 36px;
+    background: #ed2553;
+    width: 44px;
+    height: 44px;
+    -webkit-animation: buttonFadeInUp 1s ease;
+    animation: buttonFadeInUp 1s ease;
+}
+
+    #portfolio i {
+        line-height: 44px;
+    }
+
+
+
+
+/* Container */
+.container {
+    position: relative;
+    max-width: 460px;
+    width: 100%;
+    /*margin: 250px auto 100px;*/
+}
+
+
+/**************************** SEGUNDO FORM ****************************/
+/**********************************************************************/
+
+.container.active .card:first-child {
+    background: #f2f2f2;
+    margin: 0 15px;
+}
+
+    .container.active .card:nth-child(2) {
+        background: #fafafa;
+        margin: 0 10px;
+    }
+
+    .container.active .card.alt {
+        top: 20px;
+        right: 5px;
+        width: 94%;
+        /*min-width: 100%;*/
+        height: 543px; /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ALTO DEL DIV VERDE CAMBIAR CONTRASEÑA*/
+        border-radius: 25px;
+        padding: 60px 0 60px;
+        overflow: hidden;
+        box-shadow: 0 0 15px 5px;
+    }
+
+        .container.active .card.alt .toggle {
+            position: absolute;
+            top: 258px;
+            right: 157px;
+            box-shadow: none;
+            transform: scale(20); /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++radius*/ /*cambiado de 10 a 15*/
+            transition: transform 0.4s ease;
+            background: #32a089; /*+++++++++++++++ SEGUNDO COLOR +++++++++++++++++++++++++++++++++++++*/
+            box-shadow: 0 0 15px 5px;
+        }
+
+            .container.active .card.alt .toggle:before {
+                content: "";
+            }
+
+        .container.active .card.alt .title,
+        .container.active .card.alt .input-container,
+        .container.active .card.alt .button-container {
+            left: 0;
+            opacity: 1;
+            visibility: visible;
+            transition: 0.3s ease;
+        }
+
+        .container.active .card.alt .title {
+            transition-delay: 0.3s;
+          
+        }
+
+        .container.active .card.alt .input-container {
+            transition-delay: 0.4s;
+        }
+
+            .container.active .card.alt .input-container:nth-child(2) {
+                transition-delay: 0.5s;
+            }
+
+            .container.active .card.alt .input-container:nth-child(3) {
+                transition-delay: 0.6s;
+            }
+
+        .container.active .card.alt .button-container {
+            transition-delay: 0.7s;
+        }
+
+
+
+
+@-webkit-keyframes autofill {
+    0%,100% {
+        color: #666;
+        background: transparent;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Card */
+.card {
+    position: relative;
+    /*background: #ffffff;*/
+    background: #f8f9fa;
+    border-radius: 25px; /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++radius*/
+    padding: 70px 0 70px 0;
+    box-sizing: border-box;
+    /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);*/
+    box-shadow: 0 0 15px 5px; /*+++++++++++++ sombra div shadows ++++++++++++++++++++++++++++++++++++++++++++++++++++radius*/
+    transition: 0.3s ease;
+    /*left: 50%;
+    right: 50%;*/
+    /* Title */
+    /* Inputs */
+    /* Button */
+    /* Footer */
+    /* Alt Card */
+    height: 90%;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .card:first-child {
+        background: #fafafa;
+        height: 10px;
+        border-radius: 5px 5px 0 0;
+        margin: 0 10px;
+        padding: 0;
+    }
+
+    .card .title {
+        position: relative;
+        z-index: 1;
+        border-left: 15px solid #417eaa;
+        margin: 0 0 35px;
+        padding: 10px 0 10px 50px;
+        /*color: #ed2553;*/
+        /*color: #3996da;*/
+        color: #417eaa;
+        font-size: 38px;
+        font-weight: 600;
+        /*text-transform: uppercase;*/
+    }
+
+
+.form-control {
+    /* display: block; */
+    /* width: 100%; */
+    /* height: 34px; */
+    /* padding: 6px 12px; */
+    /* font-size: 14px; */
+    /* line-height: 1.42857143; */
+    /* color: #555; */
+    /* background-color: #fff; */
+    /* background-image: none; */
+    /* border: 1px solid #ccc; */
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 0%);   /*//BORDE MINNIMO DEL SHADOW COLOR EN EL INPUT*/
+
+    /* -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s; */
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .card .input-container {
+        position: relative;
+        margin: 0 60px 40px;
+    }
+
+        .card .input-container input {
+            outline: none;
+            z-index: 1;
+            position: relative;
+            background: none;
+            width: 100%;
+            height: 60px;
+            border: 0;
+            color: #212121;
+            font-size: 24px;
+            font-weight: 400;
+        }
+
+            .card .input-container input:focus ~ label {
+                color: #9d9d9d;
+                transform: translate(-12%, -50%) scale(0.75);
+            }
+
+            .card .input-container input:focus ~ .bar:before, .card .input-container input:focus ~ .bar:after {
+                width: 50%;
+            }
+
+            .card .input-container input:valid ~ label {
+                color: #9d9d9d;
+                transform: translate(-12%, -50%) scale(0.75);
+            }
+
+        .card .input-container label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: #757575;
+            font-size: 24px;
+            font-weight: 300;
+            line-height: 60px;
+            transition: 0.2s ease;
+        }
+
+        .card .input-container .bar {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background: #757575;
+            width: 100%;
+            height: 1px;
+        }
+
+            .card .input-container .bar:before, .card .input-container .bar:after {
+                content: "";
+                position: absolute;
+                background: #0078d0;
+                /*background: #ed2553; rojo*/
+                width: 0;
+                height: 2px;
+                transition: 0.2s ease;
+            }
+
+            .card .input-container .bar:before {
+                left: 50%;
+            }
+
+            .card .input-container .bar:after {
+                right: 50%;
+            }
+
+    .card .button-container {
+        margin: 0 60px;
+        text-align: center;
+    }
+
+        .card .button-container button {
+            /*outline: 0;
+            cursor: pointer;
+            position: relative;
+            display: inline-block;
+            background: 0;
+            width: 240px;
+            border: 2px solid #e3e3e3;
+            padding: 20px 0;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1;
+            text-transform: uppercase;
+            overflow: hidden;
+            transition: 0.3s ease;*/
+        }
+
+            .card .button-container button span {
+                position: relative;
+                z-index: 1;
+                /*color: #ddd;*/
+                transition: 0.3s ease;
+            }
+
+            .card .button-container button:before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                /*display: block;*/
+                /*background: #ed2553;*/
+                width: 30px;
+                height: 30px;
+                border-radius: 100%;
+                margin: -15px 0 0 -15px;
+                opacity: 0;
+                transition: 0.3s ease;
+            }
+
+            .card .button-container button:hover, .card .button-container button:active, .card .button-container button:focus {
+                /*border-color: #ed2553;*/
+            }
+
+                .card .button-container button:hover span, .card .button-container button:active span, .card .button-container button:focus span {
+                    /*color: #ed2553;*/
+                }
+
+                .card .button-container button:active span, .card .button-container button:focus span {
+                    /*color: #ffffff;*/
+                }
+
+                .card .button-container button:active:before, .card .button-container button:focus:before {
+                    opacity: 1;
+                    transform: scale(10);
+                }
+
+    .card .footer {
+        margin: 40px 0 0;
+        color: #d3d3d3;
+        font-size: 24px;
+        font-weight: 300;
+        text-align: center;
+    }
+
+        .card .footer a {
+            color: inherit;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+            .card .footer a:hover {
+                color: #bababa;
+            }
+
+/*.card.alt {
+    position: absolute;
+    top: 40px;
+    right: -70px;
+    z-index: 10;
+    width: 140px;
+    height: 140px;
+    background: none;
+    border-radius: 100%;
+    padding: 0;
+    transition: 0.3s ease;
+    
+}*/
+.card.alt {
+    position: absolute;
+    top: -14px;
+    right: -17px;
+    z-index: 10;
+    width: 90px;
+    height: 90px;
+    background: none;
+    border-radius: 100%;
+    /* box-shadow: 0 0 15px 5px; */
+    padding: 0;
+    transition: 0.3s ease;
+}
+
+
+
+
+
+    .card.alt .toggle {
+        /*background: #ed2553;*/
+        position: relative;
+        background: #9696b1; /*++++++++++++++++++++++++  color +++++++++++++++++++++++++++*/
+        border-radius: 17px;
+        /*background: transparent;*/
+        /*width: 140px;
+            height: 140px;*/
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        color: #ffffff;
+        font-size: 58px;
+        line-height: 140px;
+        text-align: center;
+        cursor: pointer;
+        z-index: 0;
+        top: 26px;
+        right: -26px;
+    }
+
+            .card.alt .toggle:before {
+                /*content: "";*/
+                /*content: "\f06e";*/ /*++++++++++++++++++++++++++++++++++++++++++++++++++++++ojito*/
+                content: "\f007"; /*++++++++++++++++++++++++++++++++++++++++++++++++++++++ojito*/
+        
+                /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ICONO LAPIZ*/
+                display: inline-block;
+                font: normal normal normal 14px/1 FontAwesome;
+                /*font-size: inherit;*/
+                font-size: 25px;
+                text-rendering: auto;
+                top: -61px; /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ICONO DISTANCIA*/
+                position: relative;
+                /*background-image: linear-gradient(45deg, #6767ED 45%, #4DAEF2 75%);*/
+                /*-webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+
+                transform: translate(0, 0);*/
+            }
+
+    .card.alt .title,
+    .card.alt .input-container,
+    .card.alt .button-container{
+        left: 100px;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+        .card.alt .title {
+            position: relative;
+            border-color: #ffffff;
+            color: #ffffff;
+        }
+
+            .card.alt .title .close {
+                cursor: pointer;
+                position: absolute;
+                top: -77px;
+                right: 10px;
+                display: inline;
+                color: #ffffff;
+                font-size: 58px;
+                font-weight: 400;
+            }
+
+                .card.alt .title .close:before {
+                    content: "×";
+                }
+
+        .card.alt .input-container input {
+            color: #ffffff;
+        }
+
+            .card.alt .input-container input:focus ~ label {
+                color: #ffffff;
+            }
+
+            .card.alt .input-container input:focus ~ .bar:before, .card.alt .input-container input:focus ~ .bar:after {
+                background: #ffffff;
+            }
+
+            .card.alt .input-container input:valid ~ label {
+                color: #ffffff;
+            }
+
+        .card.alt .input-container label {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .card.alt .input-container .bar {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .card.alt .button-container button {
+            width: 100%;
+            background: #ffffff;
+            border-color: #ffffff;
+        }
+
+            .card.alt .button-container button span {
+                color: #101010;
+            }
+
+            .card.alt .button-container button:hover {
+                background: rgba(255, 255, 255, 0.9);
+            }
+
+            .card.alt .button-container button:active:before,
+            .card.alt .button-container button:focus:before {
+                display: none;
+            }
+
+/* Keyframes */
+@-webkit-keyframes buttonFadeInUp {
+    0% {
+        bottom: 30px;
+        opacity: 0;
+    }
+}
+
+@keyframes buttonFadeInUp {
+    0% {
+        bottom: 30px;
+        opacity: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS BOTON INGRESAR DEL FORMULARIO DEL LOGIN */
+.button-71 {
+    background-color: #0078d0;
+    border: 0;
+    border-radius: 56px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: system-ui,-apple-system,system-ui,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    outline: 0;
+    padding: 16px 21px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+    .button-71:before {
+        background-color: initial;
+        background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
+        border-radius: 125px;
+        content: "";
+        height: 50%;
+        left: 4%;
+        opacity: .5;
+        position: absolute;
+        top: 0;
+        transition: all .3s;
+        width: 92%;
+    }
+
+    .button-71:hover {
+        box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+        transform: scale(1.05);
+    }
+
+@media (min-width: 768px) {
+    .button-71 {
+        padding: 10px 78px;
+        margin-top: 10px;
+        /*padding: 16px 48px;*/
+    }
+}
+
+
+/* CSS BOTON INGRESAR DEL FORMULARIO DEL LOGIN */
+.button-72 {
+    background-color: #0078d0;
+    border: 0;
+    border-radius: 56px;
+    color: #fff;
+    cursor: pointer;
+    /*display: inline-block;*/
+    font-family: system-ui,-apple-system,system-ui,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    outline: 0;
+    padding: 16px 21px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+    .button-72:before {
+        background-color: initial;
+        background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
+        border-radius: 125px;
+        content: "";
+        height: 50%;
+        left: 4%;
+        opacity: .5;
+        position: absolute;
+        top: 0;
+        transition: all .3s;
+        width: 92%;
+    }
+
+    .button-72:hover {
+        box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+        transform: scale(1.05);
+    }
+
+@media (min-width: 768px) {
+    .button-72 {
+        padding: 10px 78px;
+        margin-top: 10px;
+        /*padding: 16px 48px;*/
+    }
+}
+
+
+
+
+
+
+
+
+
+#fixedBottonFooter {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+
+
+.card {
+    box-shadow: 0 0 15px 5px;
+    /*background-color: #32a089;*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/**********************************************************************************************
+    
+   UNICO BLOQUEDE CSS DE LA NIMACION DEL DOG PARA EL FORMULARIO DEL LOGIN
+
+**********************************************************************************************/
+
+
+/*body,
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}*/
+
+#svgContainer {
+    position: fixed;
+    left: 50%;
+    transform: translate(-60%, -13%);
+    z-index: 7;
+    max-width: 280px;
+    /*margin-top: -10px;
+    top: -100px;
+ 
+    position: fixed;
+    left: auto;
+    right: auto;*/
+}
+
+/*.but {
+    width: 80px;
+    color: #000;
+    &:hover
+
+{
+    background-color: darken(#219ada, 10%);
+}
+
+}*/
+
+#div_but {
+    max-width: 500px;
+    /*margin-left: auto;
+    margin-right: auto;*/
+    margin-top: 1px;
+    /*z-index: 30000;*/
+}
+
+

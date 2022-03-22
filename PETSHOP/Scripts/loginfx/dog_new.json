@@ -1,0 +1,137 @@
+[{
+  "version": "1.0",
+  "image": {
+    "name": "/home/videosdownloader/public_html/image/public/uploadt/image2VectorSplit.svg",
+    "baseName": "image2VectorSplit.svg",
+    "format": "SVG",
+    "formatDescription": "SVG",
+    "mimeType": "image/svg+xml",
+    "class": "DirectClass",
+    "geometry": {
+      "width": 800,
+      "height": 800,
+      "x": 0,
+      "y": 0
+    },
+    "units": "Undefined",
+    "type": "TrueColorAlpha",
+    "baseType": "Undefined",
+    "endianness": "Undefined",
+    "colorspace": "sRGB",
+    "depth": 16,
+    "baseDepth": 16,
+    "channelDepth": {
+      "alpha": 1,
+      "red": 16,
+      "green": 16,
+      "blue": 1
+    },
+    "pixels": 2560000,
+    "imageStatistics": {
+      "Overall": {
+        "min": 0,
+        "max": 65535,
+        "mean": 62170.9,
+        "median": 65535,
+        "standardDeviation": 8952.47,
+        "kurtosis": 10.9083,
+        "skewness": -3.44602,
+        "entropy": 0.0806567
+      }
+    },
+    "channelStatistics": {
+      "alpha": {
+        "min": 65535,
+        "max": 65535,
+        "mean": 65535,
+        "median": 65535,
+        "standardDeviation": 0,
+        "kurtosis": 8.192e+51,
+        "skewness": 1e+36,
+        "entropy": 0
+      },
+      "red": {
+        "min": 0,
+        "max": 65535,
+        "mean": 61767.2,
+        "median": 65535,
+        "standardDeviation": 10878.9,
+        "kurtosis": 7.98005,
+        "skewness": -3.02081,
+        "entropy": 0.107024
+      },
+      "green": {
+        "min": 0,
+        "max": 65535,
+        "mean": 61084.2,
+        "median": 65535,
+        "standardDeviation": 11967.9,
+        "kurtosis": 7.03527,
+        "skewness": -2.88666,
+        "entropy": 0.107877
+      },
+      "blue": {
+        "min": 0,
+        "max": 65535,
+        "mean": 60297.1,
+        "median": 65535,
+        "standardDeviation": 12963.2,
+        "kurtosis": 6.02504,
+        "skewness": -2.68802,
+        "entropy": 0.107726
+      }
+    },
+    "renderingIntent": "Perceptual",
+    "gamma": 0.454545,
+    "chromaticity": {
+      "redPrimary": {
+        "x": 0.64,
+        "y": 0.33
+      },
+      "greenPrimary": {
+        "x": 0.3,
+        "y": 0.6
+      },
+      "bluePrimary": {
+        "x": 0.15,
+        "y": 0.06
+      },
+      "whitePrimary": {
+        "x": 0.3127,
+        "y": 0.329
+      }
+    },
+    "matteColor": "#BDBDBD",
+    "backgroundColor": "#FFFFFF",
+    "borderColor": "#DFDFDF",
+    "transparentColor": "#00000000",
+    "interlace": "None",
+    "intensity": "Undefined",
+    "compose": "Over",
+    "pageGeometry": {
+      "width": 800,
+      "height": 800,
+      "x": 0,
+      "y": 0
+    },
+    "dispose": "Undefined",
+    "iterations": 0,
+    "compression": "Undefined",
+    "orientation": "Undefined",
+    "properties": {
+      "date:create": "2022-03-19T19:04:48+00:00",
+      "date:modify": "2022-03-19T19:04:48+00:00",
+      "signature": "a88ab7b98e523c48069090e0ca625fdcba9ffbe37d27224b331fed8695d3d1ee"
+    },
+    "artifacts": {
+      "mvg:vector-graphics": "push graphic-context\ncompliance \"SVG\"\nfill \"black\"\nfill-opacity 1\nstroke \"none\"\nstroke-width 1\nstroke-opacity 1\nfill-rule nonzero\nviewbox 0 0 800 800\naffine 1 0 0 1 0 0\npush graphic-context \"shadow\"\npush graphic-context\nopacity \"0.4\"\nfill \"#1A1A1A\"\nellipse 301,493.834 174,16.166 0,360\npop graphic-context\npop graphic-context\npush graphic-context \"Regina\"\npush graphic-context \"leftArm\"\nfill \"#D8CAB6\"\npath \"M161,429c0-17.121-13.879-31-31-31l0,0c-17.121,0-31,13.879-31,31l0,0   c0,17.121,13.879,31,31,31l0,0C147.121,460,161,446.121,161,429L161,429z\"\npop graphic-context\npush graphic-context \"righArm\"\nfill \"#D8CAB6\"\npath \"M500,429c0-17.121-13.879-31-31-31l0,0c-17.121,0-31,13.879-31,31l0,0   c0,17.121,13.879,31,31,31l0,0C486.121,460,500,446.121,500,429L500,429z\"\npop graphic-context\npush graphic-context \"body\"\nfill \"#F4E9D7\"\nellipse 299.379,324.324 205.15,175.892 0,360\npop graphic-context\npush graphic-context \"eyes\"\npush graphic-context \"rightEye\"\npush graphic-context\nfill \"#756456\"\nellipse 404.135,336.351 60.919,53.872 0,360\npop graphic-context\npush clip-path \"SVGID_2_\"\npush graphic-context\nuse \"url(#SVGID_1_)\"\npop graphic-context\npop clip-path\npush graphic-context \"rightSocket\"\nclip-path \"url(#SVGID_2_)\"\npush defs\npush graphic-context \"SVGID_1_\"\ncircle 396.135,331.351 396.135,364.351\npop graphic-context\npop defs\npush graphic-context\nfill \"#FFFFFF\"\ncircle 396.135,331.352 396.135,363.352\npop graphic-context\npush graphic-context \"rightPupil\"\nclip-path \"url(#SVGID_2_)\"\ncircle 396.165,331.593 396.165,358.079\npop graphic-context\npush graphic-context \"rightLid\"\nfill \"#4C3E33\"\nrectangle 310.455,271.422 482.455,329.422\npop graphic-context\npop graphic-context\npop graphic-context\npush graphic-context \"leftEye\"\npush graphic-context\nfill \"#756456\"\nellipse 197.135,336.351 60.918,53.871 0,360\npop graphic-context\npush graphic-context\npush graphic-context\nfill \"#FFFFFF\"\ncircle 205.135,331.352 205.135,363.352\npop graphic-context\npop graphic-context\npush clip-path \"SVGID_4_\"\npush graphic-context\nuse \"url(#SVGID_3_)\"\npop graphic-context\npop clip-path\npush graphic-context\nclip-path \"url(#SVGID_4_)\"\npush defs\npush graphic-context \"SVGID_3_\"\ncircle 205.135,331.352 205.135,364.352\npop graphic-context\npop defs\npush graphic-context \"leftPupil\"\nclip-path \"url(#SVGID_4_)\"\ncircle 205,331.11 205,357.597\npop graphic-context\npush graphic-context \"leftLid\"\nfill \"#4C3E33\"\nrectangle 121.066,271.324 293.066,329.323\npop graphic-context\npop graphic-context\npop graphic-context\npop graphic-context\npush graphic-context \"snout\"\npush graphic-context\nfill \"#635244\"\npath \"M402.41,403.775c5.652,23.979-0.755,42.056-19.152,52.771   c-18.079,10.944-48.147,14.527-82.447,14.821c-34.3-0.294-64.368-3.877-82.446-14.821c-18.398-10.716-24.805-28.793-19.154-52.771   c13.154-49.107,58.795-86.567,101.6-85.398C343.616,317.208,389.257,354.668,402.41,403.775z\"\npop graphic-context\npush graphic-context \"tounge\"\nfill \"#F4CEEC\"\npath \"M299.75,414h0.5c12.012,0,21.75-11.739,21.75-26.219v0.051   c-8.963-5.676-16.832-8.83-21.465-8.83c-5.167,0-13.381,3.25-22.535,9.091v-0.312C278,402.261,287.738,414,299.75,414z\"\npop graphic-context\npush graphic-context \"lip\"\npush graphic-context\nfill \"#706055\"\npath \"M373.611,460c16.245-11,21.902-27.944,16.912-50.904c-11.614-47.023-51.916-82.988-89.713-81.869    c-37.796-1.119-78.098,34.704-89.712,81.728c-4.771,21.952,0.199,38.711,14.841,49.11c9.854-45.241,57.47-78.843,74.039-78.843    c15.131,0,65.022,33.384,74.022,78.855v0.776c0,0.195-0.352,0.146-0.654,1.146H373.611z\"\npop graphic-context\npush graphic-context\nfill \"none\"\nstroke \"#534741\"\nstroke-width 2\nstroke-miterlimit \"10\"\nline 300,348 300,379\npop graphic-context\npop graphic-context\npush graphic-context \"nose\"\npath \"M273.268,334.087c-1.477-6.793,0.197-11.915,5.004-14.95c4.723-3.102,12.579-4.116,21.54-4.199   c8.96,0.083,16.817,1.098,21.54,4.199c4.807,3.035,6.48,8.157,5.004,14.95c-3.436,13.913-15.36,24.526-26.543,24.194   C288.628,358.613,276.704,348,273.268,334.087z\"\npop graphic-context\npop graphic-context\npush graphic-context \"ears\"\npush graphic-context\nfill \"#635244\"\npath \"M190.789,186.35c0,0-3.654-15.681-51.664-28.677c-19.325-5.231-77.572,40.583-86.027,62.565    c-8.456,21.982,10.146,23.25,41.428,19.023c31.283-4.227,43.12-31.89,46.501-33.819c3.381-1.93,4.336-7.084,22.305-0.774    C179.207,210.243,190.789,186.35,190.789,186.35z\"\npop graphic-context\npush graphic-context\nfill \"#635244\"\npath \"M412.059,186.35c0,0,3.654-15.681,51.664-28.677c19.324-5.231,77.571,40.583,86.026,62.565    c8.456,21.982-10.146,23.25-41.429,19.023c-31.282-4.227-43.119-31.89-46.501-33.819c-3.382-1.93-4.336-7.084-22.306-0.774    C423.641,210.243,412.059,186.35,412.059,186.35z\"\npop graphic-context\npop graphic-context\npop graphic-context\npop graphic-context\n"
+    },
+    "tainted": false,
+    "filesize": "4721B",
+    "numberPixels": "640000",
+    "pixelsPerSecond": "1.70825MB",
+    "userTime": "0.560u",
+    "elapsedTime": "0:01.374",
+    "version": "ImageMagick 7.0.10-58 Q16 x86_64 2021-01-14 https://imagemagick.org"
+  }
+}]

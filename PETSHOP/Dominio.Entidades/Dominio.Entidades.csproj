@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{05A62E27-F61C-4C07-9AF4-9D50C789BA12}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Dominio.Entidades</RootNamespace>
+    <AssemblyName>Dominio.Entidades</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DashboardTortas.cs" />
+    <Compile Include="ReporteExcelExportado.cs" />
+    <Compile Include="ReporteExcelsExportados.cs" />
+    <Compile Include="TablasExcelsConDataSQL.cs" />
+    <Compile Include="TablasGenerarTxt.cs" />
+    <Compile Include="TablaTbBienes.cs" />
+    <Compile Include="TablasEnCombos.cs" />
+    <Compile Include="TbBienesMovToBD.cs" />
+    <Compile Include="TbEmpleadoMov.cs" />
+    <Compile Include="TbConceptosMovil.cs" />
+    <Compile Include="TbParamsMovil.cs" />
+    <Compile Include="TbEstadoMov.cs" />
+    <Compile Include="TbEntidadMov.cs" />
+    <Compile Include="TbTipoMov.cs" />
+    <Compile Include="TbAreasMov.cs" />
+    <Compile Include="TbLocalMov.cs" />
+    <Compile Include="TbOficinaMov.cs" />
+    <Compile Include="TbBienesMov.cs" />
+    <Compile Include="AsigHorarioData.cs" />
+    <Compile Include="AsigHorario.cs" />
+    <Compile Include="AsistenciaData.cs" />
+    <Compile Include="Asistencia.cs" />
+    <Compile Include="Ausentismo.cs" />
+    <Compile Include="Ausentismos.cs" />
+    <Compile Include="CalculoPersonal.cs" />
+    <Compile Include="TablasSisActivoFijo.cs" />
+    <Compile Include="TablasGenerarExcel.cs" />
+    <Compile Include="CambioDI.cs" />
+    <Compile Include="CamposAdicionales.cs" />
+    <Compile Include="CamposAdicionales2.cs" />
+    <Compile Include="CamposAdicionalesGlobal.cs" />
+    <Compile Include="CargoData.cs" />
+    <Compile Include="Cargo.cs" />
+    <Compile Include="Categoria.cs" />
+    <Compile Include="Cliente.cs" />
+    <Compile Include="CCosto.cs" />
+    <Compile Include="CentroAlmacenamiento.cs" />
+    <Compile Include="ComedorMarcaConDni.cs" />
+    <Compile Include="RenombrarCampos.cs" />
+    <Compile Include="Consumo.cs" />
+    <Compile Include="DiaAusen.cs" />
+    <Compile Include="ExcelMasivo.cs" />
+    <Compile Include="EmpleadoMasivo.cs" />
+    <Compile Include="EN_TMEncuesta.cs" />
+    <Compile Include="GrupoLiquidacionData.cs" />
+    <Compile Include="HomeCabe.cs" />
+    <Compile Include="HorarioData.cs" />
+    <Compile Include="HorasDesc.cs" />
+    <Compile Include="IntervaloComedor_.cs" />
+    <Compile Include="JornadaComedorNoUsado.cs" />
+    <Compile Include="JornadaData.cs" />
+    <Compile Include="MarcaDni.cs" />
+    <Compile Include="PeriodoData.cs" />
+    <Compile Include="ReporteDiarioComedor.cs" />
+    <Compile Include="ReporteDiarioConcesionaria.cs" />
+    <Compile Include="ReporteTotalComedor.cs" />
+    <Compile Include="ReporteTotalConcesionaria.cs" />
+    <Compile Include="Respuesta.cs" />
+    <Compile Include="ResultImportExcel.cs" />
+    <Compile Include="RstaConexion.cs" />
+    <Compile Include="RstaDeleteConcepto.cs" />
+    <Compile Include="RstaInsertConcepto.cs" />
+    <Compile Include="RstaInsertImgEntity.cs" />
+    <Compile Include="RstaInsertMarcaEntity.cs" />
+    <Compile Include="RstaListComboConcepto.cs" />
+    <Compile Include="RstaListComboSustenta.cs" />
+    <Compile Include="RstaListConceptos.cs" />
+    <Compile Include="RstaListMarcaEntity.cs" />
+    <Compile Include="RstaValidPersonalEntity.cs" />
+    <Compile Include="RutaDirectorio.cs" />
+    <Compile Include="Sistema\TSParamsSaf.cs" />
+    <Compile Include="TCSERVICIO.cs" />
+    <Compile Include="TEXTO_DEL_CORREO.cs" />
+    <Compile Include="TEXTOCORREO.cs" />
+    <Compile Include="TGPERCOOR.cs" />
+    <Compile Include="TGREGLANEG_SERV_DET.cs" />
+    <Compile Include="TGREGLANEG_SUBSIDIO_DET.cs" />
+    <Compile Include="TGTipo.cs" />
+    <Compile Include="Imprimir.cs" />
+    <Compile Include="UnidadOrgData.cs" />
+    <Compile Include="ValidacionPorLongitudDeCampo.cs" />
+    <Compile Include="ValidacionesxLongitud.cs" />
+    <Compile Include="VariableData.cs" />
+    <Compile Include="CorreoEmp.cs" />
+    <Compile Include="DetEmpObs.cs" />
+    <Compile Include="Documento.cs" />
+    <Compile Include="EnCorreo.cs" />
+    <Compile Include="GrupoLiquidacion.cs" />
+    <Compile Include="Personal.cs" />
+    <Compile Include="PersonalCDI.cs" />
+    <Compile Include="Reporte.cs" />
+    <Compile Include="ReporteAsistencia.cs" />
+    <Compile Include="ReporteAusencia.cs" />
+    <Compile Include="ReporteDiario.cs" />
+    <Compile Include="ReporteFalta.cs" />
+    <Compile Include="ReporteM.cs" />
+    <Compile Include="ReporteOficial.cs" />
+    <Compile Include="ReportePuntualidad.cs" />
+    <Compile Include="ReporteRecordGeneral.cs" />
+    <Compile Include="ReporteResumenTotal.cs" />
+    <Compile Include="ReporteTardanza.cs" />
+    <Compile Include="RstaListaCoordEntity.cs" />
+    <Compile Include="Session_Movi.cs" />
+    <Compile Include="TGPER_CON_DET.cs" />
+    <Compile Include="TGPER_RESP.cs" />
+    <Compile Include="CombosGlobal.cs" />
+    <Compile Include="Concepto.cs" />
+    <Compile Include="DetalleHorJor.cs" />
+    <Compile Include="DetalleJerarquiaOrg.cs" />
+    <Compile Include="DetalleUnidadOrg.cs" />
+    <Compile Include="HorJor.cs" />
+    <Compile Include="Intervalos.cs" />
+    <Compile Include="JornadaxHorario.cs" />
+    <Compile Include="MaestroCaracteres.cs" />
+    <Compile Include="TGFER_UNIORG_DET.cs" />
+    <Compile Include="TGJOR_BON_DET.cs" />
+    <Compile Include="TGPERCORRDET.cs" />
+    <Compile Include="TGPERMARCDET.cs" />
+    <Compile Include="TGPERRESPDET.cs" />
+    <Compile Include="TGPERTELEFDET.cs" />
+    <Compile Include="TGPER_RESERVA.cs" />
+    <Compile Include="TGREGNEG_DET.cs" />
+    <Compile Include="TGREG_NEG_CONFIG_HORAS.cs" />
+    <Compile Include="TGTipoEN.cs" />
+    <Compile Include="Entidade.cs" />
+    <Compile Include="Estado.cs" />
+    <Compile Include="Feriado.cs" />
+    <Compile Include="Grupo.cs" />
+    <Compile Include="Horario.cs" />
+    <Compile Include="JerarquiaOrg.cs" />
+    <Compile Include="JerCampDet.cs" />
+    <Compile Include="Jornada.cs" />
+    <Compile Include="Marcador.cs" />
+    <Compile Include="Paises.cs" />
+    <Compile Include="Periodo.cs" />
+    <Compile Include="PersonalData.cs" />
+    <Compile Include="Planilla.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReglaNegocio.cs" />
+    <Compile Include="RepLegal.cs" />
+    <Compile Include="Sistema\TSConfi.cs" />
+    <Compile Include="TG_USUARIO.cs" />
+    <Compile Include="TipoPerson.cs" />
+    <Compile Include="TSPTAASISTENCIA.cs" />
+    <Compile Include="TSUSUAR_PERFI.cs" />
+    <Compile Include="TS_MENU.cs" />
+    <Compile Include="TS_MENU_PADRE.cs" />
+    <Compile Include="TS_PERFIL.cs" />
+    <Compile Include="TT_TGPERS_HORARIO_DET.cs" />
+    <Compile Include="TT_TSPERFIL_MENU.cs" />
+    <Compile Include="TT_TSUSUAR_FILTRO.cs" />
+    <Compile Include="Ubigeo.cs" />
+    <Compile Include="UnidadOrg.cs" />
+    <Compile Include="EmpleadoObs.cs" />
+    <Compile Include="ValidarIdentidad_DI.cs" />
+    <Compile Include="ValidarIdentidad_ENT.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

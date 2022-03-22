@@ -1,0 +1,82 @@
+﻿
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/************************************************************************
+                         DE AQUI SE RETIRO CODIGO EAL TRASLADARLO
+*************************************************************************/
+
+
+
+
+/************************************************************************
+                         botoncito_aniadir_fx
+*************************************************************************/
+
+
+.add-button {
+    height: 50px;
+    width: 50px;
+    background: #EC407A;
+    border-radius: 50%;
+    /*position: absolute;*/
+    /*left: 20px;*/
+    bottom: 20px;
+    color: #fff;
+    -webkit-box-pack: center;
+
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+  
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 40px;
+    font-size: 3.5rem;
+    font-weight: 500;
+    z-index: 5;
+    display: -webkit-box;
+ 
+    display: -ms-flexbox;
+    display: flex;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.4);
+    /*-webkit-transition: all .2s ease-out;*/
+    transition: all .2s ease-out;
+    cursor: pointer;
+}
+
+    .add-button.green {
+        background: #9CCC65;
+    }
+
+        .add-button.green:hover {
+            background: #AED581;
+        }
+
+    .add-button.blue {
+        background: #42A5F5;
+    }
+
+        .add-button.blue:hover {
+            background: #64B5F6;
+        }
+
+    .add-button:hover {
+        background: #F06292;
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+        -webkit-transition: all .2s ease-out;
+        transition: all .2s ease-out;
+    }

@@ -1,0 +1,282 @@
+
+@{
+    ViewBag.Title = "PaginaPrincipal";
+}
+
+<!-- ENCABEZADO DE TOTALES-->
+<div class="row tile_count">
+
+</div>
+
+
+<!-- /top tiles -->
+@*<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>*@
+@*<div>Screenshot tester</div>
+    <button onclick="report()">Take screenshot1</button>
+    <button onclick="report2()">Take screenshot2</button>*@
+@*<style>
+        .containerImagenCaptura {
+            margin-top: 10px;
+            border: solid 1px black;
+        }
+    </style>*@
+
+<script src="~/Scripts/html2canvas.min.js"></script>
+<div class="containerImagenCaptura">
+    <img style="width:75%; " class="screen" id="base64image">
+</div>
+
+@*<script>
+        function report() {
+            let region = document.querySelector("body"); // whole screen
+            html2canvas(region, {
+                onrendered: function (canvas) {
+                    let pngUrl = canvas.toDataURL(); // png in dataURL format
+                    let img = document.querySelector(".screen");
+                    img.src = pngUrl;
+
+                    // here you can allow user to set bug-region
+                    // and send it with 'pngUrl' to server
+                },
+            });
+        }
+    </script>*@
+
+
+
+<!-- "ETIQUETAS IMPRESAS"" GRAFICA CIRCULAR -->
+<div class="col-md-12 col-sm-4 col-xs-12">
+    @*col-md-4*@
+    <div class="x_panel" style="background-color:#ededed;">
+        <div class="x_title">
+            <h1>Gráfica Circular de Resumen de Productos</h1>
+            @*<h2 hidden>Bienes</h2>*@
+            <ul class="nav navbar-right panel_toolbox">
+                <li>
+                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="#">Settings 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Settings 2</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+
+            <div id="echart_pie_bienes" style="height:400px;"></div>
+
+        </div>
+    </div>
+</div>
+<!-- "TIPOS" GRAFICA CIRCULAR-->
+<div class="col-md-6 col-sm-4 col-xs-12" hidden>
+    @*col-md-4*@
+    <div class="x_panel">
+        <div class="x_title">
+            <h1>Ventas</h1>
+            @*<h2 hidden>Tipos</h2>*@
+            <ul class="nav navbar-right panel_toolbox">
+                <li>
+                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="#">Settings 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Settings 2</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+
+            <div id="echart_pie_tipos" style="height:400px;"></div>
+
+        </div>
+    </div>
+</div>
+<!-- "ETIQUETAS IMPRESAS"" GRAFICA CIRCULAR -->
+<div class="col-md-4 col-sm-4 col-xs-12" hidden>
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Etiquetas Impresas</h2>
+            <ul class="nav navbar-right panel_toolbox">
+                <li>
+                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="#">Settings 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Settings 2</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+
+            <div id="echart_pie_impresos" style="height:400px;"></div>
+
+        </div>
+    </div>
+</div>
+
+<div class="row" hidden>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="dashboard_graph">
+            <div class="row x_title">
+                <div class="col-md-8 col-sm-8 col-xs-8" style="padding-bottom:15px;">
+                    @*<h3>Resumen de Inventario de Bienes por Tipo <small></small></h3>*@
+                    <label class="control-label">&nbsp;</label>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <button type="button" class="btn btn-primary full-width esconder-botones" id="btn-generar-report-grafico-dashboard-crystal-SAF">GRAFICO</button>
+                    <button type="button" class="btn btn btn-danger full-width esconder-botones" id="btn-generar-report-grafico-dashboard-pdf-SAF">GRAFICO PDF</button>
+                </div>
+                @*<div class="col-lg-2 col-md-2 col-sm-2">
+                        <button type="button" class="btn btn btn-danger full-width esconder-botones" id="btn-generar-report-grafico-dashboard-pdf-SAF">GRAFICO PDF</button>
+                    </div>*@
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <button type="button" class="btn btn-primary full-width esconder-botones" id="btn-generar-report-resumen-dashboard-crystal-SAF">RESUMEN</button>
+                    <button type="button" class="btn btn-danger full-width esconder-botones" id="btn-generar-report-resumen-dashboard-pdf-SAF">RESUMEN PDF</button>
+                </div>
+                @*<div class="col-lg-2 col-md-2 col-sm-2">
+                        <button type="button" class="btn btn-danger full-width esconder-botones" id="btn-generar-report-resumen-dashboard-pdf-SAF">RESUMEN PDF</button>
+                    </div>*@
+
+                @*<div class="col-md-6 col-sm-6 col-xs-6 p-0">
+                        <div id="campJerar" class="pull-right range-datepicker AusentFec" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+                            <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                            <span>January 01, 2019 - January 28, 2019</span> <b class="caret"></b>
+                        </div>
+                    </div>*@
+                <!-- COMBO -->
+                @*<div class="col-md-6 col-sm-6 col-xs-12 " hidden>
+                        <label class="control-label">Seleccione Entidad</label>
+                        <select class="form-control" id="cbo_entidad">
+                            <option value="0" selected>Todos</option>
+                            <option value="1">Regular</option>
+                            <option value="2">Complementario</option>
+                        </select>
+                    </div>*@
+
+                @*<div class="d-inline-block " style="left:10%;">
+                        <div class="col-lg-3 col-md-1 col-sm-1 " hidden>
+                            <input type="button" id="btn-verificar-android-conectado" class="btn btn-success" value="Iniciar Transferencia" style="width:100%">
+                        </div>
+
+                        <div class="col-lg-3 col-md-1 col-sm-1 " hidden>
+                            <input type="button" id="btn-save-masivo" class="btn btn-primary" value="Cancelar" style="width:80%">
+                        </div>
+
+                        <div class="col-lg-3 col-md-1 col-sm-1 float-sm-left">
+                            <label class="control-label">&nbsp;</label>
+                            <button type="button" class="btn btn-primary full-width" id="btn-generar-report-principal-SAF">GENERAR</button>
+                        </div>
+
+
+                        <div class="clearfix"></div>
+                    </div>*@
+
+                @*<div class="col-lg-2 col-md-4 col-sm-4 col-xs-12">
+                        <label class="control-label">&nbsp;</label>
+                        <button type="button" class="btn btn-primary full-width" id="btn-Generar-CRYSTAL-Report-Saf">GENERAR</button>
+                    </div>*@
+
+
+            </div>
+            <div class="x_content">
+                <div id="mainPrincipalGraficaBarras" style="height:350px; " @**@>
+                </div>
+                @*<div id="graph_bar_group" style="width:100%; height:280px;"></div>*@
+                @*<div id="visitor_legend" class="bar-chart-legend"></div>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/util/SAF_PaginaPrincipal.js"></script>
+
+<style>
+    .bar-chart-legend {
+        text-align: center;
+    }
+
+        .bar-chart-legend .legend-item {
+            font-size: larger;
+        }
+
+        .bar-chart-legend .legend-color {
+            width: 20px;
+            height: 20px;
+            margin: 3px 5px;
+            display: inline-block;
+        }
+
+    #mainPrincipalGraficaBarras {
+        width: 100% !important;
+        /*background-color:mediumvioletred;*/
+    }
+    /*width: 100% !important;*/
+
+    /*SCREEN */
+    .right_colclass {
+        width: 1550px;
+    }
+
+    .bodyClass {
+        background-color: #f7f7f7;
+    }
+    /*SCREEN 90*/
+    .right_colclass90 {
+        width: 1250px;
+    }
+
+    .bodyClass90 {
+        background-color: #f7f7f7;
+    }
+    /*SCREEN 100*/
+    .right_colclass100 {
+        width: 1100px;
+    }
+
+    .bodyClass100 {
+        background-color: #f7f7f7;
+    }
+    /*SCREEN 110*/
+    .right_colclass110 {
+        width: 1000px;
+    }
+
+    .bodyClass110 {
+        background-color: #f7f7f7;
+    }
+</style>
+
