@@ -14,9 +14,9 @@
 //ICONO LOGO BAILANDO
 /////////////////////////////////////////////////////////////////////////////////
 var pigTrueFalse = false;
-function chanchito(){
+function chanchito() {
 
-    if(pigTrueFalse==false){
+    if (pigTrueFalse == false) {
         pigTrueFalse = true;
         $('.pigLoader').attr('id', 'loader');
         $('#Capa_1').attr('class', 'loader');
@@ -47,139 +47,139 @@ $(document).ready(function () {
     //        $(".btn-default").on("click", function () {
     //        $(".btn-group").removeClass("open").addClass("open");
     //});
-     $("#inputCapturarCodigoBarras").focus();
+    $("#inputCapturarCodigoBarras").focus();
     //Apenar se abre la ventana el puntero blinker aparece en este campo
-     //$("#inputIngresarIdProducto").focus();
+    //$("#inputIngresarIdProducto").focus();
 
-     //MOSTRAR EL MENU TOGGLE (tiene que ir en el ready de todos los mantenimientos)
-     $('.nav_menu').show();
+    //MOSTRAR EL MENU TOGGLE (tiene que ir en el ready de todos los mantenimientos)
+    $('.nav_menu').show();
 
-            //$(".remove").click(function () {
-            //    var el = $(this);
-            //    el.parent().parent().addClass("removed");
-            //    window.setTimeout(
-            //        function () {
-            //            el.parent().parent().slideUp('fast', function () {
-            //                el.parent().parent().remove();
-            //                if ($(".product").length == 0) {
-            //                    if (check) {
-            //                        $("#cart").html("<h1>The shop does not function, yet!</h1><p>If you liked my shopping cart, please take a second and heart this Pen on <a href='https://codepen.io/ziga-miklic/pen/xhpob'>CodePen</a>. Thank you!</p>");
-            //                    } else {
-            //                        $("#cart").html("<h1>No products!</h1>");
-            //                    }
-            //                }
-            //                changeTotal();
-            //            });
-            //        }, 200);
-            //});
+    //$(".remove").click(function () {
+    //    var el = $(this);
+    //    el.parent().parent().addClass("removed");
+    //    window.setTimeout(
+    //        function () {
+    //            el.parent().parent().slideUp('fast', function () {
+    //                el.parent().parent().remove();
+    //                if ($(".product").length == 0) {
+    //                    if (check) {
+    //                        $("#cart").html("<h1>The shop does not function, yet!</h1><p>If you liked my shopping cart, please take a second and heart this Pen on <a href='https://codepen.io/ziga-miklic/pen/xhpob'>CodePen</a>. Thank you!</p>");
+    //                    } else {
+    //                        $("#cart").html("<h1>No products!</h1>");
+    //                    }
+    //                }
+    //                changeTotal();
+    //            });
+    //        }, 200);
+    //});
 
-     $(".qt-plus").click(function () {
+    $(".qt-plus").click(function () {
 
-                $(".qt").html(parseInt($(".qt").html()) + 1);
-                //$(this).parent().children(".qt").html(parseInt($(this).parent().children(".qt").html()) + 1);
-       
+        $(".qt").html(parseInt($(".qt").html()) + 1);
+        //$(this).parent().children(".qt").html(parseInt($(this).parent().children(".qt").html()) + 1);
 
-                //$(this).parent().children(".full-price").addClass("added");
-                //$(".full-price").addClass("added");
 
-                var el = $(this);
-                //window.setTimeout(function () { el.parent().children(".full-price").removeClass("added"); changeVal(el); }, 150);
-                window.setTimeout(function () { $(".full-price").removeClass("added"); changeVal(el); }, 150);
-            });
+        //$(this).parent().children(".full-price").addClass("added");
+        //$(".full-price").addClass("added");
 
-     $(".qt-minus").click(function () {
+        var el = $(this);
+        //window.setTimeout(function () { el.parent().children(".full-price").removeClass("added"); changeVal(el); }, 150);
+        window.setTimeout(function () { $(".full-price").removeClass("added"); changeVal(el); }, 150);
+    });
 
-                child = $(".qt");
-                //child = $(this).parent().children(".qt");
+    $(".qt-minus").click(function () {
 
-                if (parseInt(child.html()) > 1) {
-                    child.html(parseInt(child.html()) - 1);
-                }
+        child = $(".qt");
+        //child = $(this).parent().children(".qt");
 
-                //$(".full-price").addClass("minused");
-                //$(this).parent().children(".full-price").addClass("minused");
+        if (parseInt(child.html()) > 1) {
+            child.html(parseInt(child.html()) - 1);
+        }
 
-                var el = $(this);
-                window.setTimeout(function () { $(".full-price").removeClass("minused"); changeVal(el); }, 150);
-                //window.setTimeout(function () { el.parent().children(".full-price").removeClass("minused"); changeVal(el); }, 150);
-            });
+        //$(".full-price").addClass("minused");
+        //$(this).parent().children(".full-price").addClass("minused");
 
-     window.setTimeout(function () { $(".is-open").removeClass("is-open") }, 1200);
+        var el = $(this);
+        window.setTimeout(function () { $(".full-price").removeClass("minused"); changeVal(el); }, 150);
+        //window.setTimeout(function () { el.parent().children(".full-price").removeClass("minused"); changeVal(el); }, 150);
+    });
 
-     $(".btn").click(function () {
-         check = true;
-         $(".remove").click();
-     });
+    window.setTimeout(function () { $(".is-open").removeClass("is-open") }, 1200);
+
+    $(".btn").click(function () {
+        check = true;
+        $(".remove").click();
+    });
 });
 
- document.getElementById('b3').onclick = function () {
-              //$(".sweet-alert").css("background-color", "transparent");
-              $(".fix").css("background-color", "transparent");
-              // $(".succes").css("background-color","transparent");
-              $(".b3").css("background-color", "blue");
-              $(".sweet-overlay").css("background-color", "rgba(0, 0, 0, 0.4)");
-              // $(".sweet-alert .icon.success:before").css("background-color","transparent");
-              // swal({
-              //   position: 'top-end',
-              //   icon: 'success',
-              //   title: 'Your work has been saved',
-              //   showConfirmButton: false,
-              //   timer: 1500
-              // })
-              // .sweet-alert .icon.success {
-              //     border-color: #A5DC86;
-              // }
+document.getElementById('b3').onclick = function () {
+    //$(".sweet-alert").css("background-color", "transparent");
+    $(".fix").css("background-color", "transparent");
+    // $(".succes").css("background-color","transparent");
+    $(".b3").css("background-color", "blue");
+    $(".sweet-overlay").css("background-color", "rgba(0, 0, 0, 0.4)");
+    // $(".sweet-alert .icon.success:before").css("background-color","transparent");
+    // swal({
+    //   position: 'top-end',
+    //   icon: 'success',
+    //   title: 'Your work has been saved',
+    //   showConfirmButton: false,
+    //   timer: 1500
+    // })
+    // .sweet-alert .icon.success {
+    //     border-color: #A5DC86;
+    // }
 
 
-              //$(".sweet-overlay").show();
-              
-
-              swal("Good job!", "Procesado Correctamente!", "success");
-
-              
-              $(".sweet-alert p").hide();
-              $(".sweet-alert h2").hide();
-              $(".sa-fix").hide();
-              $(".confirm").hide();
-              //$(".sa-button-container").hide();              
-              $(".sa-line").css("background-color", "#52e200");
-              $(".sa-fix").css("background-color", "transparent");
-              $(".sweet-alert .sa-icon.sa-success").css("border-color", "#52e200");
-              //$(".sweet-alert").toggleClass('sweet-alert-temporal');
-              $(".sweet-alert").css("background-color", "transparent");
-              $('.sweet-alert .sa-icon.sa-success').toggleClass('before2');
-              $('.sweet-alert .sa-icon.sa-success').toggleClass('after2');
-              $(".sweet-alert .sa-icon.success:after").css("background-color","transparent");
-              $(".sa-icon").removeClass('animate')
+    //$(".sweet-overlay").show();
 
 
-              setTimeout(function () {
-
-                  $(".sa-icon").hide();
-                  $(".sweet-alert").hide();
-                  $(".sweet-alert p").hide();
-                  $(".sweet-alert h2").hide();
-                  $(".confirm").hide();
-                  $(".sweet-overlay").fadeOut("slow", function () {
-                      // Animation complete.
-                  });
-                  $(".sweet-overlay").hide();
-                  $(".sa-icon").removeClass('before2');
-                  $(".sa-icon").removeClass('after2');
-                  $(".sweet-alert").css("background-color", "#ffffff");
-                  $("body").css("overflow-y", "scroll");
-                  
-
-                  //$(".sa-button-container").hide();
-                      ///* background-color: #ffffff;
-                  //$(".sweet-alert").toggleClass('sweet-alert-temporal')
-
-              }, 1400);
+    swal("Good job!", "Procesado Correctamente!", "success");
 
 
+    $(".sweet-alert p").hide();
+    $(".sweet-alert h2").hide();
+    $(".sa-fix").hide();
+    $(".confirm").hide();
+    //$(".sa-button-container").hide();              
+    $(".sa-line").css("background-color", "#52e200");
+    $(".sa-fix").css("background-color", "transparent");
+    $(".sweet-alert .sa-icon.sa-success").css("border-color", "#52e200");
+    //$(".sweet-alert").toggleClass('sweet-alert-temporal');
+    $(".sweet-alert").css("background-color", "transparent");
+    $('.sweet-alert .sa-icon.sa-success').toggleClass('before2');
+    $('.sweet-alert .sa-icon.sa-success').toggleClass('after2');
+    $(".sweet-alert .sa-icon.success:after").css("background-color", "transparent");
+    $(".sa-icon").removeClass('animate')
 
 
-          };
+    setTimeout(function () {
+
+        $(".sa-icon").hide();
+        $(".sweet-alert").hide();
+        $(".sweet-alert p").hide();
+        $(".sweet-alert h2").hide();
+        $(".confirm").hide();
+        $(".sweet-overlay").fadeOut("slow", function () {
+            // Animation complete.
+        });
+        $(".sweet-overlay").hide();
+        $(".sa-icon").removeClass('before2');
+        $(".sa-icon").removeClass('after2');
+        $(".sweet-alert").css("background-color", "#ffffff");
+        $("body").css("overflow-y", "scroll");
+
+
+        //$(".sa-button-container").hide();
+        ///* background-color: #ffffff;
+        //$(".sweet-alert").toggleClass('sweet-alert-temporal')
+
+    }, 1400);
+
+
+
+
+};
 
 document.getElementById('b6').onclick = function () {
 
@@ -197,7 +197,7 @@ document.getElementById('b6').onclick = function () {
 
 };
 
- //<!--MODAL CENTARDO DEL DRIVE -- >
+//<!--MODAL CENTARDO DEL DRIVE -- >
 function cerrarMensajeModalFx() {
 
     $(".lb-k").hide();
@@ -206,9 +206,9 @@ function cerrarMensajeModalFx() {
 }
 
 
- /************************************************************************
-      BLOCKER PROCESANDO LOADER (Cuando se realice peticiones a la bd)
- *************************************************************************/
+/************************************************************************
+     BLOCKER PROCESANDO LOADER (Cuando se realice peticiones a la bd)
+*************************************************************************/
 function blockLoader() {
     //$.blockUI();
     //setTimeout(unBlock, 5000);
@@ -230,9 +230,9 @@ function blockLoader() {
 
 }
 
- function unBlockLoader() {
-     $.unblockUI();
- }
+function unBlockLoader() {
+    $.unblockUI();
+}
 
 
 
@@ -455,7 +455,7 @@ $('#btnBuscarPorIdDeProducto').on('click', function () {
     $.post(
         '/Procesos/ObtenerProductoPorPkPntVnt',
         {
-              intIdProducto  : parseInt(id_ingresado)
+            intIdProducto: parseInt(id_ingresado)
             , strCodigoBarras: strCodigoBarras_
 
         },
@@ -522,7 +522,7 @@ $('#btnBuscarPorIdDeProducto').on('click', function () {
                     //INSERTAR DETALLEN DEL PRODUCTO TRAIDO EN EL SGTE ARRAY
                     productoEscaneadoByPk.push({
 
-                          "o_intIdProducto": element.intIdProducto
+                        "o_intIdProducto": element.intIdProducto
                         , "o_strCodigoBarr": element.strCodigoBarras
                         , "o_strCodigoProd": element.strCodigoProducto
                         , "o_strDescProduc": element.strDescProducto
@@ -604,7 +604,7 @@ $('#btnBuscarPorCodigoBarrasDigitado').on('click', function () {
                     $('#lbl_item_producto').html('<label>' + element.strCodigoProducto + '<label>');
                     $('#contenedor_marca_producto').html('<label>' + element.strMarcaProducto + '<label>');
                     //$('#contenedor_precio_producto').html('<label>' + (element.decPrecioDeVenta).toFixed(2) + '<label>');
-                
+
                     //$('.price').html((element.decPrecioDeVenta).toFixed(2));
                     //$('.full-price').html((element.decPrecioDeVenta).toFixed(2));
 
@@ -631,7 +631,7 @@ $('#btnBuscarPorCodigoBarrasDigitado').on('click', function () {
                     //INSERTAR DETALL EN DEL PRODUCTO TRAIDO EN EL SGTE ARRAY
                     productoEscaneadoByPk.push({
 
-                          "o_intIdProducto": element.intIdProducto
+                        "o_intIdProducto": element.intIdProducto
                         , "o_strCodigoBarr": element.strCodigoBarras
                         , "o_strCodigoProd": element.strCodigoProducto
                         , "o_strDescProduc": element.strDescProducto
@@ -727,7 +727,7 @@ function buscarCapturaCodigoBarras(strCodigoBarras_) {
                     //(recordar que hay tres formas de accion de cargado para este array)
                     productoEscaneadoByPk.push({
 
-                          "o_intIdProducto": element.intIdProducto
+                        "o_intIdProducto": element.intIdProducto
                         , "o_strCodigoBarr": element.strCodigoBarras
                         , "o_strCodigoProd": element.strCodigoProducto
                         , "o_strDescProduc": element.strDescProducto
@@ -882,7 +882,7 @@ $('#btn_cancelar_venta_pntvnt').on('click', function () {
 
 
         //$("#calcTable tr").remove(); //Remover todas las filas de una tabla
-        $("#calcTable tr>td").remove(); 
+        $("#calcTable tr>td").remove();
         //$("#calcTable tbody").children().remove(); //Remover todas las filas de una tabla menos el encabexado
         //productoEscaneadoByPk = [];  //No se debe limpiar ya que aqui se guardo lo que se consulto
         ventas = []; //Aqui van todo lo que se visualiza en el listado
@@ -923,11 +923,11 @@ class TB_PRODUCTOS_VENTAS {
 
     constructor(intField_1, strField_2, strField_3, decField_4, intField_5, decField_6) {
 
-        this.intIdProducto     = intField_1;
-        this.strCodigoBarras   = strField_2;
-        this.strDescProducto   = strField_3;
-        this.decPrecioDeVenta  = decField_4;
-        this.intCantidadVenta  = intField_5;
+        this.intIdProducto = intField_1;
+        this.strCodigoBarras = strField_2;
+        this.strDescProducto = strField_3;
+        this.decPrecioDeVenta = decField_4;
+        this.intCantidadVenta = intField_5;
         this.decMontoVentaProd = decField_6;
 
     }
@@ -1064,34 +1064,34 @@ $('#btn_procesar_venta_pntvnt').on('click', function () {  // btn-update-product
 
         //alert('isConfirm');
 
-         var VentaCabe = {
+        var VentaCabe = {
 
-           intIdVentaCabe      :  0     
-          ,strCodVenta         :  " "     
-          ,strRucCliente       :  ""
-          ,strNomCliente       :  ""
-          ,strApeCliente       :  ""
-          ,strMoneda           :  ""
-          ,strDirCliente       :  ""
-          ,strTelCliente       :  ""
-          ,decMontoTotDeVenta  :  ""
-          ,dttDateTimeVenta    :  ""
-          ,strMedioDePago      :  ""
-          ,decPagoConIzipay    :  ""
+            intIdVentaCabe: 0
+            , strCodVenta: " "
+            , strRucCliente: ""
+            , strNomCliente: ""
+            , strApeCliente: ""
+            , strMoneda: ""
+            , strDirCliente: ""
+            , strTelCliente: ""
+            , decMontoTotDeVenta: ""
+            , dttDateTimeVenta: ""
+            , strMedioDePago: ""
+            , decPagoConIzipay: ""
 
-    };
+        };
 
 
         //GESTVENT
         $.post(
             '/Procesos/InsertUpdateFromPuntoVenta',
             {
-                  intTipoOperacion   : 1
-                , strOperacion       : "GENERAR_IDCABE"
-                , intIdVentaCabe     : 0
-                , objVentaCabe       : VentaCabe
-                , lstDetalleProducto : listaDetalleProductosVenta
-                , lstRstVta          : lstResultProcesarVenta         
+                intTipoOperacion: 1
+                , strOperacion: "GENERAR_IDCABE"
+                , intIdVentaCabe: 0
+                , objVentaCabe: VentaCabe
+                , lstDetalleProducto: listaDetalleProductosVenta
+                , lstRstVta: lstResultProcesarVenta
 
             },
             (response) => {
@@ -1101,7 +1101,7 @@ $('#btn_procesar_venta_pntvnt').on('click', function () {  // btn-update-product
                 $('#btn_cancelar_venta_pntvnt').hide();
                 $('#btn_continuar_venta_pntvnt').show();
                 $('.enviarCorreoRecibo').hide();
-               
+
                 //Deshabilitar los controles de búsqueda
                 $('#inputCapturarCodigoBarras').attr('disabled', true);
                 $('#inputDigitarCodigoBarras').attr('disabled', true);
@@ -1110,7 +1110,7 @@ $('#btn_procesar_venta_pntvnt').on('click', function () {  // btn-update-product
                 $('#btnBuscarPorCodigoBarrasDigitado').attr('disabled', true);
                 $('#div_producto_consultado').hide();
                 $('#btn_cancelar_venta_pntvnt').attr('disabled', true);
-       
+
                 //$('#btn_procesar_venta_pntvnt').text('CONTINUAR VENTA');//Para llenar el Formulario de la Cabecera
                 //CASO 01: EL Json Contiene un OBJETO con las llaves: type, extramsg, ...
                 //Este caso es cuando todos los items de .a losta se han insertado correctamente
@@ -1143,7 +1143,7 @@ $('#btn_procesar_venta_pntvnt').on('click', function () {  // btn-update-product
                         }
                         else {
 
-                            $('#chck'  + item.intIdProducto).prop('checked', true);
+                            $('#chck' + item.intIdProducto).prop('checked', true);
                             $('#chck' + item.intIdProducto).addClass('inputchck'); //CHECK VERDE
                             //alert('2');
 
@@ -1152,7 +1152,7 @@ $('#btn_procesar_venta_pntvnt').on('click', function () {  // btn-update-product
                         //Guardar el ID de la venta cabe 
                         let_intIdVentaCabe = item.intIdVentaCabe;
                         //alert(let_intIdVentaCabe + '   ' + 'hhhhhhhhhhhhh');
-                
+
                         //$('#cboPerfilAdmin').append('<option value="' + item.intidTipo + '">' + item.strDeTipo + '</option>')
                         //if (item.intidTipo == data.intIdPerfil) {
                         //    $('#cboPerfilAdmin').val(item.intidTipo)
@@ -1234,7 +1234,7 @@ $('#btn_procesar_venta_pntvnt').on('click', function () {  // btn-update-product
 
     }, function (dismiss) {
         //if (dismiss == 'cancel') {
-            //swal("Cancelado", "La Operación fue cancelada", "error");
+        //swal("Cancelado", "La Operación fue cancelada", "error");
         //}
     });
 
@@ -1361,22 +1361,18 @@ $('#btn_finalizar_venta_pntvnt').on('click', function () {  // btn-update-produc
     $('#div_continuar_venta').hide(); //falta limpiar los controles de este div     1111111
     $('#btn_continuar_venta_pntvnt').hide();
     $('#btn_finalizar_venta_pntvnt').hide();
-    $('#btn_generar_recibo_pdf').hide(); 
+    $('#btn_generar_recibo_pdf').hide();
     $('#btn_procesar_venta_pntvnt').show();
-
     $('#val_strEmailDestino').attr('disabled', false);
     $('#val_strEmailDestino').val("");
     $('#btn_enviar_correo_recibo_pdf').attr('disabled', false);
-
-
     $("#calcTable tr>td").remove();
-    ventas = []; 
+    ventas = [];
     listaDetalleProductosVenta.length = 0;
     listaDetalleComprobante.length = 0;
     $('#valueTot').text("00.00");
     $('.igvTotDeLista').html("00.00");
     $('.subTotDeLista').html("00.00");
-
     //Habilitar los controles de búsqueda
     $('#inputCapturarCodigoBarras').attr('disabled', false);
     $('#inputDigitarCodigoBarras').attr('disabled', false);
@@ -1387,6 +1383,16 @@ $('#btn_finalizar_venta_pntvnt').on('click', function () {  // btn-update-produc
     let_NombreReciboGenerado = "";
     let_FechaHoraVenta = "";
     let_intIdVentaCabe = "";
+
+    //ELIMINAR TODO DEL DIRECTORIO "DirTempArchivosPdf"
+    $.post('/Procesos/eliminarTodoDeDirTempArchivosPdf',
+        {
+            //srtDirImportacionExcelP
+        },
+        response => {
+            console.log(response);
+        });
+
 
 });  ///FIN BOTON UDDATE
 
@@ -1442,14 +1448,14 @@ function changeTotal() {
 }
 
 
-    //// A $( document ).ready() block.
-    //$( document ).ready(function() {
-    //console.log( "ready!" );
-    //$('.nav_menu').hide();
+//// A $( document ).ready() block.
+//$( document ).ready(function() {
+//console.log( "ready!" );
+//$('.nav_menu').hide();
 
-    //});
+//});
 
- //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //var _descProducto = '';
 function buscarValor() {
@@ -1462,17 +1468,17 @@ function buscarValor() {
 }
 
 
-        /********************************************
+/********************************************
 
-        var army = ["Marcos", "DeltaForce", "Seals", "SWAT", "HeadHunters"];
+var army = ["Marcos", "DeltaForce", "Seals", "SWAT", "HeadHunters"];
 
-        if (army.indexOf("Marcos") !== -1) {
-            alert("Yes, the value exists!")
-        }
-        else {
-            alert("No, the value is absent.")
-        }
-        ******************************************/
+if (army.indexOf("Marcos") !== -1) {
+    alert("Yes, the value exists!")
+}
+else {
+    alert("No, the value is absent.")
+}
+******************************************/
 
 
 //<!--ACCION CON EL BOTONCITO AGREGAR o AÑADIR -->   
@@ -1508,7 +1514,7 @@ $('#btnAgreagarNuevoProducto').on("click", function () {
         });
         $('#inputCapturarCodigoBarras').focus();
         return;
-        
+
 
         //////////FUENTE: https://jsfiddle.net/ad3quksn/130/
         /*************************************************** se comenta
@@ -1662,7 +1668,7 @@ $('#btnAgreagarNuevoProducto').on("click", function () {
 
     ////////////SI PASO LAS VALIDACIONES ENTONCES SE AGREGA AL LISTADO
     else {
-  
+
         var _descProducto = $('#contenedor_descripcion_producto').text();
         //var _precioProducto = $('#contenedor_precio_producto').text();
         var varDecMontoVentaXProd = $('.full-price').text();
@@ -1678,7 +1684,7 @@ $('#btnAgreagarNuevoProducto').on("click", function () {
         /////////////////////////////////////////////////////////////////////////// PARA EL PROCESO DE UPDATE LAS TABLAS DE LA BD
         listaDetalleProductosVenta.push(new TB_PRODUCTOS_VENTAS(    //535353
 
-               varIdProducto
+            varIdProducto
             , _itemCodProd
             , _descProducto
             , varDecPrecioDeVenta  //en js tomarlo com string
@@ -1692,7 +1698,7 @@ $('#btnAgreagarNuevoProducto').on("click", function () {
         listaDetalleComprobante.push(
             new TT_PRODUCTOS(
 
-                  varIdProducto
+                varIdProducto
                 , _itemCodProd //'ITEM0001' 
                 , varIntCantidadVenta.toString()
                 , _descProducto   // "Arena de Gato Pedigree"  
@@ -1715,7 +1721,7 @@ $('#btnAgreagarNuevoProducto').on("click", function () {
             ));
 
 
-                //alert((varDecPrecioDeVenta * varIntCantidadVenta).toFixed(2).toString());
+        //alert((varDecPrecioDeVenta * varIntCantidadVenta).toFixed(2).toString());
 
 
         $('#sum').parent().parent().remove();
@@ -1819,14 +1825,14 @@ $('#btnAgreagarNuevoProducto').on("click", function () {
 
 
         //listaDetalleComprobante
-        $('.igvTotDeLista').html( ( sum - sum / 1.18 ).toFixed(2) );
-        $('.subTotDeLista').html( ( sum - ( sum - sum / 1.18) ).toFixed(2) );
+        $('.igvTotDeLista').html((sum - sum / 1.18).toFixed(2));
+        $('.subTotDeLista').html((sum - (sum - sum / 1.18)).toFixed(2));
 
 
-        }
+    }
 
 
-         
+
     //limpiar 1234
     $('#lbl_item_producto').html('ITEM00000');
     $('#contenedor_descripcion_producto').html('CONSULTAR PRODUCTO');
@@ -1920,9 +1926,9 @@ $('#btn_enviar_correo_recibo_pdf').on('click', () => {
 ///////////////////////////////////////////////////////////////////////*/
 function generarReporteComprobante(tipoReporte) { //generarReporteCotizacion
 
-     //alert("CABECERA ----> " + arrayCabeceraComprobante.length);
+    //alert("CABECERA ----> " + arrayCabeceraComprobante.length);
     //alert(tipoReporte);
-    
+
 
     //if (tipoReporte == "&email=1") {
 
@@ -1957,11 +1963,11 @@ function generarReporteComprobante(tipoReporte) { //generarReporteCotizacion
     //alert($('#vl_strNombreUsuarioSesion').text())
 
     arrayCabeceraComprobante.push({
-          "rucCliente": $('#val_strRucCliente').val() 
+        "rucCliente": $('#val_strRucCliente').val()
         , "nomCliente": $('#val_strNomCliente').val() + ' ' + $('#val_strApeCliente').val()
-        , "condVenta" : "23434234353" //_condVenta,
-        , "moneda"    : $('#payment_method').val()
-        , "vendedor"  : $('#vl_strNombreUsuarioSesion').text()
+        , "condVenta": "23434234353" //_condVenta,
+        , "moneda": $('#payment_method').val()
+        , "vendedor": $('#vl_strNombreUsuarioSesion').text()
         , "dirCliente": $('#val_strDirCliente').val()
         , "tlfCliente": $('#val_strTelCliente').val()
     });
@@ -2010,13 +2016,13 @@ function generarReporteComprobante(tipoReporte) { //generarReporteCotizacion
 
 
     //VALORES TOTALES CALCULADOS
-    var _valorTotal    = SubTotal; //_valorSubTotal * valorIgv;
+    var _valorTotal = SubTotal; //_valorSubTotal * valorIgv;
     var _valorSubTotal = SubTotal / valorIgv;
     var _valorTotalIgv = _valorTotal - _valorSubTotal;
 
     //VALORES TOTALES CALCULADOS
     var valorSubTotal = roundDosDecimales(_valorSubTotal.toFixed(2)).toString();
-    var valorTotal    = roundDosDecimales(_valorTotalIgv.toFixed(2)).toString();
+    var valorTotal = roundDosDecimales(_valorTotalIgv.toFixed(2)).toString();
     var valorTotalIgv = roundDosDecimales(_valorTotal.toFixed(2)).toString();
 
     //alert(valorSubTotal );
@@ -2075,12 +2081,12 @@ function generarReporteComprobante(tipoReporte) { //generarReporteCotizacion
                         //+ roundDosDecimales(valorTotal.toFixed(2)).toString()    //'&valorTotal=' + "10.5" // 
                         + '&valorSubTotal=' + valorSubTotal
                         + '&valorTotalIgv=' + valorTotal
-                        + '&valorTotal='    + valorTotalIgv
-                        + '&vendedor='      + $('#vl_strNombreUsuarioSesion').text() // _vendedor
-                        + '&condVenta='     + "AL CONTADO" // _condVenta
-                        + '&moneda='        + "S"    // _moneda
-                        + '&validez='       + "10"   // _validez
-                        + '&correlativo='   +  _correlativo
+                        + '&valorTotal=' + valorTotalIgv
+                        + '&vendedor=' + $('#vl_strNombreUsuarioSesion').text() // _vendedor
+                        + '&condVenta=' + "AL CONTADO" // _condVenta
+                        + '&moneda=' + "S"    // _moneda
+                        + '&validez=' + "10"   // _validez
+                        + '&correlativo=' + _correlativo
                         + '&dateTimeVenta=' + let_FechaHoraVenta
                         + '&strEmailDestino=' + $('#val_strEmailDestino').val()
                         + '&strMetodoPago=' + $('#payment_method').val()
@@ -2119,7 +2125,7 @@ function generarReporteComprobante(tipoReporte) { //generarReporteCotizacion
 
 
 let let_intIdVentaCabe;
-function updateCabeceraFromPntVnt() { 
+function updateCabeceraFromPntVnt() {
 
     if ($('#val_strNomCliente').val() == "" || $('#payment_method').val() == "") {
         new PNotify({
@@ -2133,35 +2139,35 @@ function updateCabeceraFromPntVnt() {
         return;
     }
 
-   var _intIdVentaCabe      = let_intIdVentaCabe;
-   var _strCodVenta         = " ";//$('#val_strEmailDestino').val();
-   var _strRucCliente       = $('#val_strRucCliente').val();
-   var _strNomCliente       = $('#val_strNomCliente').val();
-   var _strApeCliente       = $('#val_strApeCliente').val();
-   var _strMoneda           = " "; //$('#val_strEmailDestino').val();
-   var _strDirCliente       = $('#val_strDirCliente').val();
-   var _strTelCliente       = $('#val_strTelCliente').val();
-   var _decMontoTotDeVenta  = " ";//$('#val_strEmailDestino').val();
-   var _dttDateTimeVenta    = " ";//$('#val_strEmailDestino').val();
-   var _strMedioDePago      = $('#payment_method').val();
-   var _decPagoConIzipay    = "";//$('#val_strEmailDestino').val();
+    var _intIdVentaCabe = let_intIdVentaCabe;
+    var _strCodVenta = " ";//$('#val_strEmailDestino').val();
+    var _strRucCliente = $('#val_strRucCliente').val();
+    var _strNomCliente = $('#val_strNomCliente').val();
+    var _strApeCliente = $('#val_strApeCliente').val();
+    var _strMoneda = " "; //$('#val_strEmailDestino').val();
+    var _strDirCliente = $('#val_strDirCliente').val();
+    var _strTelCliente = $('#val_strTelCliente').val();
+    var _decMontoTotDeVenta = " ";//$('#val_strEmailDestino').val();
+    var _dttDateTimeVenta = " ";//$('#val_strEmailDestino').val();
+    var _strMedioDePago = $('#payment_method').val();
+    var _decPagoConIzipay = "";//$('#val_strEmailDestino').val();
 
 
-          
+
     var VentaCabe = {
 
-           intIdVentaCabe      :  _intIdVentaCabe       
-          ,strCodVenta         :  _strCodVenta       
-          ,strRucCliente       :  _strRucCliente     
-          ,strNomCliente       :  _strNomCliente     
-          ,strApeCliente       :  _strApeCliente     
-          ,strMoneda           :  _strMoneda         
-          ,strDirCliente       :  _strDirCliente     
-          ,strTelCliente       :  _strTelCliente     
-          ,decMontoTotDeVenta  :  _decMontoTotDeVenta
-          ,dttDateTimeVenta    :  _dttDateTimeVenta  
-          ,strMedioDePago      :  _strMedioDePago    
-          , decPagoConIzipay   :  _decPagoConIzipay  
+        intIdVentaCabe: _intIdVentaCabe
+        , strCodVenta: _strCodVenta
+        , strRucCliente: _strRucCliente
+        , strNomCliente: _strNomCliente
+        , strApeCliente: _strApeCliente
+        , strMoneda: _strMoneda
+        , strDirCliente: _strDirCliente
+        , strTelCliente: _strTelCliente
+        , decMontoTotDeVenta: _decMontoTotDeVenta
+        , dttDateTimeVenta: _dttDateTimeVenta
+        , strMedioDePago: _strMedioDePago
+        , decPagoConIzipay: _decPagoConIzipay
 
     };
 
@@ -2172,12 +2178,12 @@ function updateCabeceraFromPntVnt() {
     $.post(
         '/Procesos/InsertUpdateFromPuntoVenta',
         {
-                  intTipoOperacion   : 2
-                , strOperacion       : "UPDATE_CLIENTE"
-                , intIdVentaCabe     : let_intIdVentaCabe
-                , objVentaCabe       : VentaCabe
-                , lstDetalleProducto : listaDetalleProductosVenta
-                , lstRstVta          : lstResultProcesarVenta   
+            intTipoOperacion: 2
+            , strOperacion: "UPDATE_CLIENTE"
+            , intIdVentaCabe: let_intIdVentaCabe
+            , objVentaCabe: VentaCabe
+            , lstDetalleProducto: listaDetalleProductosVenta
+            , lstRstVta: lstResultProcesarVenta
 
         },
         (response) => {
@@ -2226,7 +2232,7 @@ function updateCabeceraFromPntVnt() {
             if (response.constructor === Array) {
 
 
-                alert('CASO 02: EL Json No contiene un OBJETO la llaves type, extramsg, ... sino un ARRAY de tipo lista');  
+                alert('CASO 02: EL Json No contiene un OBJETO la llaves type, extramsg, ... sino un ARRAY de tipo lista');
                 //response.forEach(item => {
 
                 //    if (item.intRstVendido == 2) {
@@ -2244,7 +2250,7 @@ function updateCabeceraFromPntVnt() {
 
                 //    }
 
-             
+
                 //});
 
 
@@ -2253,7 +2259,7 @@ function updateCabeceraFromPntVnt() {
 
             //Traer el Numero de Recibo de Venta(Por el Momento sera el mismo ID de Venta desde VENTA_CABECERA)
             //--------------------------------------------------------------------------------------------------
-    
+
             //--------------------------------------------------------------------------------------------------
 
 
@@ -2540,7 +2546,7 @@ function enviarReciboPdfCorreo() {
     $.post(
         '/Procesos/fctEnviarReciboPdfCorreo',
         {
-              filtroDeReporte: let_NombreReciboGenerado
+            filtroDeReporte: let_NombreReciboGenerado
             , strEmailDestino: $('#val_strEmailDestino').val()
 
         },
@@ -2552,7 +2558,7 @@ function enviarReciboPdfCorreo() {
             if (response.hasOwnProperty('type') || response.hasOwnProperty('extramsg') || response.hasOwnProperty('message')) {
 
                 //alert('CASO 01: EL Json Contiene un OBJETO con las llaves type, extramsg, ...');     
-               
+
                 swal("ENVIO DE COMPROBANTE POR CORREO", response.message);
             }
 

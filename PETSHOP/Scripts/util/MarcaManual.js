@@ -455,7 +455,7 @@ function EditarAusentismoDet(intIdAsistencia) {
                     type: 'HEAD',
                     error: function () {
                         //Imagen por defecto
-                        $("#imgId").attr("src", '/DirEmpleadosRuta/descarga(1).jpg');
+                        $("#imgId").attr("src", '/DirEmpleadosRuta/person_logo.jpg');
                     },
                     success: function () {
                         $("#imgId").attr("src", response.strRutaFoto);

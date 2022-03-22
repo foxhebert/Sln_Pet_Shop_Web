@@ -443,7 +443,7 @@ async function getPersonalPerfil(intIdPersonalId) {
                 type: 'HEAD',
                 error: function () {
                     //Imagen por defecto
-                    $("#imagePersonalPer").attr("src", '/DirEmpleadosRuta/descarga(1).jpg');
+                    $("#imagePersonalPer").attr("src", '/DirEmpleadosRuta/person_logo.jpg');
                 },
                 success: function () {
                     $("#imagePersonalPer").attr("src", rutaFoto);
@@ -451,7 +451,7 @@ async function getPersonalPerfil(intIdPersonalId) {
             });
 
             //if (user.imgFoto == null || img.height == 0) {
-            //    getDocumentElementById('imagePersonalPer').src = `/DirEmpleadosRuta/descarga(1).jpg`
+            //    getDocumentElementById('imagePersonalPer').src = `/DirEmpleadosRuta/person_logo.jpg`
             //} else {
             //    getDocumentElementById('imagePersonalPer').src = `/DirEmpleadosRuta/${user.imgFoto}`
             //}

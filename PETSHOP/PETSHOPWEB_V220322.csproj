@@ -3971,7 +3971,7 @@
     <Content Include="Dominio.Repositorio\obj\Release\Dominio.Repositorio.csproj.FileListAbsolute.txt" />
     <Content Include="Dominio.Repositorio\obj\Release\Dominio.Repositorio.dll" />
     <Content Include="Dominio.Repositorio\obj\Release\Dominio.Repositorio.pdb" />
-    <Content Include="images\descarga%281%29.jpg" />
+    <Content Include="images\person_logo.jpg" />
     <Content Include="images\productos\image_no_found.png" />
     <Content Include="images\productos\ITEM00009.jpg" />
     <Content Include="images\productos\ITEM00012.png" />
@@ -4395,8 +4395,8 @@
     <Content Include="Content\site-login.css" />
     <Content Include="Content\site.css" />
     <Content Include="Content\switchery\switchery.css" />
-    <Content Include="DirEmpleadosRuta\descarga%281%29.jpg" />
-    <Content Include="DirLogosRuta\descarga%281%29.jpg" />
+    <Content Include="DirEmpleadosRuta\person_logo.jpg" />
+    <Content Include="DirLogosRuta\person_logo.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\font-awesome.min.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />

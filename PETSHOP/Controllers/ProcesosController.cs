@@ -31,7 +31,7 @@ namespace CBX_Web_PetShopWeb.Controllers
         {
             CustomResponse result = new CustomResponse();
             //string strMsgUsuario = "";
-            bool ventaTodosOkey = true;
+            //bool ventaTodosOkey = true;
 
             try
             {
@@ -39,24 +39,24 @@ namespace CBX_Web_PetShopWeb.Controllers
                 //if (Request.QueryString["email"] != null)
                 //{
 
-                    //https://stackoverflow.com/questions/6152979/how-can-i-create-a-new-folder-in-asp-net-using-c
-                    //var folder = Server.MapPath("~/App_Data/uploads/random");
-                    var folder = Server.MapPath("~/DirTempArchivosPdf");
-                    if (!Directory.Exists(folder))
-                    {
-                        Directory.CreateDirectory(folder);
-                    }
-                    string rutaFile = Server.MapPath("~/" + "DirTempArchivosPdf" + "/" + filtroDeReporte + ".pdf");
-                    //System.IO.File.Create(rutaFile).Close();
+                //https://stackoverflow.com/questions/6152979/how-can-i-create-a-new-folder-in-asp-net-using-c
+                //var folder = Server.MapPath("~/App_Data/uploads/random");
+                var folder = Server.MapPath("~/DirTempArchivosPdf");
+                if (!Directory.Exists(folder))
+                {
+                    Directory.CreateDirectory(folder);
+                }
+                string rutaFile = Server.MapPath("~/" + "DirTempArchivosPdf" + "/" + filtroDeReporte + ".pdf");
+                //System.IO.File.Create(rutaFile).Close();
 
-                    //string c_strEmailDestino = "saracustodioh@gmail.com" + "," + strEmailDestino;
+                //string c_strEmailDestino = "saracustodioh@gmail.com" + "," + strEmailDestino;
                 string c_strEmailDestino = strEmailDestino;
 
                 using (MailMessage mm = new MailMessage("sispetshopweb@gmail.com", c_strEmailDestino))
-                    {
-       
-                        //mm.Subject = "Comprobante de Venta PetShopWeb";
-                        //mm.Body = "Archivo Adjunto: " + filtroDeReporte;
+                {
+
+                    //mm.Subject = "Comprobante de Venta PetShopWeb";
+                    //mm.Body = "Archivo Adjunto: " + filtroDeReporte;
 
                     //mm.Subject = "Crystal Report PDF";
                     mm.Subject = "Comprobante de Venta PetShopWeb";
@@ -73,14 +73,10 @@ namespace CBX_Web_PetShopWeb.Controllers
                     strB.AppendLine("<span style='font-size: large;'>" + "SISTEMA PETSHOP WEB ©2022 " /*objTexto.saludo*/ + "</span>");
                     strB.AppendLine("</div>");
 
-
                     strB.AppendLine("<div>");
                     //strB.AppendLine("<img alt='LATAM Pass' border='0' height='80' src='https://ci5.googleusercontent.com/proxy/EudqZB2x45b3erGuOUH7s7zSSxAZ6Ad1WBcW0ceprn8NP8o83NnpujTWP1BQ9j93E-9z4LmISEl3lPYgufmQ9synSZS6_lugaw3mJ2b92lN_88Xz0V6bebYGp4yH4zb4jQeAdjH6HQXBUsSkMbIF3HNnEaXx0Fo4rIWl3HnnrpxBL0_4dTEqfcp0CMIQcUy0DFsZlHsZiAR6BnWwsFY954KAzBA5xbcBs4d8zog7N8qIywAT8Kw=s0-d-e1-ft#http://static.cdn.responsys.net/i2/responsysimages/latam/contentlibrary/pe_/bloques/estaticos/header_latampass/Header_latampass_pe/Files/header_logo_latampass.jpg' title='LATAM Pass' width='369'>");
                     strB.AppendLine("<img alt='LATAM Pass' border='0'  src='https://i.postimg.cc/TwSdV9h6/kekopet-banner.png' title='PETSHOP BANNER' width='500'>");
                     strB.AppendLine("</div>");
-
-
-
 
                     strB.AppendLine("<div  style='padding-top:5px; text-align:center;' >");
                     strB.AppendLine("<img alt='LATAM Pass' border='0'  src='https://i.postimg.cc/YSVg9TYN/kekopet-baner-main.jpg' title='PETSHOP 02' width='500'>");
@@ -94,8 +90,6 @@ namespace CBX_Web_PetShopWeb.Controllers
                     strB.AppendLine("<a style='FONT-SIZE:14px;TEXT-DECORATION:none;FONT-FAMILY:Arial,Helvetica,sans-serif;COLOR:#ffffff;OUTLINE-WIDTH:medium;' href='https://web.facebook.com/kekopet/?_rdc=1&_rdr' target='_blank' rel='noreferrer' > Visítenos en Facebook </a>");
                     strB.AppendLine("</span>");
                     strB.AppendLine("</div>");
-
-               
 
                     strB.AppendLine("<br>");
                     strB.AppendLine("<div>");
@@ -123,20 +117,20 @@ namespace CBX_Web_PetShopWeb.Controllers
 
 
                     mm.Attachments.Add(new Attachment(rutaFile));
-                        mm.IsBodyHtml = true;
-                        using (SmtpClient smtp = new SmtpClient())
+                    mm.IsBodyHtml = true;
+                    using (SmtpClient smtp = new SmtpClient())
+                    {
+                        smtp.Host = "smtp.gmail.com";
+                        smtp.UseDefaultCredentials = true;
+                        smtp.Credentials = new NetworkCredential
                         {
-                            smtp.Host = "smtp.gmail.com";
-                            smtp.UseDefaultCredentials = true;
-                            smtp.Credentials = new NetworkCredential
-                            {
-                                UserName = "sispetshopweb@gmail.com",
-                                Password = "Admin123*"
-                            };
-                            smtp.Port = 587;
-                            smtp.EnableSsl = true;
-                            smtp.Send(mm);
-                        }
+                            UserName = "sispetshopweb@gmail.com",
+                            Password = "Admin123*"
+                        };
+                        smtp.Port = 587;
+                        smtp.EnableSsl = true;
+                        smtp.Send(mm);
+                    }
 
 
                     result.type = "info";
@@ -160,7 +154,7 @@ namespace CBX_Web_PetShopWeb.Controllers
 
             //if (ventaTodosOkey == true)
             //{
-                return Json(result);
+            return Json(result);
             //}
             //else
             //{
@@ -172,7 +166,19 @@ namespace CBX_Web_PetShopWeb.Controllers
 
 
 
+        //ELIMINAR TODO DEL DIRECTORIO "DirTempArchivosPdf"
+        public ActionResult eliminarTodoDeDirTempArchivosPdf()
+        {
+            //Elimina "Todos los archivos sin importar ni extension ni nombre"
+            DirectoryInfo di = new DirectoryInfo(Server.MapPath("~/DirTempArchivosPdf"));
 
+            foreach (FileInfo file in di.GetFiles())
+            {
+                file.Delete();
+            }
+
+            return Json(1);
+        }
 
 
 
@@ -280,12 +286,12 @@ namespace CBX_Web_PetShopWeb.Controllers
         }
 
         //Listar BL
-        public List<TB_CATEGORIA> ListarGestionarCategoriaBL( int intIdCategoria, string strActivo, string strFiltro, ref int intResult, ref string strMsjUsuario)
+        public List<TB_CATEGORIA> ListarGestionarCategoriaBL(int intIdCategoria, string strActivo, string strFiltro, ref int intResult, ref string strMsjUsuario)
         {
             List<TB_CATEGORIA> lista = new List<TB_CATEGORIA>();
             string strMsjDB = "";
 
-            lista = ListarGestionarCategoriaDAO( intIdCategoria, strActivo, strFiltro, ref intResult, ref strMsjDB, ref strMsjUsuario);
+            lista = ListarGestionarCategoriaDAO(intIdCategoria, strActivo, strFiltro, ref intResult, ref strMsjDB, ref strMsjUsuario);
             if (intResult == 0)
             {
                 if (!strMsjDB.Equals(""))
@@ -295,7 +301,7 @@ namespace CBX_Web_PetShopWeb.Controllers
                 }
 
             }
- 
+
             return lista;
         }
 
@@ -327,12 +333,12 @@ namespace CBX_Web_PetShopWeb.Controllers
                 {
                     //LISTADO NORMAL DE "TODOS LOS REGISTROS" NO POR PK
                     TB_CATEGORIA obj = new TB_CATEGORIA();
-                    if (!reader.IsDBNull(0)) { obj.intIdCategoria     = reader.GetInt32(0); };
+                    if (!reader.IsDBNull(0)) { obj.intIdCategoria = reader.GetInt32(0); };
                     if (!reader.IsDBNull(1)) { obj.strCodigoBarraCate = reader.GetString(1); };
                     if (!reader.IsDBNull(2)) { obj.strCodigoCategoria = reader.GetString(2); };
-                    if (!reader.IsDBNull(3)) { obj.strDescCategoria   = reader.GetString(3); }; 
-                    if (!reader.IsDBNull(4)) { obj.strActivo          = reader.GetString(4); }; 
-                    lista.Add(obj); 
+                    if (!reader.IsDBNull(3)) { obj.strDescCategoria = reader.GetString(3); };
+                    if (!reader.IsDBNull(4)) { obj.strActivo = reader.GetString(4); };
+                    lista.Add(obj);
 
                 }
                 reader.Close();
@@ -415,11 +421,11 @@ namespace CBX_Web_PetShopWeb.Controllers
                 {
 
                     TB_CATEGORIA obj = new TB_CATEGORIA();
-                    if (!reader.IsDBNull(0)) { obj.intIdCategoria     = reader.GetInt32(0); };
+                    if (!reader.IsDBNull(0)) { obj.intIdCategoria = reader.GetInt32(0); };
                     if (!reader.IsDBNull(1)) { obj.strCodigoBarraCate = reader.GetString(1); };
                     if (!reader.IsDBNull(2)) { obj.strCodigoCategoria = reader.GetString(2); };
-                    if (!reader.IsDBNull(3)) { obj.strDescCategoria   = reader.GetString(3); };
-                    if (!reader.IsDBNull(4)) { obj.strActivo          = reader.GetString(4); }; 
+                    if (!reader.IsDBNull(3)) { obj.strDescCategoria = reader.GetString(3); };
+                    if (!reader.IsDBNull(4)) { obj.strActivo = reader.GetString(4); };
                     lista.Add(obj);
 
                 }
@@ -442,10 +448,10 @@ namespace CBX_Web_PetShopWeb.Controllers
 
             try
             {
-                bool delete = false;           
-            
-                    delete = EliminarCategoriaBL(intIdCategoria, ref strMsgUsuario);
-         
+                bool delete = false;
+
+                delete = EliminarCategoriaBL(intIdCategoria, ref strMsgUsuario);
+
                 if (strMsgUsuario.Equals("") && delete)
                 {
                     result.type = "success";
@@ -475,7 +481,7 @@ namespace CBX_Web_PetShopWeb.Controllers
                 string strMsjDB = "";
 
                 bool tudobem = false;
-                tudobem = EliminarCategoriaDAO(intIdCategoria,  ref intResult, ref strMsjDB, ref strMsjUsuario);
+                tudobem = EliminarCategoriaDAO(intIdCategoria, ref intResult, ref strMsjDB, ref strMsjUsuario);
                 if (intResult == 0)
                 {
                     if (!strMsjDB.Equals(""))
@@ -862,10 +868,10 @@ namespace CBX_Web_PetShopWeb.Controllers
                 {
                     //LISTADO NORMAL DE "TODOS LOS REGISTROS" NO POR PK
                     TB_MARCA obj = new TB_MARCA();
-                    if (!reader.IsDBNull(0)) { obj.intIdMarca        = reader.GetInt32(0); };
-                    if (!reader.IsDBNull(1)) { obj.strCodigoMarca    = reader.GetString(1); };
-                    if (!reader.IsDBNull(2)) { obj.strDescMarca      = reader.GetString(2); };
-                    if (!reader.IsDBNull(3)) { obj.strRutaImgMarca   = reader.GetString(3); };
+                    if (!reader.IsDBNull(0)) { obj.intIdMarca = reader.GetInt32(0); };
+                    if (!reader.IsDBNull(1)) { obj.strCodigoMarca = reader.GetString(1); };
+                    if (!reader.IsDBNull(2)) { obj.strDescMarca = reader.GetString(2); };
+                    if (!reader.IsDBNull(3)) { obj.strRutaImgMarca = reader.GetString(3); };
                     lista.Add(obj);
 
                 }
@@ -1016,7 +1022,7 @@ namespace CBX_Web_PetShopWeb.Controllers
                 param.Add("@intIdMarca", objDatos.intIdMarca);
                 //2
                 if (objDatos.strCodigoMarca == null) { param.Add("@strCodigoMarca ", DBNull.Value); }
-                else { param.Add("@strCodigoMarca", objDatos.strCodigoMarca); }       
+                else { param.Add("@strCodigoMarca", objDatos.strCodigoMarca); }
                 //3
                 if (objDatos.strDescMarca == null) { param.Add("@strDescMarca", DBNull.Value); }
                 else { param.Add("@strDescMarca", objDatos.strDescMarca); }
@@ -1059,7 +1065,7 @@ namespace CBX_Web_PetShopWeb.Controllers
 
                 //if (objDatos.decMontoProducto == null) { param.Add("@decMontoProducto", DBNull.Value); }
                 //else { param.Add("@decMontoProducto", objDatos.decMontoProducto); }
-                
+
 
                 //-------------------------------------------------------------------------
                 param.Add("@intResult", 0);
@@ -1146,10 +1152,10 @@ namespace CBX_Web_PetShopWeb.Controllers
                 {
 
                     TB_MARCA obj = new TB_MARCA();
-                    if (!reader.IsDBNull(0)) { obj.intIdMarca         = reader.GetInt32(0); };
-                    if (!reader.IsDBNull(1)) { obj.strCodigoMarca     = reader.GetString(1); };
-                    if (!reader.IsDBNull(2)) { obj.strDescMarca       = reader.GetString(2); };
-                    if (!reader.IsDBNull(3)) { obj.strRutaImgMarca    = reader.GetString(3); };
+                    if (!reader.IsDBNull(0)) { obj.intIdMarca = reader.GetInt32(0); };
+                    if (!reader.IsDBNull(1)) { obj.strCodigoMarca = reader.GetString(1); };
+                    if (!reader.IsDBNull(2)) { obj.strDescMarca = reader.GetString(2); };
+                    if (!reader.IsDBNull(3)) { obj.strRutaImgMarca = reader.GetString(3); };
                     //if (!reader.IsDBNull(3)) { obj.strDescCategoria   = reader.GetString(3); };
                     //if (!reader.IsDBNull(4)) { obj.strActivo          = reader.GetString(4); };
                     lista.Add(obj);
@@ -1284,9 +1290,9 @@ namespace CBX_Web_PetShopWeb.Controllers
 
 
                 bool insert = false;
-                insert = InsertUpdateFromPuntoVentaBL(intTipoOperacion, strOperacion, objSession, objVentaCabe, lstDetalleProducto, ref lstRstVta, ref intIdVentaCabe,  ref strMsgUsuario);//.ToArray()
+                insert = InsertUpdateFromPuntoVentaBL(intTipoOperacion, strOperacion, objSession, objVentaCabe, lstDetalleProducto, ref lstRstVta, ref intIdVentaCabe, ref strMsgUsuario);//.ToArray()
 
-                if ( lstRstVta != null)
+                if (lstRstVta != null)
                 {
                     foreach (var item in lstRstVta)
                     {
@@ -1297,7 +1303,7 @@ namespace CBX_Web_PetShopWeb.Controllers
 
                     }
                 }
-             
+
 
                 if (strMsgUsuario.Equals("") && insert && ventaTodosOkey == true)
                 {
@@ -1308,7 +1314,7 @@ namespace CBX_Web_PetShopWeb.Controllers
                 else
                 {
 
-                    if (ventaTodosOkey == false )
+                    if (ventaTodosOkey == false)
                     {
                         result.type = "error";
                         result.message = "Uno de los productos no se ha procesado satisfactoriamente.";
@@ -1357,7 +1363,7 @@ namespace CBX_Web_PetShopWeb.Controllers
         }
 
         //BL
-        public bool InsertUpdateFromPuntoVentaBL(int intTipoOperacion, string strOperacion, Dominio.Entidades.Session_Movi objSession, TB_VENTA_CABE objVentaCabe , List<TB_PRODUCTOS_VENTA> listaDetalleProducto, ref List<ResultProcesarVenta> lstRstVta, ref int intIdVentaCabe, ref string strMsjUsuario)
+        public bool InsertUpdateFromPuntoVentaBL(int intTipoOperacion, string strOperacion, Dominio.Entidades.Session_Movi objSession, TB_VENTA_CABE objVentaCabe, List<TB_PRODUCTOS_VENTA> listaDetalleProducto, ref List<ResultProcesarVenta> lstRstVta, ref int intIdVentaCabe, ref string strMsjUsuario)
         {
             try
             {
@@ -1398,10 +1404,10 @@ namespace CBX_Web_PetShopWeb.Controllers
                     /////////////////////////////////////////////////////////////////////////
                     ///// SE ACT
                     /////////////////////////////////////////////////////////////////////////
-                    intIdVentaCabe = objVentaCabe.intIdVentaCabe ;
+                    intIdVentaCabe = objVentaCabe.intIdVentaCabe;
                     boolVenta = InsertUpdateCabeceraVenta(objSession, objVentaCabe, intTipoOperacion, strOperacion, ref intIdVentaCabe, ref intResult, ref strMsjDB, ref strMsjUsuario);
 
-              
+
                 }
 
 
@@ -1468,13 +1474,13 @@ namespace CBX_Web_PetShopWeb.Controllers
             foreach (var item in listaDetalleProducto)
             {
                 DataRow rows = table.NewRow();
-                rows["intIdProducto"]     = item.intIdProducto;
-                rows["strCodigoBarras"]   = item.strCodigoBarras;
-                rows["strDescProducto"]   = item.strDescProducto;
-                rows["decPrecioDeVenta"]  = item.decPrecioDeVenta;
-                rows["intCantidadVenta"]  = item.intCantidadVenta;
+                rows["intIdProducto"] = item.intIdProducto;
+                rows["strCodigoBarras"] = item.strCodigoBarras;
+                rows["strDescProducto"] = item.strDescProducto;
+                rows["decPrecioDeVenta"] = item.decPrecioDeVenta;
+                rows["intCantidadVenta"] = item.intCantidadVenta;
                 rows["decMontoVentaProd"] = item.decMontoVentaProd;
-                rows["intIdVentaCabe"]    = intIdVentaCabe;
+                rows["intIdVentaCabe"] = intIdVentaCabe;
 
                 table.Rows.Add(rows);
             }
@@ -1483,7 +1489,7 @@ namespace CBX_Web_PetShopWeb.Controllers
         }
 
         //DAO  SE ACUALIZARA UNO POR UNO DESDE EL LISTADO TRAIDO DESDE EL JS
-        public bool UpdateDetalleProducto( DataTable tbProducto, ref List<ResultProcesarVenta> lstRstVta, ref int intResult, ref string strMsjDB, ref string strMsjUsuario)
+        public bool UpdateDetalleProducto(DataTable tbProducto, ref List<ResultProcesarVenta> lstRstVta, ref int intResult, ref string strMsjDB, ref string strMsjUsuario)
         {
 
             bool Rpta = false;
@@ -1511,9 +1517,9 @@ namespace CBX_Web_PetShopWeb.Controllers
 
                             for (int i = 0; i < tbProducto.Rows.Count; i++)
                             {
-                                string intIdProducto_  = tbProducto.Rows[i][0].ToString();
-                                string intCantidVend_  = tbProducto.Rows[i][4].ToString();
-                                string decMontoVenta_  = tbProducto.Rows[i][5].ToString();
+                                string intIdProducto_ = tbProducto.Rows[i][0].ToString();
+                                string intCantidVend_ = tbProducto.Rows[i][4].ToString();
+                                string decMontoVenta_ = tbProducto.Rows[i][5].ToString();
                                 string intIdVentaCabe_ = tbProducto.Rows[i][6].ToString();
                                 //intIdVentaCabe_i = tbProducto.Rows[i][6];
 
@@ -1547,24 +1553,24 @@ namespace CBX_Web_PetShopWeb.Controllers
 
                                 }
 
-                             
-                               
+
+
 
                                 ResultProcesarVenta ObjVenta = new ResultProcesarVenta();
                                 //if (intSoldProduct == 1) //--0: Sin Accion, 1: Venta Procesada, 2: Venta No Procesada
                                 //{
-                                    //regInsertados = ++regInsertados;
-                                    //ref List<string> arrListInconsistentes
-                                    // Create a List of objects  
-                                    // Add more items to the list  
-                                    //lstRstVta.Add(new ResultProcesarVenta { intIdProducto = 7 , intRstVendido = intSoldProduct });
+                                //regInsertados = ++regInsertados;
+                                //ref List<string> arrListInconsistentes
+                                // Create a List of objects  
+                                // Add more items to the list  
+                                //lstRstVta.Add(new ResultProcesarVenta { intIdProducto = 7 , intRstVendido = intSoldProduct });
 
-                                    ObjVenta.intIdProducto = Convert.ToInt32(intIdProducto_);
-                                    ObjVenta.intRstVendido = intSoldProduct;                                    
-                                    ObjVenta.intIdVentaCabe = Convert.ToInt32(intIdVentaCabe_);                                    
-                                    lstRstVta1.Add(ObjVenta);
+                                ObjVenta.intIdProducto = Convert.ToInt32(intIdProducto_);
+                                ObjVenta.intRstVendido = intSoldProduct;
+                                ObjVenta.intIdVentaCabe = Convert.ToInt32(intIdVentaCabe_);
+                                lstRstVta1.Add(ObjVenta);
 
-                                    lstRstVta = lstRstVta1;
+                                lstRstVta = lstRstVta1;
                                 //}
 
 
@@ -1646,9 +1652,9 @@ namespace CBX_Web_PetShopWeb.Controllers
                             {
                                 cmd.Transaction = trans;
                                 cmd.CommandType = CommandType.StoredProcedure;
-                                Dictionary<string, object> param = new Dictionary<string, object>();                               
-                                
-                                param.Add("@intIdUsuario", objSession.intIdUsuario );
+                                Dictionary<string, object> param = new Dictionary<string, object>();
+
+                                param.Add("@intIdUsuario", objSession.intIdUsuario);
                                 param.Add("@intIdVentaCabe", objVentaCabe.intIdVentaCabe  /*intIdVentaCabe*/ );
                                 param.Add("@strCodVenta", objVentaCabe.strCodVenta /*strCodVenta*/);
 
@@ -1692,7 +1698,7 @@ namespace CBX_Web_PetShopWeb.Controllers
                                 //decimal decMontoVents = decimal.Parse(decMontoVenta_);
                                 //param.Add("@decMontoVentaWeb", decMontoVents);
                                 //------------------------------------------------CAMPOS DE CADA TABLA FIN
-                                param.Add("@intTipoOperacion", intTipoOperacion );
+                                param.Add("@intTipoOperacion", intTipoOperacion);
                                 param.Add("@strOperacion", strOperacion);
 
                                 param.Add("@intResult", 0);
@@ -1712,7 +1718,7 @@ namespace CBX_Web_PetShopWeb.Controllers
                             Rpta = true;
                         }
                         catch (Exception ex)
-                        {                           
+                        {
                             Rpta = false;
                             trans.Rollback();
                             throw ex;
@@ -2278,8 +2284,8 @@ namespace CBX_Web_PetShopWeb.Controllers
                 if (objDatos.strRutaImagenProducto == null) { param.Add("@strRutaImagenProducto", DBNull.Value); }
                 else { param.Add("@strRutaImagenProducto", objDatos.strRutaImagenProducto); }
 
-             
-                param.Add("@intIdCategoria", objDatos.intIdCategoria); 
+
+                param.Add("@intIdCategoria", objDatos.intIdCategoria);
 
                 if (objDatos.strDescCategoria == null) { param.Add("@strDescCategoria", DBNull.Value); }
                 else { param.Add("@strDescCategoria", objDatos.strDescCategoria); }
@@ -2296,7 +2302,7 @@ namespace CBX_Web_PetShopWeb.Controllers
                 //if (objDatos.decMontoProducto == null) { param.Add("@decMontoProducto", DBNull.Value); }
                 //else { param.Add("@decMontoProducto", objDatos.decMontoProducto); }
 
-                
+
 
                 param.Add("@intTipoOperacion", intTipoOperacion); //1: insert, 2: update
 
@@ -2397,21 +2403,21 @@ namespace CBX_Web_PetShopWeb.Controllers
                     {
                         //POR PK
                         TB_PRODUCTOS obj = new TB_PRODUCTOS();
-                        if (!reader.IsDBNull(0))  { obj.intIdProducto         = reader.GetInt32(0); };
-                        if (!reader.IsDBNull(1))  { obj.strCodigoBarras       = reader.GetString(1); };
-                        if (!reader.IsDBNull(2))  { obj.strCodigoProducto     = reader.GetString(2); };
-                        if (!reader.IsDBNull(3))  { obj.strDescProducto       = reader.GetString(3); };
-                        if (!reader.IsDBNull(4))  { obj.intIdMarcaProducto    = reader.GetInt32(4); };
-                        if (!reader.IsDBNull(5))  { obj.decPrecioDeVenta      = reader.GetString(5); };
-                        if (!reader.IsDBNull(6))  { obj.intCantTotalActual    = reader.GetInt32(6); };
-                        if (!reader.IsDBNull(7))  { obj.decMontoProducto      = reader.GetString(7); };
-                        if (!reader.IsDBNull(8))  { obj.strRutaImagenMarca    = reader.GetString(8); }
-                        if (!reader.IsDBNull(9))  { obj.strRutaImagenProducto = reader.GetString(9); }
-                        if (!reader.IsDBNull(10)) { obj.intIdCategoria        = reader.GetInt32(10); }
+                        if (!reader.IsDBNull(0)) { obj.intIdProducto = reader.GetInt32(0); };
+                        if (!reader.IsDBNull(1)) { obj.strCodigoBarras = reader.GetString(1); };
+                        if (!reader.IsDBNull(2)) { obj.strCodigoProducto = reader.GetString(2); };
+                        if (!reader.IsDBNull(3)) { obj.strDescProducto = reader.GetString(3); };
+                        if (!reader.IsDBNull(4)) { obj.intIdMarcaProducto = reader.GetInt32(4); };
+                        if (!reader.IsDBNull(5)) { obj.decPrecioDeVenta = reader.GetString(5); };
+                        if (!reader.IsDBNull(6)) { obj.intCantTotalActual = reader.GetInt32(6); };
+                        if (!reader.IsDBNull(7)) { obj.decMontoProducto = reader.GetString(7); };
+                        if (!reader.IsDBNull(8)) { obj.strRutaImagenMarca = reader.GetString(8); }
+                        if (!reader.IsDBNull(9)) { obj.strRutaImagenProducto = reader.GetString(9); }
+                        if (!reader.IsDBNull(10)) { obj.intIdCategoria = reader.GetInt32(10); }
                         //if (!reader.IsDBNull(10)) { obj.strDescCategoria      = reader.GetString(10); }
-                        if (!reader.IsDBNull(11)) { obj.strPresentacion       = reader.GetString(11); }
-                        if (!reader.IsDBNull(12)) { obj.strInfoAdicionalProd  = reader.GetString(12); }
-                        if (!reader.IsDBNull(13)) { obj.decPorcentajeDescto   = reader.GetString(13); }
+                        if (!reader.IsDBNull(11)) { obj.strPresentacion = reader.GetString(11); }
+                        if (!reader.IsDBNull(12)) { obj.strInfoAdicionalProd = reader.GetString(12); }
+                        if (!reader.IsDBNull(13)) { obj.decPorcentajeDescto = reader.GetString(13); }
 
                         lista.Add(obj);
                     }
@@ -2507,18 +2513,18 @@ namespace CBX_Web_PetShopWeb.Controllers
                     {
                         //POR PK
                         TB_PRODUCTOS obj = new TB_PRODUCTOS();
-                        if (!reader.IsDBNull(0)) { obj.intIdProducto         = reader.GetInt32(0); };
-                        if (!reader.IsDBNull(1)) { obj.strCodigoBarras       = reader.GetString(1); };
-                        if (!reader.IsDBNull(2)) { obj.strCodigoProducto     = reader.GetString(2); };
-                        if (!reader.IsDBNull(3)) { obj.strDescProducto       = reader.GetString(3); };
-                        if (!reader.IsDBNull(4)) { obj.strMarcaProducto      = reader.GetString(4); };
-                        if (!reader.IsDBNull(5)) { obj.decPrecioDeVenta      = reader.GetString(5); };
-                        if (!reader.IsDBNull(6)) { obj.intCantTotalActual    = reader.GetInt32(6); };
-                        if (!reader.IsDBNull(7)) { obj.decMontoProducto      = reader.GetString(7); };
-                        if (!reader.IsDBNull(8)) { obj.strRutaImagenMarca    = reader.GetString(8); }
+                        if (!reader.IsDBNull(0)) { obj.intIdProducto = reader.GetInt32(0); };
+                        if (!reader.IsDBNull(1)) { obj.strCodigoBarras = reader.GetString(1); };
+                        if (!reader.IsDBNull(2)) { obj.strCodigoProducto = reader.GetString(2); };
+                        if (!reader.IsDBNull(3)) { obj.strDescProducto = reader.GetString(3); };
+                        if (!reader.IsDBNull(4)) { obj.strMarcaProducto = reader.GetString(4); };
+                        if (!reader.IsDBNull(5)) { obj.decPrecioDeVenta = reader.GetString(5); };
+                        if (!reader.IsDBNull(6)) { obj.intCantTotalActual = reader.GetInt32(6); };
+                        if (!reader.IsDBNull(7)) { obj.decMontoProducto = reader.GetString(7); };
+                        if (!reader.IsDBNull(8)) { obj.strRutaImagenMarca = reader.GetString(8); }
                         if (!reader.IsDBNull(9)) { obj.strRutaImagenProducto = reader.GetString(9); }
-                        if (!reader.IsDBNull(10)) { obj.strDescCategoria     = reader.GetString(10); }
-                        if (!reader.IsDBNull(11)) { obj.strPresentacion      = reader.GetString(11); }
+                        if (!reader.IsDBNull(10)) { obj.strDescCategoria = reader.GetString(10); }
+                        if (!reader.IsDBNull(11)) { obj.strPresentacion = reader.GetString(11); }
 
                         lista.Add(obj);
                     }
@@ -2565,7 +2571,7 @@ namespace CBX_Web_PetShopWeb.Controllers
 
             //https://www.tutorialsteacher.com/articles/generate-random-numbers-in-csharp
             //Returns a positive random integer within the specified minimum and maximum range (includes min and excludes max).
-            int RANDOM = rand.Next(101,999);
+            int RANDOM = rand.Next(101, 999);
 
             //////foreach (string item in Request.Files)
             //////{
@@ -2640,29 +2646,30 @@ namespace CBX_Web_PetShopWeb.Controllers
         }
 
         //AL ACCIONAR BOTON GUARDAR O ACTUALIZAR
-        public JsonResult ChangeNameImagenProducto(string initialNameImagen , string finalNameImagen)
+        public JsonResult ChangeNameImagenProducto(string initialNameImagen, string finalNameImagen)
         {
             string dir = null;
             string nomGuardado = "";
 
             ////if (initialNameImagen == null) initialNameImagen = "item_default.png";
 
-            if (initialNameImagen != null && initialNameImagen != "") { 
-            string extension = initialNameImagen.Substring(initialNameImagen.IndexOf(".") + 1); //logo.png o logo.jpg //Apoyo: https://docs.microsoft.com/en-us/dotnet/api/system.string.substring?view=net-6.0
-            string nomCargado  = Server.MapPath("~/") + "images\\productos\\" + initialNameImagen;
-             nomGuardado = Server.MapPath("~/") + "images\\productos\\" + finalNameImagen + "." + extension;
-            /////////////////////////////////////////////////////////////////
-            //////string EliminarEstos = initialNameImagen;
-            ////string[] Files = Directory.GetFiles(Server.MapPath("~/") + "images\\productos\\");
-            ////foreach (string f in Files)
-            ////{
+            if (initialNameImagen != null && initialNameImagen != "")
+            {
+                string extension = initialNameImagen.Substring(initialNameImagen.IndexOf(".") + 1); //logo.png o logo.jpg //Apoyo: https://docs.microsoft.com/en-us/dotnet/api/system.string.substring?view=net-6.0
+                string nomCargado = Server.MapPath("~/") + "images\\productos\\" + initialNameImagen;
+                nomGuardado = Server.MapPath("~/") + "images\\productos\\" + finalNameImagen + "." + extension;
+                /////////////////////////////////////////////////////////////////
+                //////string EliminarEstos = initialNameImagen;
+                ////string[] Files = Directory.GetFiles(Server.MapPath("~/") + "images\\productos\\");
+                ////foreach (string f in Files)
+                ////{
 
                 //Cambiamos el nombre original de la imagen cargada al tipo "ITEM0001"
                 //https://stackoverflow.com/questions/3218910/rename-a-file-in-c-sharp
                 //System.IO.File.Move(nomCargado, nomGuardado);
 
                 //Primero eliminamos si existe
-                if (System.IO.File.Exists(nomGuardado) )
+                if (System.IO.File.Exists(nomGuardado))
                 {
                     //System.IO.File.Copy(oldName, newName, true);
                     //System.IO.File.Delete(oldName);
@@ -2786,15 +2793,15 @@ namespace CBX_Web_PetShopWeb.Controllers
                 {
                     //LISTADO NORMAL DE "TODOS LOS REGISTROS" NO POR PK
                     TB_PRODUCTOS obj = new TB_PRODUCTOS();
-                    if (!reader.IsDBNull(0)) { obj.intIdProducto        = reader.GetInt32(0); };
-                    if (!reader.IsDBNull(1)) { obj.strCodigoBarras      = reader.GetString(1); };
-                    if (!reader.IsDBNull(2)) { obj.strCodigoProducto    = reader.GetString(2); };
-                    if (!reader.IsDBNull(3)) { obj.strDescProducto      = reader.GetString(3); };
-                    if (!reader.IsDBNull(4)) { obj.strMarcaProducto     = reader.GetString(4); };
-                    if (!reader.IsDBNull(5)) { obj.decPrecioDeVenta     = reader.GetString(5); };
-                    if (!reader.IsDBNull(6)) { obj.intCantTotalActual   = reader.GetInt32(6); };
-                    if (!reader.IsDBNull(7)) { obj.decMontoProducto     = reader.GetString(7); };
-                    if (!reader.IsDBNull(8)) { obj.strRutaImagenMarca   = reader.GetString(8); }
+                    if (!reader.IsDBNull(0)) { obj.intIdProducto = reader.GetInt32(0); };
+                    if (!reader.IsDBNull(1)) { obj.strCodigoBarras = reader.GetString(1); };
+                    if (!reader.IsDBNull(2)) { obj.strCodigoProducto = reader.GetString(2); };
+                    if (!reader.IsDBNull(3)) { obj.strDescProducto = reader.GetString(3); };
+                    if (!reader.IsDBNull(4)) { obj.strMarcaProducto = reader.GetString(4); };
+                    if (!reader.IsDBNull(5)) { obj.decPrecioDeVenta = reader.GetString(5); };
+                    if (!reader.IsDBNull(6)) { obj.intCantTotalActual = reader.GetInt32(6); };
+                    if (!reader.IsDBNull(7)) { obj.decMontoProducto = reader.GetString(7); };
+                    if (!reader.IsDBNull(8)) { obj.strRutaImagenMarca = reader.GetString(8); }
 
                     lista.Add(obj);
 
@@ -3179,18 +3186,18 @@ namespace CBX_Web_PetShopWeb.Controllers
 
 
                         TB_PRODUCTOS obj = new TB_PRODUCTOS();
-                        if (!reader.IsDBNull(0)) { obj.intIdProducto         = reader.GetInt32(0); };
-                        if (!reader.IsDBNull(1)) { obj.strCodigoBarras       = reader.GetString(1); };
-                        if (!reader.IsDBNull(2)) { obj.strCodigoProducto     = reader.GetString(2); };
-                        if (!reader.IsDBNull(3)) { obj.strDescProducto       = reader.GetString(3); };
-                        if (!reader.IsDBNull(4)) { obj.strMarcaProducto      = reader.GetString(4); };
-                        if (!reader.IsDBNull(5)) { obj.decPrecioDeVenta      = reader.GetString(5); };
-                        if (!reader.IsDBNull(6)) { obj.intCantTotalActual    = reader.GetInt32(6); };
-                        if (!reader.IsDBNull(7)) { obj.decMontoProducto      = reader.GetString(7); };
-                        if (!reader.IsDBNull(8)) { obj.strRutaImagenMarca    = reader.GetString(8); }
+                        if (!reader.IsDBNull(0)) { obj.intIdProducto = reader.GetInt32(0); };
+                        if (!reader.IsDBNull(1)) { obj.strCodigoBarras = reader.GetString(1); };
+                        if (!reader.IsDBNull(2)) { obj.strCodigoProducto = reader.GetString(2); };
+                        if (!reader.IsDBNull(3)) { obj.strDescProducto = reader.GetString(3); };
+                        if (!reader.IsDBNull(4)) { obj.strMarcaProducto = reader.GetString(4); };
+                        if (!reader.IsDBNull(5)) { obj.decPrecioDeVenta = reader.GetString(5); };
+                        if (!reader.IsDBNull(6)) { obj.intCantTotalActual = reader.GetInt32(6); };
+                        if (!reader.IsDBNull(7)) { obj.decMontoProducto = reader.GetString(7); };
+                        if (!reader.IsDBNull(8)) { obj.strRutaImagenMarca = reader.GetString(8); }
                         if (!reader.IsDBNull(9)) { obj.strRutaImagenProducto = reader.GetString(9); }
-                        if (!reader.IsDBNull(10)) { obj.strDescCategoria     = reader.GetString(10); }
-                        if (!reader.IsDBNull(11)) { obj.strPresentacion      = reader.GetString(11); }
+                        if (!reader.IsDBNull(10)) { obj.strDescCategoria = reader.GetString(10); }
+                        if (!reader.IsDBNull(11)) { obj.strPresentacion = reader.GetString(11); }
 
                         /***
                         TB_ENTRADAS obj = new TB_ENTRADAS();
@@ -3356,16 +3363,16 @@ namespace CBX_Web_PetShopWeb.Controllers
                 {
                     //LISTADO NORMAL DE "TODOS LOS REGISTROS" NO POR PK
                     TB_COMPRAS obj = new TB_COMPRAS();
-                    if (!reader.IsDBNull(0)) { obj.intIdCompra          = reader.GetInt32(0); };
-                    if (!reader.IsDBNull(1)) { obj.strCodigoCompra      = reader.GetString(1); };
-                    if (!reader.IsDBNull(2)) { obj.intIdProducto        = reader.GetInt32(2); };
-                    if (!reader.IsDBNull(3)) { obj.strCodigoProducto    = reader.GetString(3); };
-                    if (!reader.IsDBNull(4)) { obj.intCantIngresada     = reader.GetInt32(4); };
-                    if (!reader.IsDBNull(5)) { obj.decCostoUnitCompra   = reader.GetString(5); };
-                    if (!reader.IsDBNull(6)) { obj.decMontoTotCompra    = reader.GetString(6); };
-                    if (!reader.IsDBNull(7)) { obj.dttFechaIngreso      = reader.GetString(7); };
-                    if (!reader.IsDBNull(8)) { obj.strDescMarcaProd     = reader.GetString(8); };
-                    if (!reader.IsDBNull(9)) { obj.strCodigoBarras      = reader.GetString(9); };
+                    if (!reader.IsDBNull(0)) { obj.intIdCompra = reader.GetInt32(0); };
+                    if (!reader.IsDBNull(1)) { obj.strCodigoCompra = reader.GetString(1); };
+                    if (!reader.IsDBNull(2)) { obj.intIdProducto = reader.GetInt32(2); };
+                    if (!reader.IsDBNull(3)) { obj.strCodigoProducto = reader.GetString(3); };
+                    if (!reader.IsDBNull(4)) { obj.intCantIngresada = reader.GetInt32(4); };
+                    if (!reader.IsDBNull(5)) { obj.decCostoUnitCompra = reader.GetString(5); };
+                    if (!reader.IsDBNull(6)) { obj.decMontoTotCompra = reader.GetString(6); };
+                    if (!reader.IsDBNull(7)) { obj.dttFechaIngreso = reader.GetString(7); };
+                    if (!reader.IsDBNull(8)) { obj.strDescMarcaProd = reader.GetString(8); };
+                    if (!reader.IsDBNull(9)) { obj.strCodigoBarras = reader.GetString(9); };
 
                     lista.Add(obj);
 
@@ -3542,7 +3549,7 @@ namespace CBX_Web_PetShopWeb.Controllers
                 else { param.Add("@strDesProveedor", objDatos.strDesProveedor); }
 
                 //if (objDatos.intStockPrevio == null) { param.Add("@intStockPrevio", DBNull.Value); }
-                 param.Add("@intStockPrevio", objDatos.intStockPrevio); 
+                param.Add("@intStockPrevio", objDatos.intStockPrevio);
 
                 param.Add("@intTipoOperacion", intTipoOperacion); //1: insert, 2: update
 
@@ -3621,7 +3628,7 @@ namespace CBX_Web_PetShopWeb.Controllers
             List<TB_COMPRAS> lista = new List<TB_COMPRAS>();
             using (SqlConnection cn = new SqlConnection(cadCnx))
             {
-                SqlCommand cmd = new SqlCommand("TSP_TB_COMPRAS_Q00_GESCOM_PK_EDITAR", cn); 
+                SqlCommand cmd = new SqlCommand("TSP_TB_COMPRAS_Q00_GESCOM_PK_EDITAR", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
 
@@ -3641,29 +3648,29 @@ namespace CBX_Web_PetShopWeb.Controllers
                     {
                         //POR PK
                         TB_COMPRAS obj = new TB_COMPRAS();
-                        if (!reader.IsDBNull(0))  { obj.intIdCompra           = reader.GetInt32(0); };
-                        if (!reader.IsDBNull(1))  { obj.strCodigoCompra       = reader.GetString(1); };
-                        if (!reader.IsDBNull(2))  { obj.intIdProducto         = reader.GetInt32(2); };
-                        if (!reader.IsDBNull(3))  { obj.strCodigoProducto     = reader.GetString(3); };
-                        if (!reader.IsDBNull(4))  { obj.intCantIngresada      = reader.GetInt32(4); };
-                        if (!reader.IsDBNull(5))  { obj.decCostoUnitCompra    = reader.GetString(5); };
-                        if (!reader.IsDBNull(6))  { obj.decMontoTotCompra     = reader.GetString(6); };
-                        if (!reader.IsDBNull(7))  { obj.dttFechaIngreso       = reader.GetString(7); };
-                        if (!reader.IsDBNull(8))  { obj.strDescMarcaProd      = reader.GetString(8); }
-                        if (!reader.IsDBNull(9))  { obj.strCodigoBarras       = reader.GetString(9); }
-                        if (!reader.IsDBNull(10)) { obj.dttFechaVencimiento   = reader.GetString(10); }
-                        if (!reader.IsDBNull(11)) { obj.strNumDocCompra       = reader.GetString(11); }
-                        if (!reader.IsDBNull(12)) { obj.strDesProveedor       = reader.GetString(12); }
-                        if (!reader.IsDBNull(13)) { obj.intStockPrevio        = reader.GetInt32(13); }
+                        if (!reader.IsDBNull(0)) { obj.intIdCompra = reader.GetInt32(0); };
+                        if (!reader.IsDBNull(1)) { obj.strCodigoCompra = reader.GetString(1); };
+                        if (!reader.IsDBNull(2)) { obj.intIdProducto = reader.GetInt32(2); };
+                        if (!reader.IsDBNull(3)) { obj.strCodigoProducto = reader.GetString(3); };
+                        if (!reader.IsDBNull(4)) { obj.intCantIngresada = reader.GetInt32(4); };
+                        if (!reader.IsDBNull(5)) { obj.decCostoUnitCompra = reader.GetString(5); };
+                        if (!reader.IsDBNull(6)) { obj.decMontoTotCompra = reader.GetString(6); };
+                        if (!reader.IsDBNull(7)) { obj.dttFechaIngreso = reader.GetString(7); };
+                        if (!reader.IsDBNull(8)) { obj.strDescMarcaProd = reader.GetString(8); }
+                        if (!reader.IsDBNull(9)) { obj.strCodigoBarras = reader.GetString(9); }
+                        if (!reader.IsDBNull(10)) { obj.dttFechaVencimiento = reader.GetString(10); }
+                        if (!reader.IsDBNull(11)) { obj.strNumDocCompra = reader.GetString(11); }
+                        if (!reader.IsDBNull(12)) { obj.strDesProveedor = reader.GetString(12); }
+                        if (!reader.IsDBNull(13)) { obj.intStockPrevio = reader.GetInt32(13); }
                         //-------------------------------------------------------------------------------
-                        if (!reader.IsDBNull(14)) { obj.strDescProducto      = reader.GetString(14); }
-                        if (!reader.IsDBNull(15)) { obj.decPrecioDeVenta      = reader.GetString(15); }
-                        if (!reader.IsDBNull(16)) { obj.intCantTotalActual    = reader.GetInt32(16); }
-                        if (!reader.IsDBNull(17)) { obj.decMontoProducto      = reader.GetString(17); }
+                        if (!reader.IsDBNull(14)) { obj.strDescProducto = reader.GetString(14); }
+                        if (!reader.IsDBNull(15)) { obj.decPrecioDeVenta = reader.GetString(15); }
+                        if (!reader.IsDBNull(16)) { obj.intCantTotalActual = reader.GetInt32(16); }
+                        if (!reader.IsDBNull(17)) { obj.decMontoProducto = reader.GetString(17); }
                         if (!reader.IsDBNull(18)) { obj.strRutaImagenProducto = reader.GetString(18); }
 
 
-                        lista.Add(obj);                  
+                        lista.Add(obj);
                     }
 
                 }
@@ -3743,7 +3750,7 @@ namespace CBX_Web_PetShopWeb.Controllers
                 cn.Open();
 
                 Dictionary<string, object> param = new Dictionary<string, object>();
-            
+
                 param.Add("@strVencimiento", strVencimiento);
                 param.Add("@strCodigoBarras", strCodigoBarras);
                 param.Add("@intIdCategoria", intIdCategoria);
@@ -3762,16 +3769,16 @@ namespace CBX_Web_PetShopWeb.Controllers
                 {
                     //LISTADO NORMAL DE "TODOS LOS REGISTROS" NO POR PK
                     TB_VENTA_DETA obj = new TB_VENTA_DETA();
-                    if (!reader.IsDBNull(0))  { obj.intIdVenta             = reader.GetInt32(0); };
-                    if (!reader.IsDBNull(1))  { obj.intIdVentaCabe         = reader.GetInt32(1); };
-                    if (!reader.IsDBNull(2))  { obj.intIdProducto          = reader.GetInt32(2); };
-                    if (!reader.IsDBNull(3))  { obj.decPrecUnitDeVenta     = reader.GetString(3); };
-                    if (!reader.IsDBNull(4))  { obj.intCantidadDeVenta     = reader.GetInt32(4); };
-                    if (!reader.IsDBNull(5))  { obj.decMontoTotDeVenta     = reader.GetString(5); };
-                    if (!reader.IsDBNull(6))  { obj.decCostoUnitCompra     = reader.GetString(6); };
-                    if (!reader.IsDBNull(7))  { obj.decMontoGanancia       = reader.GetString(7); };
-                    if (!reader.IsDBNull(8))  { obj.dttDateTimeInserted    = reader.GetString(8); };
-                    if (!reader.IsDBNull(9))  { obj.dttDateTimeUpdated     = reader.GetString(9); };
+                    if (!reader.IsDBNull(0)) { obj.intIdVenta = reader.GetInt32(0); };
+                    if (!reader.IsDBNull(1)) { obj.intIdVentaCabe = reader.GetInt32(1); };
+                    if (!reader.IsDBNull(2)) { obj.intIdProducto = reader.GetInt32(2); };
+                    if (!reader.IsDBNull(3)) { obj.decPrecUnitDeVenta = reader.GetString(3); };
+                    if (!reader.IsDBNull(4)) { obj.intCantidadDeVenta = reader.GetInt32(4); };
+                    if (!reader.IsDBNull(5)) { obj.decMontoTotDeVenta = reader.GetString(5); };
+                    if (!reader.IsDBNull(6)) { obj.decCostoUnitCompra = reader.GetString(6); };
+                    if (!reader.IsDBNull(7)) { obj.decMontoGanancia = reader.GetString(7); };
+                    if (!reader.IsDBNull(8)) { obj.dttDateTimeInserted = reader.GetString(8); };
+                    if (!reader.IsDBNull(9)) { obj.dttDateTimeUpdated = reader.GetString(9); };
 
                     if (!reader.IsDBNull(10)) { obj.strCodigoProducto = reader.GetString(10); };
                     if (!reader.IsDBNull(11)) { obj.strCodVenta = reader.GetString(11); };
@@ -3901,14 +3908,14 @@ namespace CBX_Web_PetShopWeb.Controllers
 
                         TB_PRODUCTOS obj = new TB_PRODUCTOS();
 
-                        if (!reader.IsDBNull(0)) { obj.intIdProducto      = reader.GetInt32(0); };
-                        if (!reader.IsDBNull(1)) { obj.strCodigoBarras    = reader.GetString(1); };
-                        if (!reader.IsDBNull(2)) { obj.strCodigoProducto  = reader.GetString(2); };
-                        if (!reader.IsDBNull(3)) { obj.strDescProducto    = reader.GetString(3); };
-                        if (!reader.IsDBNull(4)) { obj.strMarcaProducto   = reader.GetString(4); };
-                        if (!reader.IsDBNull(5)) { obj.decPrecioDeVenta   = reader.GetString(5); };
+                        if (!reader.IsDBNull(0)) { obj.intIdProducto = reader.GetInt32(0); };
+                        if (!reader.IsDBNull(1)) { obj.strCodigoBarras = reader.GetString(1); };
+                        if (!reader.IsDBNull(2)) { obj.strCodigoProducto = reader.GetString(2); };
+                        if (!reader.IsDBNull(3)) { obj.strDescProducto = reader.GetString(3); };
+                        if (!reader.IsDBNull(4)) { obj.strMarcaProducto = reader.GetString(4); };
+                        if (!reader.IsDBNull(5)) { obj.decPrecioDeVenta = reader.GetString(5); };
                         if (!reader.IsDBNull(6)) { obj.intCantTotalActual = reader.GetInt32(6); };
-                        if (!reader.IsDBNull(7)) { obj.decMontoProducto   = reader.GetString(7); };
+                        if (!reader.IsDBNull(7)) { obj.decMontoProducto = reader.GetString(7); };
                         if (!reader.IsDBNull(8)) { obj.strRutaImagenMarca = reader.GetString(8); }
                         if (!reader.IsDBNull(9)) { obj.strRutaImagenProducto = reader.GetString(9); }
                         if (!reader.IsDBNull(10)) { obj.strDescCategoria = reader.GetString(10); }
@@ -4011,294 +4018,294 @@ namespace CBX_Web_PetShopWeb.Controllers
 
 
 
-//////        using System;
-//////using System.Collections.Generic;
-//////using System.Linq;
-//////using System.Web;
-//////using System.Web.Mvc;
-//////using System.IO;
-//////using WebNavaUtil.wsNavautil;
+        //////        using System;
+        //////using System.Collections.Generic;
+        //////using System.Linq;
+        //////using System.Web;
+        //////using System.Web.Mvc;
+        //////using System.IO;
+        //////using WebNavaUtil.wsNavautil;
 
-//////namespace WebNavaUtil.Controllers
-//////    {
+        //////namespace WebNavaUtil.Controllers
+        //////    {
 
-//////        public class CotizacionController : Controller
-//////        {
-            ////private wsNavautil.IwsNavautilClient proxy;
+        //////        public class CotizacionController : Controller
+        //////        {
+        ////private wsNavautil.IwsNavautilClient proxy;
 
-            ////public ActionResult NuevoFeriado()
-            ////{
-            ////    return PartialView("_PartialNuevoFeriado");//_PartialNuevoFeriado
-            ////}
+        ////public ActionResult NuevoFeriado()
+        ////{
+        ////    return PartialView("_PartialNuevoFeriado");//_PartialNuevoFeriado
+        ////}
 
-            ////// GET: Cotizacion
-            ////public ActionResult GenerarCotizacion()
-            ////{
-            ////    //return View();
-            ////    if (Session["NavaUsert"] != null)
-            ////    {
-            ////        wsNavautil.Usuario usuario = (wsNavautil.Usuario)Session["NavaUsert"];
+        ////// GET: Cotizacion
+        ////public ActionResult GenerarCotizacion()
+        ////{
+        ////    //return View();
+        ////    if (Session["NavaUsert"] != null)
+        ////    {
+        ////        wsNavautil.Usuario usuario = (wsNavautil.Usuario)Session["NavaUsert"];
 
-            ////        DateTime dateStart = DateTime.Now;
-            ////        DateTime dateEnd = DateTime.Now;
-            ////        var clientes = WSListarCliente(usuario.empresa);
-            ////        //var clientes = WSListarCliente(usuario.empresa, dateStart, dateEnd);
-            ////        ViewBag.VENDEDOR = new SelectList(WSlistarVendedor(), "codven", "nomven");
+        ////        DateTime dateStart = DateTime.Now;
+        ////        DateTime dateEnd = DateTime.Now;
+        ////        var clientes = WSListarCliente(usuario.empresa);
+        ////        //var clientes = WSListarCliente(usuario.empresa, dateStart, dateEnd);
+        ////        ViewBag.VENDEDOR = new SelectList(WSlistarVendedor(), "codven", "nomven");
 
-            ////        //CONDICION 
-            ////        ViewBag.CONDICION = new SelectList(WSlistarCondicion(), "cboCod", "cboDes");
-            ////        //TIP DE CAMBIO
-            ////        //ViewBag.TIPOCAMBIO = new SelectList(WSlistarTipoCambio(), "cboCod", "cboDes").FirstOrDefault();
-            ////        IList<ComboGeneral> list = WSlistarTipoCambio();
-            ////        ViewBag.TIPOCAMBIO = list[0].cboDes;
+        ////        //CONDICION 
+        ////        ViewBag.CONDICION = new SelectList(WSlistarCondicion(), "cboCod", "cboDes");
+        ////        //TIP DE CAMBIO
+        ////        //ViewBag.TIPOCAMBIO = new SelectList(WSlistarTipoCambio(), "cboCod", "cboDes").FirstOrDefault();
+        ////        IList<ComboGeneral> list = WSlistarTipoCambio();
+        ////        ViewBag.TIPOCAMBIO = list[0].cboDes;
 
-            ////        //AÑADIDO PARA COTIZACION HGM 02.09.2021                
-            ////        ViewBag.ALMACEN = new SelectList(WSlistarAlmacen(usuario.empresa), "codalm", "nomalm");
-            ////        ViewBag.FAMILIA = new SelectList(WSlistarLinea(usuario.empresa), "codfam", "nomfam");
-
-
-            ////        //ViewModel mymodel = new ViewModel();
-            ////        //mymodel.Teachers = GetTeachers();
-            ////        //mymodel.Students = GetStudents();
-            ////        var productos = new List<Producto>();
-
-            ////        object[] datos = { clientes, productos };
-
-            ////        //return View(clientes);
-            ////        return View(datos);
-            ////    }
-            ////    else
-            ////        return RedirectToAction("LoginNavautil", "Login");
-
-            ////}
+        ////        //AÑADIDO PARA COTIZACION HGM 02.09.2021                
+        ////        ViewBag.ALMACEN = new SelectList(WSlistarAlmacen(usuario.empresa), "codalm", "nomalm");
+        ////        ViewBag.FAMILIA = new SelectList(WSlistarLinea(usuario.empresa), "codfam", "nomfam");
 
 
+        ////        //ViewModel mymodel = new ViewModel();
+        ////        //mymodel.Teachers = GetTeachers();
+        ////        //mymodel.Students = GetStudents();
+        ////        var productos = new List<Producto>();
+
+        ////        object[] datos = { clientes, productos };
+
+        ////        //return View(clientes);
+        ////        return View(datos);
+        ////    }
+        ////    else
+        ////        return RedirectToAction("LoginNavautil", "Login");
+
+        ////}
 
 
 
 
 
-            #region cotizaciones
 
 
-      
-            //PREGUARDADO PARA COTIZACION HGM 14.10.2021
-            ////////[HttpPost]
-            ////////public PartialViewResult getDatosPreGuardado(string strFiltro)
-            ////////{
-            ////////    Usuario usuario = null;
-            ////////    if (Session["NavaUsert"] != null)
-            ////////    {
-            ////////        usuario = (Usuario)Session["NavaUsert"];
-
-            ////////        Producto obj = null;
-            ////////        ViewBag.TIPOENTREGA = new SelectList(WSlistarCombo("TIPOENTREGA", ""), "cboCod", "cboDes");
-            ////////        ViewBag.TRANSPORTISTA = new SelectList(WSlistarCombo("TRANSPORTISTA", ""), "cboCod", "cboDes");
-            ////////        ViewBag.ATENCION = new SelectList(WSlistarCombo("ATENCION", strFiltro), "cboCod", "cboDes");
-
-            ////////        return PartialView("_partialModalPreGuardado");
-
-            ////////    }
-            ////////    else
-            ////////        return PartialView("_partialSessionExpired");
-            ////////}
+        #region cotizaciones
 
 
 
+        //PREGUARDADO PARA COTIZACION HGM 14.10.2021
+        ////////[HttpPost]
+        ////////public PartialViewResult getDatosPreGuardado(string strFiltro)
+        ////////{
+        ////////    Usuario usuario = null;
+        ////////    if (Session["NavaUsert"] != null)
+        ////////    {
+        ////////        usuario = (Usuario)Session["NavaUsert"];
 
-            //////////////[HttpPost]
-            //////////////public JsonResult jsonFiltrarProductoCotiz(string codSubFam, string desGrupo, string codAlmac, string estado, string codProdu, string descProdu, string tcam, string mone)
-            //////////////{
-            //////////////    Usuario usuario = null;
-            //////////////    if (Session["NavaUsert"] != null)
-            //////////////    {
-            //////////////        usuario = (Usuario)Session["NavaUsert"];
+        ////////        Producto obj = null;
+        ////////        ViewBag.TIPOENTREGA = new SelectList(WSlistarCombo("TIPOENTREGA", ""), "cboCod", "cboDes");
+        ////////        ViewBag.TRANSPORTISTA = new SelectList(WSlistarCombo("TRANSPORTISTA", ""), "cboCod", "cboDes");
+        ////////        ViewBag.ATENCION = new SelectList(WSlistarCombo("ATENCION", strFiltro), "cboCod", "cboDes");
 
-            //////////////        if (estado.Equals(""))
-            //////////////            estado = "1";
-            //////////////        List<Producto> listaProdu = wsListarProductoCotiz(usuario.empresa, codSubFam, desGrupo, codAlmac, estado, codProdu, descProdu, tcam, mone);
+        ////////        return PartialView("_partialModalPreGuardado");
 
-            //////////////        var json = Json(listaProdu);
-            //////////////        json.MaxJsonLength = 500000000;
-            //////////////        return json;
-            //////////////    }
-            //////////////    else
-            //////////////        return Json(new { type = "error", message = "session expired" });
-
-            //////////////}
-
-            //////private List<Producto> wsListarProductoCotiz(string empresa, string codSubFam = "", string desGrupo = "", string codAlmac = "", string estado = "", string codProdu = "", string descProdu = "", string tcam = "", string mone = "")
-            //////{
-            //////    List<Producto> listaProdu = new List<Producto>();
-            //////    try
-            //////    {
-            //////        proxy = new IwsNavautilClient();
-            //////        listaProdu = proxy.ListarProdStockCotiz(empresa, codSubFam, "01", desGrupo, codAlmac, estado, codProdu, descProdu, tcam, mone).ToList();
-            //////        proxy.Close();
-            //////    }
-            //////    catch (Exception ex)
-            //////    {
-            //////        throw new Exception(ex.Message);
-            //////    }
-
-            //////    return listaProdu;
-            //////}
-
-
-            //////TRAER IGV PRUEBA
-            ////public JsonResult getIgvCotizacion(string strfiltroCombo, string strSegundoFiltro)
-            ////{
-
-            ////    List<wsNavautil.ComboGeneral> list = new List<wsNavautil.ComboGeneral>();
-            ////    try
-            ////    {
-            ////        wsNavautil.Usuario usuario = null;
-            ////        if (Session["NavaUsert"] != null)
-            ////        {
-            ////            usuario = (wsNavautil.Usuario)Session["NavaUsert"];
-            ////            proxy = new wsNavautil.IwsNavautilClient();
-            ////            list = proxy.ListarComboGeneral(usuario.empresa, strfiltroCombo, strSegundoFiltro).ToList();
-            ////            proxy.Close();
-            ////        }
-            ////        else
-                
-            ////            return Json(list);
-            ////    }
-            ////    catch (Exception ex)
-            ////    {
-
-            ////        throw new Exception(ex.Message);
-            ////    }
-        
-
-
-            ////    return Json(list);
-
-
-            ////}
-
-            ////////TRAER CRRELATIVO
-            //////public JsonResult getCorrelativoCotizacion()
-            //////{
-            //////    string cNroDocu = "";
-            //////    List<wsNavautil.Correlativo> list = new List<wsNavautil.Correlativo>();
-            //////    try
-            //////    {
-            //////        wsNavautil.Usuario usuario = null;
-            //////        if (Session["NavaUsert"] != null)
-            //////        {
-            //////            usuario = (wsNavautil.Usuario)Session["NavaUsert"];
-            //////            proxy = new wsNavautil.IwsNavautilClient();
-            //////            list = proxy.getCorrelativoCotizacion(usuario.empresa, ref cNroDocu).ToList();
-            //////            proxy.Close();
-            //////        }
-            //////        else
-
-            //////            return Json(cNroDocu);
-            //////    }
-            //////    catch (Exception ex)
-            //////    {
-
-            //////        throw new Exception(ex.Message);
-            //////    }
-
-            //////    string root = Server.MapPath("~");//
-            //////    string parent = Path.GetDirectoryName(root);
-            //////    string grandParent = Path.GetDirectoryName(parent);
-
-
-            //////    url = (System.Web.HttpContext.Current.Request.Url.AbsoluteUri).Replace("/LoginSiscop/LoginSiscop/", "");
-            //////    var context = System.Web.HttpContext.Current;
-            //////    string ip = String.Empty;
-
-            //////    if (context.Request.ServerVariables["HTTP_X_FORWARDED_FOR"] != null)
-            //////        ip = context.Request.ServerVariables["HTTP_X_FORWARDED_FOR"].ToString();
-            //////    else if (!String.IsNullOrWhiteSpace(context.Request.UserHostAddress))
-            //////        ip = context.Request.UserHostAddress;
-
-            //////    if (ip == "::1")
-            //////        ip = "127.0.0.1";
-
-            //////    strIpHost = ip;
+        ////////    }
+        ////////    else
+        ////////        return PartialView("_partialSessionExpired");
+        ////////}
 
 
 
-            //////    return Json(cNroDocu);
 
-            //////}
+        //////////////[HttpPost]
+        //////////////public JsonResult jsonFiltrarProductoCotiz(string codSubFam, string desGrupo, string codAlmac, string estado, string codProdu, string descProdu, string tcam, string mone)
+        //////////////{
+        //////////////    Usuario usuario = null;
+        //////////////    if (Session["NavaUsert"] != null)
+        //////////////    {
+        //////////////        usuario = (Usuario)Session["NavaUsert"];
 
-            //CLASE MODELO PARA EL LISTADO DESDE EL JS
-            public class listado_cabecera_cotiz
+        //////////////        if (estado.Equals(""))
+        //////////////            estado = "1";
+        //////////////        List<Producto> listaProdu = wsListarProductoCotiz(usuario.empresa, codSubFam, desGrupo, codAlmac, estado, codProdu, descProdu, tcam, mone);
+
+        //////////////        var json = Json(listaProdu);
+        //////////////        json.MaxJsonLength = 500000000;
+        //////////////        return json;
+        //////////////    }
+        //////////////    else
+        //////////////        return Json(new { type = "error", message = "session expired" });
+
+        //////////////}
+
+        //////private List<Producto> wsListarProductoCotiz(string empresa, string codSubFam = "", string desGrupo = "", string codAlmac = "", string estado = "", string codProdu = "", string descProdu = "", string tcam = "", string mone = "")
+        //////{
+        //////    List<Producto> listaProdu = new List<Producto>();
+        //////    try
+        //////    {
+        //////        proxy = new IwsNavautilClient();
+        //////        listaProdu = proxy.ListarProdStockCotiz(empresa, codSubFam, "01", desGrupo, codAlmac, estado, codProdu, descProdu, tcam, mone).ToList();
+        //////        proxy.Close();
+        //////    }
+        //////    catch (Exception ex)
+        //////    {
+        //////        throw new Exception(ex.Message);
+        //////    }
+
+        //////    return listaProdu;
+        //////}
+
+
+        //////TRAER IGV PRUEBA
+        ////public JsonResult getIgvCotizacion(string strfiltroCombo, string strSegundoFiltro)
+        ////{
+
+        ////    List<wsNavautil.ComboGeneral> list = new List<wsNavautil.ComboGeneral>();
+        ////    try
+        ////    {
+        ////        wsNavautil.Usuario usuario = null;
+        ////        if (Session["NavaUsert"] != null)
+        ////        {
+        ////            usuario = (wsNavautil.Usuario)Session["NavaUsert"];
+        ////            proxy = new wsNavautil.IwsNavautilClient();
+        ////            list = proxy.ListarComboGeneral(usuario.empresa, strfiltroCombo, strSegundoFiltro).ToList();
+        ////            proxy.Close();
+        ////        }
+        ////        else
+
+        ////            return Json(list);
+        ////    }
+        ////    catch (Exception ex)
+        ////    {
+
+        ////        throw new Exception(ex.Message);
+        ////    }
+
+
+
+        ////    return Json(list);
+
+
+        ////}
+
+        ////////TRAER CRRELATIVO
+        //////public JsonResult getCorrelativoCotizacion()
+        //////{
+        //////    string cNroDocu = "";
+        //////    List<wsNavautil.Correlativo> list = new List<wsNavautil.Correlativo>();
+        //////    try
+        //////    {
+        //////        wsNavautil.Usuario usuario = null;
+        //////        if (Session["NavaUsert"] != null)
+        //////        {
+        //////            usuario = (wsNavautil.Usuario)Session["NavaUsert"];
+        //////            proxy = new wsNavautil.IwsNavautilClient();
+        //////            list = proxy.getCorrelativoCotizacion(usuario.empresa, ref cNroDocu).ToList();
+        //////            proxy.Close();
+        //////        }
+        //////        else
+
+        //////            return Json(cNroDocu);
+        //////    }
+        //////    catch (Exception ex)
+        //////    {
+
+        //////        throw new Exception(ex.Message);
+        //////    }
+
+        //////    string root = Server.MapPath("~");//
+        //////    string parent = Path.GetDirectoryName(root);
+        //////    string grandParent = Path.GetDirectoryName(parent);
+
+
+        //////    url = (System.Web.HttpContext.Current.Request.Url.AbsoluteUri).Replace("/LoginSiscop/LoginSiscop/", "");
+        //////    var context = System.Web.HttpContext.Current;
+        //////    string ip = String.Empty;
+
+        //////    if (context.Request.ServerVariables["HTTP_X_FORWARDED_FOR"] != null)
+        //////        ip = context.Request.ServerVariables["HTTP_X_FORWARDED_FOR"].ToString();
+        //////    else if (!String.IsNullOrWhiteSpace(context.Request.UserHostAddress))
+        //////        ip = context.Request.UserHostAddress;
+
+        //////    if (ip == "::1")
+        //////        ip = "127.0.0.1";
+
+        //////    strIpHost = ip;
+
+
+
+        //////    return Json(cNroDocu);
+
+        //////}
+
+        //CLASE MODELO PARA EL LISTADO DESDE EL JS
+        public class listado_cabecera_cotiz
+        {
+            public string rucCliente { get; set; }
+            public string nomCliente { get; set; }
+            public string condVenta { get; set; }
+            public string moneda { get; set; }
+            public string vendedor { get; set; }
+            public string codCliente { get; set; }
+            public string dirClient { get; set; }
+            public string tlfCliente { get; set; }
+            public string atteCliente { get; set; }
+            public string Observacion { get; set; }
+        }
+
+        public static listado_cabecera_cotiz DatosEncabezado;//añadido 02.11.2021
+        public JsonResult SetDatosEncabezado(string _rucCliente, string _nomCliente, string _codCliente, string _dirEntCliente, string _tlfCliente, string _atte, string _obser2)
+        {
+            try
             {
-                public string rucCliente { get; set; }
-                public string nomCliente { get; set; }
-                public string condVenta { get; set; }
-                public string moneda { get; set; }
-                public string vendedor { get; set; }
-                public string codCliente { get; set; }
-                public string dirClient { get; set; }
-                public string tlfCliente { get; set; }
-                public string atteCliente { get; set; }
-                public string Observacion { get; set; }
+                listado_cabecera_cotiz ObjCabecera = new listado_cabecera_cotiz();
+                ObjCabecera.rucCliente = _rucCliente;
+                ObjCabecera.nomCliente = _nomCliente;
+                ObjCabecera.codCliente = _codCliente;
+                ObjCabecera.dirClient = _dirEntCliente;
+                ObjCabecera.tlfCliente = _tlfCliente;
+                ObjCabecera.atteCliente = _atte;
+                ObjCabecera.Observacion = _obser2;
+
+                DatosEncabezado = ObjCabecera;
             }
-
-            public static listado_cabecera_cotiz DatosEncabezado;//añadido 02.11.2021
-            public JsonResult SetDatosEncabezado(string _rucCliente, string _nomCliente, string _codCliente, string _dirEntCliente, string _tlfCliente, string _atte, string _obser2)
-            {
-                try
-                {
-                    listado_cabecera_cotiz ObjCabecera = new listado_cabecera_cotiz();
-                    ObjCabecera.rucCliente = _rucCliente;
-                    ObjCabecera.nomCliente = _nomCliente;
-                    ObjCabecera.codCliente = _codCliente;
-                    ObjCabecera.dirClient = _dirEntCliente;
-                    ObjCabecera.tlfCliente = _tlfCliente;
-                    ObjCabecera.atteCliente = _atte;
-                    ObjCabecera.Observacion = _obser2;
-
-                    DatosEncabezado = ObjCabecera;
-                }
-                catch (Exception ex)
-                {
-
-                    throw new Exception(ex.Message);
-                }
-                return Json("");
-            }
-
-
-
-
-
-            #endregion
-
-
-            public static string url { get; set; }
-            public static string texto { get; set; }
-            public static string textoConfig { get; set; }
-            public static string pieConfig { get; set; }
-            public static string strIpHost { get; set; }
-
-            //OBTENER EL IP CON CODIGIGO C# - A Nivel WebSite
-            public string GetUserIPAddress()
+            catch (Exception ex)
             {
 
-                url = (System.Web.HttpContext.Current.Request.Url.AbsoluteUri).Replace("/LoginSiscop/LoginSiscop/", "");
-                var context = System.Web.HttpContext.Current;
-                string ip = String.Empty;
-
-                if (context.Request.ServerVariables["HTTP_X_FORWARDED_FOR"] != null)
-                    ip = context.Request.ServerVariables["HTTP_X_FORWARDED_FOR"].ToString();
-                else if (!String.IsNullOrWhiteSpace(context.Request.UserHostAddress))
-                    ip = context.Request.UserHostAddress;
-
-                if (ip == "::1")
-                    ip = "127.0.0.1";
-
-                strIpHost = ip;
-                //string ipaddress = Request.UserHostAddress;
-                return ip;
+                throw new Exception(ex.Message);
             }
+            return Json("");
+        }
+
+
+
+
+
+        #endregion
+
+
+        public static string url { get; set; }
+        public static string texto { get; set; }
+        public static string textoConfig { get; set; }
+        public static string pieConfig { get; set; }
+        public static string strIpHost { get; set; }
+
+        //OBTENER EL IP CON CODIGIGO C# - A Nivel WebSite
+        public string GetUserIPAddress()
+        {
+
+            url = (System.Web.HttpContext.Current.Request.Url.AbsoluteUri).Replace("/LoginSiscop/LoginSiscop/", "");
+            var context = System.Web.HttpContext.Current;
+            string ip = String.Empty;
+
+            if (context.Request.ServerVariables["HTTP_X_FORWARDED_FOR"] != null)
+                ip = context.Request.ServerVariables["HTTP_X_FORWARDED_FOR"].ToString();
+            else if (!String.IsNullOrWhiteSpace(context.Request.UserHostAddress))
+                ip = context.Request.UserHostAddress;
+
+            if (ip == "::1")
+                ip = "127.0.0.1";
+
+            strIpHost = ip;
+            //string ipaddress = Request.UserHostAddress;
+            return ip;
+        }
 
 
 
@@ -4308,8 +4315,8 @@ namespace CBX_Web_PetShopWeb.Controllers
 
 
 
-    //////    }
-    //////}
+        //////    }
+        //////}
 
 
 

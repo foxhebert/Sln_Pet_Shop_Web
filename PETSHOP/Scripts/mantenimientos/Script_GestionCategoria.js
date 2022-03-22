@@ -234,7 +234,7 @@ $('#btn-nuevo-registro-CATEGORIA').on('click', function () {
     //////////$('#txt_desc_Empresa').val('');
     //////////$('#txt_Ruc').val('');
     //////////$('#txt_DirFiscal').val('');
-    //////////$('#VistaPrevia').html('<img src = "/DirLogosRuta/descarga(1)_1.jpg" style="width:100%;height:100%" />');
+    //////////$('#VistaPrevia').html('<img src = "/DirLogosRuta/person_logo_1.jpg" style="width:100%;height:100%" />');
     //////////$('#txtImagenEmpresa').val('');
     //////////$('#btn_save_change_Empresa').show();
     //////////$('#btn_update_Empresa').hide();
@@ -323,7 +323,7 @@ $('#btn-nuevo-registro-CATEGORIA_o').on('click', function () {
     //$('#txt_desc_Empresa').val('');
     //$('#txt_Ruc').val('');
     //$('#txt_DirFiscal').val('');
-    //$('#VistaPrevia').html('<img src = "/DirLogosRuta/descarga(1)_1.jpg" style="width:100%;height:100%" />');
+    //$('#VistaPrevia').html('<img src = "/DirLogosRuta/person_logo_1.jpg" style="width:100%;height:100%" />');
     //$('#txtImagenEmpresa').val('');
     //$('#btn_save_change_Empresa').show();
     //$('#btn_update_Empresa').hide();

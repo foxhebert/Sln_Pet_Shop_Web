@@ -196,7 +196,7 @@ function limpiarControlesEmpleado() {
     $('#TipVia').val(0)
     $('#TXTTIPVIA').val('')
     $('#txtFechaAdmi').val('')
-    $('#VistaPrevia').html(`<img id="imgCarga"  src="/DirEmpleadosRuta/descarga(1).jpg" class="img-rounded img-logo-empleado"/>`)
+    $('#VistaPrevia').html(`<img id="imgCarga"  src="/DirEmpleadosRuta/person_logo.jpg" class="img-rounded img-logo-empleado"/>`)
     $('#txtRutaEmple').val('')
     $('#txtUbigeo').val('')
     $('#txtIntidUbigeo').val('')
@@ -687,7 +687,7 @@ function CombosEmpleado() {
                                                     $('#VistaPrevia').html(`<img id="imgCarga"  src="/DirEmpleadosRuta/${element.imgFoto}" class="img-rounded img-logo-empleado"/>`)
                                                     $('#txtRutaEmple').val(element.imgFoto)
                                                 } else {
-                                                    $('#VistaPrevia').html(`<img id="imgCarga"  src="/DirEmpleadosRuta/descarga(1).jpg" class="img-rounded img-logo-empleado"/>`)
+                                                    $('#VistaPrevia').html(`<img id="imgCarga"  src="/DirEmpleadosRuta/person_logo.jpg" class="img-rounded img-logo-empleado"/>`)
                                                     $('#txtRutaEmple').val('')
                                                 }
 
@@ -863,7 +863,7 @@ function CombosEmpleado() {
                             $('#TXTTIPVIA').val('')
                             $('#chck_mas').iCheck('check')
                             $('#chck_fem').iCheck('uncheck')
-                            $('#VistaPrevia').html(`<img id="imgCarga"  src="/DirEmpleadosRuta/descarga(1).jpg" class="img-rounded img-logo-empleado"/>`)
+                            $('#VistaPrevia').html(`<img id="imgCarga"  src="/DirEmpleadosRuta/person_logo.jpg" class="img-rounded img-logo-empleado"/>`)
                             $('#txtRutaEmple').val('')
 
                             $('#HabNumDoc').on('click', function() {
@@ -1070,7 +1070,7 @@ async function NuevoEmpleadoVista(editar) {
             }
         })
         document.getElementById('delete').onclick = function() {
-            $('#VistaPrevia').html('<img src = "/DirLogosRuta/descarga(1).jpg" />')
+            $('#VistaPrevia').html('<img src = "/DirLogosRuta/person_logo.jpg" />')
             $('#txtRutaEmple').val('')
             return false
         }
@@ -1363,7 +1363,7 @@ async function EditarEmpleadoVista(idItemPersonalEdit) {
             }
         })
         document.getElementById('delete').onclick = function() {
-            $('#VistaPrevia').html('<img src = "/DirLogosRuta/descarga(1).jpg" />')
+            $('#VistaPrevia').html('<img src = "/DirLogosRuta/person_logo.jpg" />')
             $('#txtRutaEmple').val('')
             return false
         }
@@ -1891,7 +1891,7 @@ async function editarEmpleado(idItemEdit) {
             $('#VistaPrevia').html(`<img id="imgCarga"  src="/DirEmpleadosRuta/${data.imgFoto}" class="img-rounded img-logo-empleado"/>`)
             $('#txtRutaEmple').val(data.imgFoto)
         } else {
-            $('#VistaPrevia').html(`<img id="imgCarga"  src="/DirEmpleadosRuta/descarga(1).jpg" class="img-rounded img-logo-empleado"/>`)
+            $('#VistaPrevia').html(`<img id="imgCarga"  src="/DirEmpleadosRuta/person_logo.jpg" class="img-rounded img-logo-empleado"/>`)
             $('#txtRutaEmple').val('')
         }
         $('#nivelDeResponsabilidad').val(data.intIdTipoResp)

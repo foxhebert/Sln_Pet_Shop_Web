@@ -186,10 +186,10 @@ namespace CBX_Web_PetShopWeb.Controllers
                                 }
                                 else
                                 {
-                                    Session["imgFoto"] = "descarga(1).jpg";
+                                    Session["imgFoto"] = "person_logo.jpg";
                                 }
                                 //fin
-                                Session["imgfotoDefault"] = "descarga(1).jpg";
+                                Session["imgfotoDefault"] = "person_logo.jpg";
                                 Session["strNombreUsuarioSesion"] = detConcepto[0].strNoUsuar;
                                 Session["intIdPerfilSesion"] = detConcepto[0].intIdPerfil;
                                 Session["strNomPerfilSesion"] = detConcepto[0].strNomPerfil;
