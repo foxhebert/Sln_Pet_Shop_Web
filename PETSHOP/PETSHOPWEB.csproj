@@ -4167,8 +4167,6 @@
     </Content>
     <Content Include="Views\LoginSiscop\RestablecerContrasena.cshtml" />
     <Content Include="Resources\vue\components\global\selectEmpresa.vue" />
-    <Content Include="Plantillas\Importar Empleados\Anexo 01_Empleados.xls" />
-    <Content Include="Plantillas\Importar Empleados\Plantilla_Empleados.xls" />
     <Content Include="Views\Reportes\ReportesComedor.cshtml" />
     <Content Include="Rep\CrystalRep\Comedor\RepConsumoDiarioCosto.rpt" />
     <Content Include="Rep\CrystalRep\Comedor\RepConsumoTotalCosto.rpt" />
@@ -4185,20 +4183,7 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Views\Configuracion\Configuracion.cshtml" />
-    <Content Include="Views\Personal\ImportacionExcel.cshtml" />
-    <Content Include="Views\Personal\RenombrarCampos.cshtml" />
-    <Content Include="Views\Configuracion\Configuracion_original.cshtml" />
     <Content Include="Views\Reportes\ReportesExcel.cshtml" />
-    <Content Include="Views\Transferencia\TransfDatosPCaMovil.cshtml" />
-    <Content Include="Views\Impresion\Etiquetas.cshtml" />
-    <Content Include="Plantillas\Importar Excel\TBAREAS.xlsx" />
-    <Content Include="Plantillas\Importar Excel\TBBIENES.xlsx" />
-    <Content Include="Plantillas\Importar Excel\TBEMPLEADO.xlsx" />
-    <Content Include="Plantillas\Importar Excel\TBESTADO.xlsx" />
-    <Content Include="Plantillas\Importar Excel\TBLOCAL.xlsx" />
-    <Content Include="Plantillas\Importar Excel\TBOFICINA.xlsx" />
-    <Content Include="Plantillas\Importar Excel\TBTIPO.xlsx" />
-    <Content Include="Plantillas\Importar Excel\TBENTIDAD.xlsx" />
     <Content Include="Dominio.Entidades\obj\Debug\CoreCompileInputs.cache" />
     <Content Include="Dominio.Entidades\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="Dominio.Entidades\obj\Debug\Dominio.Entidades.csproj.CoreCompileInputs.cache" />
@@ -4235,8 +4220,6 @@
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Views\Personal\ImportacionMasiva_o.cshtml" />
-    <Content Include="Views\Personal\ExportarDatos.cshtml" />
     <Content Include="Views\Procesos\ViewSpeechRecognition.cshtml" />
     <Content Include="Views\Procesos\ViewVentas.cshtml" />
     <Content Include="Views\Procesos\ViewPuntoDeVenta.cshtml" />
@@ -4505,7 +4488,6 @@
     </None>
     <Content Include="libman.json" />
     <Content Include="Views\Inicio\PaginaPrincipal.cshtml" />
-    <Content Include="Views\Configuracion\CamposAdicionales.cshtml" />
     <Content Include="Views\Reportes\Reportes.cshtml" />
     <Content Include="Views\Reportes\Graficos.cshtml" />
     <Content Include="Scripts\bootstrap-datetimepicker.min" />
@@ -4552,13 +4534,10 @@
   <ItemGroup>
     <Folder Include="Content\aniadidos\" />
     <Folder Include="Content\App_LocalResources\" />
-    <Folder Include="DirArchivosPapeleta\" />
-    <Folder Include="DirPapeletaRuta\" />
     <Folder Include="Dominio.Entidades\obj\Debug\TempPE\" />
     <Folder Include="Dominio.Repositorio\obj\Debug\TempPE\" />
     <Folder Include="Infraestructura.Data.SqlServer\obj\Debug\TempPE\" />
     <Folder Include="Resources\vue\components\folio\partials\" />
-    <Folder Include="Views\Reports\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
