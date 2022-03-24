@@ -32,6 +32,26 @@
 </head>
 
 <body>
+    <style>
+
+        .bg {
+            background: url('/images/sistema/pexels-photo-1070945.jpeg?auto=compress&cs=tinysrgb&h=200&w=1060') no-repeat center center/cover;
+            /*background: url('https://images.pexels.com/photos/1070945/pexels-photo-1070945.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260') no-repeat center center/cover;*/
+            position: absolute;
+            /*top: -30;
+                left: -30;*/
+            width: calc(100vw + 60px);
+            height: calc(100vh + 60px);
+            /*z-index: -1;*/
+            z-index: -1;
+            filter: blur(0px)
+        }
+    </style>
+
+    <!-- partial:index.partial.html -->
+    <section class="bg" hidden></section>
+    <div class="loading-text"hidden>0%</div>
+    <!-- partial -->
 
 
     <div id="div_but" hidden name="Animacion Dog desde codepen añadido el 18.03.2022">
@@ -229,8 +249,8 @@
                             <div class="bar"></div>
                         </div>
                         @*<div class=" text-center">
-                            <button class="button-72" id="btnCambiarClave" role="button">Ingresar</button>
-                        </div>*@
+                                <button class="button-72" id="btnCambiarClave" role="button">Ingresar</button>
+                            </div>*@
 
                         <div class="button-container">
                             @*<button><span>Next</span></button>*@
@@ -286,24 +306,7 @@
         </div>
     </div>
 
-    @*<style>
-            .bg {
-                background: url('https://images.pexels.com/photos/1070945/pexels-photo-1070945.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260') no-repeat center center/cover;
-                position: absolute;
-                top: -30;
-                left: -30;
-                width: calc(100vw + 60px);
-                height: calc(100vh + 60px);
-                z-index: -1;
-                filter: blur(0px)
-            }
-        </style>
 
-        <!-- partial:index.partial.html -->
-        <section class="bg"></section>
-        <div class="loading-text">0%</div>
-        <!-- partial -->
-        <script src="./cdp_blurry_loading.js"></script>*@
 
 
 
@@ -496,7 +499,7 @@
                                     }
                                 </label>
                                 <br />
-                                <label >
+                                <label>
                                     @if (Session["webVersionSesion"] != null)
                                     {
                                         @Session["webVersionSesion"]
@@ -626,6 +629,7 @@
 @*<div class="button-wrapper" data-tippy-content="Click to copy button 71">
         <button class="button-71" role="button">Button 71</button>
     </div>*@
+
 <link href="~/Content/mantenimientos/CSS_VariosElementos.css" rel="stylesheet" />
 
 
@@ -878,4 +882,6 @@
 
 
 </script>
+
+
 

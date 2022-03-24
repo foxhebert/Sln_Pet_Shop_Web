@@ -207,7 +207,7 @@
                                             {
                                                 @Session["strNombreUsuarioSesion"]
 
-                                            <span id="vl_strNombreUsuarioSesion" hidden>@Session["strNombreUsuarioSesion"]</span>
+                                                <span id="vl_strNombreUsuarioSesion" hidden>@Session["strNombreUsuarioSesion"]</span>
                                             }
                                             <span class=" fa fa-angle-down"></span>
                                         </a>
@@ -216,29 +216,73 @@
 
 
 
-                                        <ul class="dropdown-menu dropdown-usermenu pull-right" style="border:none; background-color:transparent;width:50px;">
-                                            <li style="background-color:transparent; border-radius: 50px; width:50px;">
-                                                <a href="javascript:;" id="btnContra" style="padding:14px 71px;">
+                                        <ul class="dropdown-menu dropdown-usermenu pull-right"  id="ulfx">
+                                            <li >
+                                                <a href="javascript:;" id="btnContra">
                                                     @*Cambiar Contraseña*@
-                                                    <img src="~/images/sistema/pv_cambiar_pass_0.png" width="50px" style="border-radius: 50px; box-shadow: 2px 2px 5px 1px rgba(17, 35,20, 0.7);" />
+                                                    @*&nbsp; <img src="~/images/sistema/pv_cambiar_pass_0.png" width="50px" style="border-radius: 50px; box-shadow: 2px 2px 5px 1px rgba(17, 35,20, 0.7);" />*@
+                                                    &nbsp; <img src="~/images/sistema/pv_cambiar_pass_0.png"  width="50px" style="border-radius: 50px; box-shadow: 2px 2px 5px 1px rgba(17, 35,20, 0.7);" />
+
+                                                    <!-- 		<h2 class="headingOuter">3d Power button toggles</h2> -->
+                                                
                                                 </a>
                                             </li>
 
-                                            <li style="background-color:transparent; border-radius: 50px; width:50px;">
-                                                <a href="/LoginSiscop/CerrarSesion" id="CerrarSesion_" style="padding:8px 71px;">
+                                            <li >
+                                                <a href="/LoginSiscop/CerrarSesion" @*id="CerrarSesion_" *@>
                                                     @*<img src="~/images/sistema/pv_switch_close.jpg" width="100px" />*@
-                                                    <img src="~/images/sistema/pv_exit_icon.png" width="50px" style="border-radius: 50px; box-shadow: 2px 2px 5px 1px rgba(17, 35,20, 0.7);" />
-
+                                                   @* &nbsp; <img src="~/images/sistema/pv_exit_icon.png" width="50px" style="border-radius: 50px; box-shadow: 2px 2px 5px 1px rgba(17, 35,20, 0.7);" />*@
+                                                    <div class="toggle_switch toggle--push">
+                                                       
+                                                        <input type="checkbox" @*id="toggle--push"*@ class="toggle--checkbox" @*href="/LoginSiscop/CerrarSesion"*@ id="CerrarSesion_" >
+                                                        <label class="toggle--btn" for="toggle--push" data-label-on="on" data-label-off="off"></label>
+                                                    </div>
                                                     @*<i class="fa fa-sign-out pull-right">
-                    </i> Cerrar Sesión*@
+        </i> Cerrar Sesión*@
                                                 </a>
                                             </li>
                                         </ul>
+                                        <style>
+
+
+
+                                            #ulfx {
+                                                border: none;
+                                                background-color: transparent;
+                                                width: 50px;
+                                            }
+
+                                                #ulfx > li {
+                                                    /*background-color: greenyellow;*/
+                                                    border: none;
+                                                      width: 50px;
+                                                }
+
+                                                    #ulfx > li > a {
+                                                        width: 60px;
+                                                        margin-left: 80px;
+                                                        padding: 8px 0px;
+                                                    }
+
+                                                        #ulfx > li > a:hover {
+                                                            background-color: transparent;
+                                                            transform: scale(1.14);
+                                                            transition: 0.2s;
+                                                        }
+                                                     /*#CerrarSesion_:hover, #btnContra:hover {
+                                                background-color: red;                                                
+                                                transform: scale(1.08);
+                                                width: 60px;
+                                            }*/
+
+
+                                        </style>
+
                                         @*<ul>
-                                            <li>Coffee</li>
-                                            <li>Tea</li>
-                                            <li>Coca Cola</li>
-                                        </ul>*@
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Coca Cola</li>
+        </ul>*@
 
 
                                         @*<div class="toggle_switch toggle--push" style="position:fixed; z-index:60000; top:-50px; right:-1px" hidden>
@@ -276,7 +320,14 @@
 
         </div>
     </div>
-    </div>
+
+
+
+
+
+
+
+    @*</div>*@
     <div class="modal fade bs-example-modal-lg" id="modalContra" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -412,7 +463,7 @@
 
 
 
-    <link href="~/Content/Mantenimientos/123446788.css" rel="stylesheet" />
+    <link href="~/Content/Mantenimientos/CSS_botnswitch.css" rel="stylesheet" />
     <!-- Inspiration – https://dribbble.com/shots/712038-Button?list=searches&tag=toggle_buttons&offset=23 -->
     @*<div class="toggle toggle--push" style="position:absolute; z-index:60000;">
         <input type="checkbox" id="toggle--push" class="toggle--checkbox">
