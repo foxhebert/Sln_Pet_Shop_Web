@@ -61,17 +61,17 @@
                      style="position:absolute;background-color:#1a8873; z-index:9999;
                      left:15px; top:45px; border-radius:8px;" hidden>
                     @*<div class="navbar nav_title" style="border: 0; background-color:yellow;">
-                <a href="/Inicio/PaginaPrincipal" class="site_title">
-                    <img src="@System.Configuration.ConfigurationManager.AppSettings["rutaImages"]logo_layout.png" alt="Logo" />
-                </a>
-            </div>*@
+                            <a href="/Inicio/PaginaPrincipal" class="site_title">
+                                <img src="@System.Configuration.ConfigurationManager.AppSettings["rutaImages"]logo_layout.png" alt="Logo" />
+                            </a>
+                        </div>*@
 
                     @*COLOR PRUEBA*@
                     <div class="menu_section" style=" font-size:19px;">
                         <ul class="nav side-menu">
                             <!-- *************************************************************
-                                  MENUS LATERALES PARA MINIASOFT
-                **************************************************************-->
+                                              MENUS LATERALES PARA MINIASOFT
+                            **************************************************************-->
                         </ul>
                     </div>
 
@@ -126,8 +126,8 @@
                             <div class="menu_section111">
                                 <ul class="nav111 side-menu111">
                                     <!-- *************************************************************
-                                               MENUS LATERALES
-                             **************************************************************-->
+                                                      MENUS LATERALES
+                                    **************************************************************-->
                                 </ul>
                             </div>
                         </div>
@@ -145,7 +145,7 @@
 
                     </div>
                 </div>
-               
+
                 <!-- top navigation -->
                 <div id="top_nav_tc1" class="top_nav1" style="width:100%;">
                     @*AÑADIDO PARA MINIASOFT*@
@@ -154,8 +154,8 @@
                     <div class="nav_menu">
                         <nav>
                             @*<div class="nav toggle">
-                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-                    </div>*@
+                                    <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                                </div>*@
 
 
                             <div class="toggle" id="iconomenu" @*style=" display: flex; flex-wrap: nowrap;"*@>
@@ -229,7 +229,7 @@
                                             </li>
 
                                             <li>
-                                                <a href="/LoginSiscop/CerrarSesion" @*id="CerrarSesion_" *@>
+                                                <a @*href="/LoginSiscop/CerrarSesion"*@ @*id="CerrarSesion_" *@ id="abandonar_sistema">
                                                     @*<img src="~/images/sistema/pv_switch_close.jpg" width="100px" />*@
                                                     @* &nbsp; <img src="~/images/sistema/pv_exit_icon.png" width="50px" style="border-radius: 50px; box-shadow: 2px 2px 5px 1px rgba(17, 35,20, 0.7);" />*@
                                                     <div class="toggle_switch toggle--push">
@@ -238,11 +238,11 @@
                                                         <label class="toggle--btn" for="toggle--push" data-label-on="on" data-label-off="off"></label>
                                                     </div>
                                                     @*<i class="fa fa-sign-out pull-right">
-                </i> Cerrar Sesión*@
+                                                        </i> Cerrar Sesión*@
                                                 </a>
                                             </li>
 
-                                            <li>                                      
+                                            <li>
                                                 <a @*href="/LoginSiscop/CerrarSesion"*@>
                                                     <div style=" margin-left:4px; border-radius: 50px; background-color:#ffffff; width:50px; height:50px; box-shadow: 2px 2px 5px 1px rgba(17, 35,20, 0.7);">
                                                         <img src="~/images/sistema/icons/icon_setting.png" width="35px"
@@ -266,7 +266,7 @@
                                                 #ulfx > li {
                                                     /*background-color: greenyellow;*/
                                                     border: none;
-                                                      width: 50px;
+                                                    width: 50px;
                                                 }
 
                                                     #ulfx > li > a {
@@ -280,8 +280,8 @@
                                                             transform: scale(1.14);
                                                             transition: 0.2s;
                                                         }
-                                                     /*#CerrarSesion_:hover, #btnContra:hover {
-                                                background-color: red;                                                
+                                            /*#CerrarSesion_:hover, #btnContra:hover {
+                                                background-color: red;
                                                 transform: scale(1.08);
                                                 width: 60px;
                                             }*/
@@ -290,16 +290,16 @@
                                         </style>
 
                                         @*<ul>
-            <li>Coffee</li>
-            <li>Tea</li>
-            <li>Coca Cola</li>
-        </ul>*@
+                                                <li>Coffee</li>
+                                                <li>Tea</li>
+                                                <li>Coca Cola</li>
+                                            </ul>*@
 
 
                                         @*<div class="toggle_switch toggle--push" style="position:fixed; z-index:60000; top:-50px; right:-1px" hidden>
-            <input type="checkbox" id="toggle--push" class="toggle--checkbox" > mmmmmm
-            <label class="toggle--btn" for="toggle--push" data-label-on="on" data-label-off="off"> </label>
-        </div>*@
+                                                <input type="checkbox" id="toggle--push" class="toggle--checkbox" > mmmmmm
+                                                <label class="toggle--btn" for="toggle--push" data-label-on="on" data-label-off="off"> </label>
+                                            </div>*@
 
 
                                     </li>
@@ -312,175 +312,194 @@
                     <!-- page content -->
                     <div class="right_col" role="main" background-color: red; padding-top:25px;">
                         @*COLORPRUEBA red      #e9e9e9---> COLOR GRIS   style="min-height:100vh;
-                <div class="" style="min-height:100vh;  background-color:transparent;" id="contenedor-render-body">@*COLORPRUEBA*@
+                            <div class="" style="min-height:100vh;  background-color:transparent;" id="contenedor-render-body">@*COLORPRUEBA*@
                         @RenderBody()
                     </div>
                 </div>
-            <!-- /page content -->
-            <!-- footer content -->
-            @*<footer style="width:100%; background-color:yellowgreen;" >*@ @*COLORPRUEBA COMENTADO PARA MINIASOFT*@
-            <div class="pull-right11" style=" text-align:center;">
-                <br /> PetshopWeb 2021 @*MINIASOFT - 2021*@
-                <p>Desarrollado 🎙 por <a href="https://twitter.com/philnash">Hebert</a></p>
-                <p hidden>Developed 🎙 by <a href="https://twitter.com/philnash">Hebert</a></p>
+                <!-- /page content -->
+                <!-- footer content -->
+                @*<footer style="width:100%; background-color:yellowgreen;" >*@ @*COLORPRUEBA COMENTADO PARA MINIASOFT*@
+                <div class="pull-right11" style=" text-align:center;">
+                    <br /> PetshopWeb 2021 @*MINIASOFT - 2021*@
+                    <p>Desarrollado 🎙 por <a href="https://twitter.com/philnash">Hebert</a></p>
+                    <p hidden>Developed 🎙 by <a href="https://twitter.com/philnash">Hebert</a></p>
+
+                </div>
+                <div class="clearfix"></div>
+                @*</footer>*@
+                <!-- /footer content -->
 
             </div>
-            <div class="clearfix"></div>
-            @*</footer>*@
-            <!-- /footer content -->
-
         </div>
-    </div>
 
 
 
 
-
-
-
-    @*</div>*@
-    <div class="modal fade bs-example-modal-lg" id="modalContra" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <div class="x_title" style="border-bottom: none; padding: 0; margin-bottom: 0;">
-                        <h2>Cambiar Contraseña</h2>
-                        <ul class="nav navbar-right panel_toolbox">
-                            <li>
-                                <input type="button" id="btn-save-change-contra" class="btn btn-primary" value="Guardar">
-                            </li>
-                            <li>
-                                <input type="button" id="btn-cancel-contra" class="btn btn-dark" value="Cancelar">
-                            </li>
-                        </ul>
-                        <div class="clearfix"></div>
+        @*</div>*@
+        <div class="modal fade bs-example-modal-lg" id="modalContra" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="x_title" style="border-bottom: none; padding: 0; margin-bottom: 0;">
+                            <h2>Cambiar Contraseña</h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <input type="button" id="btn-save-change-contra" class="btn btn-primary" value="Guardar">
+                                </li>
+                                <li>
+                                    <input type="button" id="btn-cancel-contra" class="btn btn-dark" value="Cancelar">
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="modal-body mb-4 pb-4 min-height-350">
-                    <div class="x_content">
-                        <form action="/LoginSiscop/CambiarClave" class="mt-3" method="post" id="claveForm">
-                            @Html.AntiForgeryToken()
-                            <div class="form-group  text-left p-relativee">
-                                <label>Contraseña Actual</label>
-                                <div class="input-group" style="display:flex">
-                                    <input type="password" id="ps_edit_uno" class="form-control" maxlength="50" required autocomplete="current-password" placeholder="Contraseña Actual" name="contraseña" onkeypress="return avoidSpaceInput(event)">
-                                    <button id="buttomshowpassedit1" onclick="mostrarClaveEdit1(this)" type="button" class="buttom-show"><i class="fa fa-eye"></i></button>
-                                </div>
-                            </div>
-                            <div class="form-group  text-left p-relative">
-                                <label>Nueva Contraseña</label>
-                                <div class="input-group" style="display:flex">
-                                    <input type="password" id="ps_edit_dos" validationpass="false" class="form-control" maxlength="50" required autocomplete="current-password" placeholder="Nueva Contraseña" name="nuevacontraseña" onkeypress="return avoidSpaceInput(event)">
-                                    <button id="buttomshowpassedit2" onclick="mostrarClaveEdit2(this)" type="button" class="buttom-show"><i class="fa fa-eye"></i></button>
-                                </div>
-                                <div id="contraneValidate" style="display:none;border: thin solid gray;padding: 1%;">
-                                    <h5>La contraseña debería cumplir con las siguientes políticas:</h5>
-                                    <div>
-                                        <span id="capital">Debe tener al menos <strong>una Mayúscula</strong><br /></span>
-                                        <span id="letter">Debe tener al menos <strong>una Minúscula</strong><br /></span>
-                                        <span id="number">Debe tener al menos <strong>un Número</strong><br /></span>
-                                        <span id="especial">Debe tener al menos <strong>un Caracter Especial (@@ # $ % () * - _ / .)</strong><br /></span>
-                                        <span id="length">Debe ser como mínimo <strong>8 dígitos</strong><br /></span>
+                    <div class="modal-body mb-4 pb-4 min-height-350">
+                        <div class="x_content">
+                            <form action="/LoginSiscop/CambiarClave" class="mt-3" method="post" id="claveForm">
+                                @Html.AntiForgeryToken()
+                                <div class="form-group  text-left p-relativee">
+                                    <label>Contraseña Actual</label>
+                                    <div class="input-group" style="display:flex">
+                                        <input type="password" id="ps_edit_uno" class="form-control" maxlength="50" required autocomplete="current-password" placeholder="Contraseña Actual" name="contraseña" onkeypress="return avoidSpaceInput(event)">
+                                        <button id="buttomshowpassedit1" onclick="mostrarClaveEdit1(this)" type="button" class="buttom-show"><i class="fa fa-eye"></i></button>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-group  text-left p-relativee">
-                                <label>Confirmar Nueva Contraseña</label>
-                                <div class="input-group" style="display:flex">
-                                    <input type="password" id="ps_edit_tres" validationpass="false" class="form-control" maxlength="50" required autocomplete="current-password" placeholder="Confirmar Contraseña" name="contraseña" onkeypress="return avoidSpaceInput(event)">
-                                    <button id="buttomshowpassedit3" onclick="mostrarClaveEdit3(this)" type="button" class="buttom-show"><i class="fa fa-eye"></i></button>
-                                </div>
-                                <div id="contraneValidate2" style="display:none;color: red;padding: 1%;">
-                                    <div>
-                                        <span id="igual">La contraseña no coincide</span>
+                                <div class="form-group  text-left p-relative">
+                                    <label>Nueva Contraseña</label>
+                                    <div class="input-group" style="display:flex">
+                                        <input type="password" id="ps_edit_dos" validationpass="false" class="form-control" maxlength="50" required autocomplete="current-password" placeholder="Nueva Contraseña" name="nuevacontraseña" onkeypress="return avoidSpaceInput(event)">
+                                        <button id="buttomshowpassedit2" onclick="mostrarClaveEdit2(this)" type="button" class="buttom-show"><i class="fa fa-eye"></i></button>
+                                    </div>
+                                    <div id="contraneValidate" style="display:none;border: thin solid gray;padding: 1%;">
+                                        <h5>La contraseña debería cumplir con las siguientes políticas:</h5>
+                                        <div>
+                                            <span id="capital">Debe tener al menos <strong>una Mayúscula</strong><br /></span>
+                                            <span id="letter">Debe tener al menos <strong>una Minúscula</strong><br /></span>
+                                            <span id="number">Debe tener al menos <strong>un Número</strong><br /></span>
+                                            <span id="especial">Debe tener al menos <strong>un Caracter Especial (@@ # $ % () * - _ / .)</strong><br /></span>
+                                            <span id="length">Debe ser como mínimo <strong>8 dígitos</strong><br /></span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
+                                <div class="form-group  text-left p-relativee">
+                                    <label>Confirmar Nueva Contraseña</label>
+                                    <div class="input-group" style="display:flex">
+                                        <input type="password" id="ps_edit_tres" validationpass="false" class="form-control" maxlength="50" required autocomplete="current-password" placeholder="Confirmar Contraseña" name="contraseña" onkeypress="return avoidSpaceInput(event)">
+                                        <button id="buttomshowpassedit3" onclick="mostrarClaveEdit3(this)" type="button" class="buttom-show"><i class="fa fa-eye"></i></button>
+                                    </div>
+                                    <div id="contraneValidate2" style="display:none;color: red;padding: 1%;">
+                                        <div>
+                                            <span id="igual">La contraseña no coincide</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/javascript")
 
-    <script>
-        var menu = ''
-        SISCOP.profile.forEach(element => {
+        <button class="btn" confirmo-message="Esta Seguro que Desea Cerrar la Sesión?" confirmo-func="mensaje"
+                id="abandonar_sistem" style="display:none;">
+            BOTON PARA CONFIRMAR CERRAR EL SISTEMA - ESTA COMO HIDDEN
+        </button>
 
-            menu += '<li id="' + element.strCoMenuRela + 'LI"  >' +
-                '<a ><i  class="' + element.strNomFormu + '"></i> ' + element.strMenu + '<span class="fa fa-chevron-down"></span></a>' +
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/javascript")
 
-                '<ul  id="' + element.strCoMenuRela + 'UL"  class="nav child_menu">'
 
-            element.menu.forEach(element2 => {
-                menu += `<li><a  style=" font-size:17px;" id="${element2.strCoMenuRela}" class="submenuitem" href="${element2.strDesFormu + "?intIdMenu=" + element2.intIdMenu}"> ${element2.strSubMenu} </a></li>`
-            })
+        <link href="~/Scripts/loginfx/confirmo.css" rel="stylesheet" />
+        <script src="~/Scripts/loginfx/confirmo.js"></script>
+        <script>
+            //Esta parte funciona sin JQ y con un css y js por separado
+            confirmo.init({
+                yesBg: '#0871ea',
+                noBg: '#828385'
+            }); 
 
-            menu += '</ul>' +
+            function mensaje() {
+                window.location.href = "/LoginSiscop/CerrarSesion";
+            }
 
-                '</li>'
+            $('#abandonar_sistema').click(function () {
 
-        })
+                $('#abandonar_sistem').click();
 
-        $('.side-menu').html(menu)
-
-    </script>
-
-    <script>
-        document.querySelectorAll("li.clickmenugetid").forEach(el => {
-            el.addEventListener("click", function (ev) {
-                let menuId = this.getAttribute("submenuid")
-                localStorage.setItem('idsubmenu', menuId)
-            })
-        })
-
-            /*
-            //HGM
-            $('#CerrarSesion_').click(function () {
-                alert('AAAA');
-
-                $.post('/Personal/eliminarTodoExcelDeDirImportacionExcel',
-                    { srtDirImportacionExcelP },
-                    response => {
-                        console.log(response)
-                    });
             });
-            */
 
-    </script>
 
-    @RenderSection("vue", required: false)
-    <script src="~/Scripts/all.js" charset="utf-8"></script>   @*//Revisado el 22.02.21 HG*@
-    @RenderSection("scripts", required: false)
-    <link href="~/Content/calendar/fullcalendar.print.css" rel="stylesheet" />
-    <link href="~/Content/calendar/fullcalendar.min.css" rel="stylesheet" />
-    <link href="~/Scripts/jquery.autocomplete.css" type="text/css" rel="stylesheet" />
-    <script src="~/Scripts/jquery.autocomplete.js"></script>
-    <link href="~/Content/dropzone.css" type="text/css" rel="stylesheet" />
-    <script src="~/Scripts/dropzone.js"></script>
-    <link href="~/Content/bootstrap-colorpicker.min.css" type="text/css" rel="stylesheet" />
-    <script src="~/Scripts/bootstrap-colorpicker.min.js"></script>
-    <link href="~/Content/normalize.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/ion.rangeSlider.skinFlat.css" type="text/css" rel="stylesheet" />
-    <link href="~/Content/ion.rangeSlider.css" type="text/css" rel="stylesheet" />
-    <script src="~/Scripts/ion.rangeSlider.min.js"></script>
-    <script src="~/Scripts/moment/moment-with-locales.js"></script>
-    <link href="~/fonts/font-awesome.min.css" rel="stylesheet" />
-    <script src="~/Scripts/jquery.easypiechart.min.js"></script>
-    <script src="~/Scripts/util/Layout.js"></script>
+        </script>
 
 
 
 
-    <link href="~/Content/Mantenimientos/CSS_botnswitch.css" rel="stylesheet" />
-    <!-- Inspiration – https://dribbble.com/shots/712038-Button?list=searches&tag=toggle_buttons&offset=23 -->
-    @*<div class="toggle toggle--push" style="position:absolute; z-index:60000;">
-        <input type="checkbox" id="toggle--push" class="toggle--checkbox">
-        <label class="toggle--btn" for="toggle--push" data-label-on="on" data-label-off="off"> </label>
-    </div>*@
+        <script>
+            var menu = ''
+            SISCOP.profile.forEach(element => {
+
+                menu += '<li id="' + element.strCoMenuRela + 'LI"  >' +
+                    '<a ><i  class="' + element.strNomFormu + '"></i> ' + element.strMenu + '<span class="fa fa-chevron-down"></span></a>' +
+
+                    '<ul  id="' + element.strCoMenuRela + 'UL"  class="nav child_menu">'
+
+                element.menu.forEach(element2 => {
+                    menu += `<li><a  style=" font-size:17px;" id="${element2.strCoMenuRela}" class="submenuitem" href="${element2.strDesFormu + "?intIdMenu=" + element2.intIdMenu}"> ${element2.strSubMenu} </a></li>`
+                })
+
+                menu += '</ul>' +
+
+                    '</li>'
+
+            })
+
+            $('.side-menu').html(menu)
+
+        </script>
+
+        <script>
+            document.querySelectorAll("li.clickmenugetid").forEach(el => {
+                el.addEventListener("click", function (ev) {
+                    let menuId = this.getAttribute("submenuid")
+                    localStorage.setItem('idsubmenu', menuId)
+                })
+            })
 
 
-</body>
+
+
+
+        </script>
+
+        @RenderSection("vue", required: false)
+        <script src="~/Scripts/all.js" charset="utf-8"></script>   @*//Revisado el 22.02.21 HG*@
+        @RenderSection("scripts", required: false)
+        <link href="~/Content/calendar/fullcalendar.print.css" rel="stylesheet" />
+        <link href="~/Content/calendar/fullcalendar.min.css" rel="stylesheet" />
+        <link href="~/Scripts/jquery.autocomplete.css" type="text/css" rel="stylesheet" />
+        <script src="~/Scripts/jquery.autocomplete.js"></script>
+        <link href="~/Content/dropzone.css" type="text/css" rel="stylesheet" />
+        <script src="~/Scripts/dropzone.js"></script>
+        <link href="~/Content/bootstrap-colorpicker.min.css" type="text/css" rel="stylesheet" />
+        <script src="~/Scripts/bootstrap-colorpicker.min.js"></script>
+        <link href="~/Content/normalize.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/ion.rangeSlider.skinFlat.css" type="text/css" rel="stylesheet" />
+        <link href="~/Content/ion.rangeSlider.css" type="text/css" rel="stylesheet" />
+        <script src="~/Scripts/ion.rangeSlider.min.js"></script>
+        <script src="~/Scripts/moment/moment-with-locales.js"></script>
+        <link href="~/fonts/font-awesome.min.css" rel="stylesheet" />
+        <script src="~/Scripts/jquery.easypiechart.min.js"></script>
+        <script src="~/Scripts/util/Layout.js"></script>
+
+
+
+        <link href="~/Content/Mantenimientos/CSS_botnswitch.css" rel="stylesheet" />
+        <!-- Inspiration – https://dribbble.com/shots/712038-Button?list=searches&tag=toggle_buttons&offset=23 -->
+        @*<div class="toggle toggle--push" style="position:absolute; z-index:60000;">
+                <input type="checkbox" id="toggle--push" class="toggle--checkbox">
+                <label class="toggle--btn" for="toggle--push" data-label-on="on" data-label-off="off"> </label>
+            </div>*@
+
+
+    </body>
 </html>

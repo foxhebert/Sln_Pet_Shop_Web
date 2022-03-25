@@ -4125,7 +4125,10 @@
     <Content Include="Scripts\libreriasKekopet\numeric_numpad.css" />
     <Content Include="Scripts\libreriasKekopet\numeric_numpad.js" />
     <Content Include="Scripts\login.js" />
+    <Content Include="Scripts\loginfx\confirmo.css" />
+    <Content Include="Scripts\loginfx\confirmo.js" />
     <Content Include="Scripts\loginfx\Script_LoginDinamico.js" />
+    <Content Include="Scripts\lottie\lottie.min.js" />
     <Content Include="Scripts\mantenimientos\codepen_blurry_loading.js" />
     <Content Include="Scripts\mantenimientos\core.js" />
     <Content Include="Scripts\mantenimientos\Script_VariosElementos.js" />
