@@ -216,31 +216,42 @@
 
 
 
-                                        <ul class="dropdown-menu dropdown-usermenu pull-right"  id="ulfx">
-                                            <li >
+                                        <ul class="dropdown-menu dropdown-usermenu pull-right" id="ulfx">
+                                            <li>
                                                 <a href="javascript:;" id="btnContra">
                                                     @*Cambiar Contraseña*@
                                                     @*&nbsp; <img src="~/images/sistema/pv_cambiar_pass_0.png" width="50px" style="border-radius: 50px; box-shadow: 2px 2px 5px 1px rgba(17, 35,20, 0.7);" />*@
-                                                    &nbsp; <img src="~/images/sistema/pv_cambiar_pass_0.png"  width="50px" style="border-radius: 50px; box-shadow: 2px 2px 5px 1px rgba(17, 35,20, 0.7);" />
+                                                    &nbsp; <img src="~/images/sistema/pv_cambiar_pass_0.png" width="50px" style="border-radius: 50px; box-shadow: 2px 2px 5px 1px rgba(17, 35,20, 0.7);" />
 
                                                     <!-- 		<h2 class="headingOuter">3d Power button toggles</h2> -->
-                                                
+
                                                 </a>
                                             </li>
 
-                                            <li >
+                                            <li>
                                                 <a href="/LoginSiscop/CerrarSesion" @*id="CerrarSesion_" *@>
                                                     @*<img src="~/images/sistema/pv_switch_close.jpg" width="100px" />*@
-                                                   @* &nbsp; <img src="~/images/sistema/pv_exit_icon.png" width="50px" style="border-radius: 50px; box-shadow: 2px 2px 5px 1px rgba(17, 35,20, 0.7);" />*@
+                                                    @* &nbsp; <img src="~/images/sistema/pv_exit_icon.png" width="50px" style="border-radius: 50px; box-shadow: 2px 2px 5px 1px rgba(17, 35,20, 0.7);" />*@
                                                     <div class="toggle_switch toggle--push">
-                                                       
-                                                        <input type="checkbox" @*id="toggle--push"*@ class="toggle--checkbox" @*href="/LoginSiscop/CerrarSesion"*@ id="CerrarSesion_" >
+
+                                                        <input type="checkbox" @*id="toggle--push"*@ class="toggle--checkbox" @*href="/LoginSiscop/CerrarSesion"*@ id="CerrarSesion_">
                                                         <label class="toggle--btn" for="toggle--push" data-label-on="on" data-label-off="off"></label>
                                                     </div>
                                                     @*<i class="fa fa-sign-out pull-right">
-        </i> Cerrar Sesión*@
+                </i> Cerrar Sesión*@
                                                 </a>
                                             </li>
+
+                                            <li>                                      
+                                                <a @*href="/LoginSiscop/CerrarSesion"*@>
+                                                    <div style=" margin-left:4px; border-radius: 50px; background-color:#ffffff; width:50px; height:50px; box-shadow: 2px 2px 5px 1px rgba(17, 35,20, 0.7);">
+                                                        <img src="~/images/sistema/icons/icon_setting.png" width="35px"
+                                                             style="  margin-top:8px; margin-left:8px;" />
+                                                        @*<i class="fa-solid fa-gear"></i>*@
+                                                    </div>
+                                                </a>
+                                            </li>
+
                                         </ul>
                                         <style>
 

@@ -3350,7 +3350,6 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="Content\loginfx\fxcss_LoginDinamico.css" />
-    <Content Include="Content\mantenimientos\123446788.css" />
     <Content Include="Content\mantenimientos\CSS_botnswitch.css" />
     <Content Include="Content\mantenimientos\CSS_VariosElementos.css" />
     <Content Include="Content\mantenimientos\CSS_ViewGestionVentas.css" />
@@ -3981,6 +3980,7 @@
     <Content Include="images\sistema\checkbox\checkbox-hover.png" />
     <Content Include="images\sistema\checkbox\checkbox-selected.png" />
     <Content Include="images\sistema\checkbox\checkbox.png" />
+    <Content Include="images\sistema\icons\icon_setting.png" />
     <Content Include="images\sistema\lg_padlock.png" />
     <Content Include="images\sistema\logo-prod-box.png" />
     <Content Include="images\logo_footer.png" />
