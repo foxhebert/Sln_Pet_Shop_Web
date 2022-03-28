@@ -1,2 +1,2 @@
 # Sln_Pet_Shop_Web
-Sistema Online par Gestionar Ventas
+Sistema Online Para Gestionar Ventas
