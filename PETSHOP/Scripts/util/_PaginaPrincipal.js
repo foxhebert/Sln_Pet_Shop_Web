@@ -1,4 +1,6 @@
-﻿var intIdPersonal_ = 0;
+
+//
+var intIdPersonal_ = 0;
 
 $('.range-datepicker').on('apply.daterangepicker', function (ev, picker) {
     validarSession()
